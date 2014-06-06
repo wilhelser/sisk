@@ -1,0 +1,25 @@
+%h1 Listing benefits
+
+%table
+  %tr
+    %th Title
+    %th Subtitle
+    %th Content
+    %th Link
+    %th
+    %th
+    %th
+
+  - @benefits.each do |benefit|
+    %tr
+      %td= benefit.title
+      %td= benefit.subtitle
+      %td= benefit.content
+      %td= benefit.link
+      %td= link_to 'Show', benefit
+      %td= link_to 'Edit', edit_benefit_path(benefit)
+      %td= link_to 'Destroy', benefit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Benefit', new_benefit_path
