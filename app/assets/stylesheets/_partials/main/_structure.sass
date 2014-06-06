@@ -1,0 +1,326 @@
+h1, h2, h3, h4, h5, h6, p, a, body, span
+  font-family: $proxima
+
+h1
+  font-size: 64px
+
+h2
+  font-size: 48px
+
+h3
+  font-size: 24px
+
+.name h1
+  margin-top: 60px !important
+
+.no-padding
+  padding: 0 !important
+
+.top-bar-container
+  height: 200px
+  background-color: rgba(0, 0, 0, 0.4)
+
+.top-bar
+  background: transparent
+  max-width: 1440px !important
+
+.top-bar-section ul li
+  background-color: transparent!important
+
+.top-bar-section
+  li:not(.has-form) a:not(.button)
+    background: transparent
+    text-align: center
+  li:not(.has-form) a:not(.button):hover
+    background: transparent
+  ul
+    background: transparent!important
+  ul > li > a
+    font-size: 22px
+    font-family: $proxima
+    font-weight: 300
+    text-transform: uppercase
+  ul li:hover:not(.has-form) > a
+    background: transparent
+
+footer
+  background-color: #292929
+  padding-top: 45px
+  h3, p, a
+    color: #FFF
+
+.menu-main-menu-container
+  ul
+    margin-left: 0
+    list-style-type: none
+    li
+      text-transform: uppercase
+
+.tab-bar
+  background-color: rgba(0, 0, 0, 0.4)
+
+li.icon-about
+  background: transparent image-url("icon-about.png") no-repeat!important
+  width: 150px
+  height: 200px
+  padding-top: 130px
+  background-position: 22px 42px
+
+li.icon-rewards
+  background: image-url("icon-rewards.png") no-repeat
+  width: 150px
+  height: 200px
+  padding-top: 130px
+  background-position: 25px 25px
+
+li.icon-health
+  background: image-url("icon-health.png") no-repeat
+  width: 150px
+  height: 200px
+  padding-top: 130px
+  background-position: 24px 20px
+
+li.icon-insurance
+  background: image-url("icon-insurance.png") no-repeat
+  width: 150px
+  height: 200px
+  padding-top: 130px
+  background-position: 38px 38px
+
+li.icon-security
+  background: image-url("icon-security.png") no-repeat
+  width: 150px
+  height: 200px
+  padding-top: 130px
+  background-position: 25px 25px
+
+.row
+  max-width: 90.625rem !important
+
+section.content
+  padding: 2% 0
+
+// body
+//   background: image-url("interior-bg.jpg") no-repeat top center
+
+body
+  background: image-url("home-bg.jpg") no-repeat top center
+
+
+#home-hero
+  padding-top: 45px
+  h2
+    color: #fff
+    // font-size: 72px!important;
+    font-family: $proxima
+    margin-top: 0 !important
+
+.divider
+  height: 1px
+  background: #fff
+
+.home-login-form
+  background-color: rgba(0, 0, 0, 0.4)
+  color: #fff
+  padding-top: 1%
+  padding-bottom: 1%
+  .inner
+    // margin: 30px;
+  label
+    color: #fff
+  input[type=text], input[type=password]
+    background: transparent !important
+    background-color: none !important
+    border: none !important
+    color: #fff
+    font-family: $proxima
+    font-weight: 100
+  header
+    font-family: $proxima
+    font-weight: 100
+    font-size: 36px
+    margin-bottom: 15px
+  .divider
+    height: 1px
+    background: #fff
+
+#home-submit
+  width: 98%
+  border: 1px solid #fff
+  background: transparent !important
+  text-align: center
+  color: #fff
+  font-size: 18px
+  font-family: $proxima
+  font-weight: 400
+  text-transform: uppercase
+  cursor: pointer
+
+.home-section
+  margin: 2% 0
+
+.section-bg
+  height: 100%
+  overflow: hidden
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: center
+
+.hs-button-wrap
+  width: 80%
+  margin: 0 auto
+
+.button-custom
+  background-color: transparent !important
+  border: 1px solid black !important
+  color: black !important
+  font-family: $proxima
+  font-size: 1.5rem
+  text-transform: uppercase
+  font-weight: 400
+
+.travel-section
+  .section-bg
+    background-image: image-url("home-savings.jpg")
+
+.health-section
+  .section-bg
+    background-image: image-url("home-health.jpg")
+
+.insurance-section
+  .section-bg
+    background-image: image-url("home-insurance.jpg")
+
+.security-section
+  .section-bg
+    background-image: image-url("home-security.jpg")
+
+
+.interior-title
+  height: 150px
+  h1
+    text-align: center
+    line-height: 150px
+    font-family: $proxima
+    color: #fff
+    text-transform: uppercase
+
+.rewards
+  background: transparent
+  padding: 10px 0
+
+.rewards-heading
+  background: $slate
+  color: #fff
+  font-family: $proxima
+  font-size: 2.25rem
+  text-align: center
+  height: 100px
+  line-height: 100px
+  text-transform: uppercase
+  margin-bottom: 2%
+
+.reward
+  margin-bottom: 2%
+  .inner
+    position: relative
+    overflow: hidden
+    background: $blue
+    height: 300px
+    line-height: 300px
+    color: #fff
+    text-align: center
+    font-family: $proxima
+    font-weight: 300
+    font-size: 1.5rem
+
+.flip
+  -webkit-perspective: 800
+  width: 100%
+  height: 100%
+  position: relative
+
+.flip .card.flipped
+  -webkit-transform: rotatex(-180deg)
+
+.flip .card
+  width: 100%
+  height: 100%
+  -webkit-transform-style: preserve-3d
+  -webkit-transition: 0.5s
+
+.flip .card .face
+  width: 100%
+  height: 100%
+  position: absolute
+  -webkit-backface-visibility: hidden
+  z-index: 2
+
+.flip .card .front
+  position: absolute
+  z-index: 1
+  background: $blue
+  cursor: pointer
+
+.flip .card .back
+  -webkit-transform: rotatex(-180deg)
+  background: #ccc
+  cursor: pointer
+
+footer
+  font-family: $proxima
+  font-size: 1.125rem
+  .widget
+    h3
+      font-size: 1.5rem
+      font-weight: 400
+      text-transform: uppercase
+    p
+      font-family: $proxima
+      font-size: 1rem
+      font-weight: 100
+
+.footer-text
+  font-size: 14px
+  font-weight: 400
+
+.ft-widget-wrap
+  article:first-child
+    margin-top: 105px
+  article:nth-child(3)
+    margin-top: 43px
+
+.my-tooltip
+  text-align: center
+  color: #fff
+  background: #111
+  position: absolute
+  z-index: 100
+  padding: 15px
+
+.my-tooltip:after
+  width: 0
+  height: 0
+  border-left: 10px solid transparent
+  border-right: 10px solid transparent
+  border-top: 10px solid #111
+  content: ''
+  position: absolute
+  left: 50%
+  bottom: -10px
+  margin-left: -10px
+
+.my-tooltip.top:after
+  border-top-color: transparent
+  border-bottom: 10px solid #111
+  top: -20px
+  bottom: auto
+
+.my-tooltip.left:after
+  left: 10px
+  margin: 0
+
+.my-tooltip.right:after
+  right: 10px
+  left: auto
+  margin: 0

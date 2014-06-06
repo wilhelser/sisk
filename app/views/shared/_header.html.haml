@@ -1,0 +1,31 @@
+.off-canvas-wrap
+  .inner-wrap
+    %nav.tab-bar.show-for-small-only
+      %section.right-small
+        %a.right-off-canvas-toggle.menu-icon
+          %span
+      %section.middle.tab-bar-section
+        %h1
+          %a{href: "/"}
+            =image_tag 'logo.png'
+    %aside.right-off-canvas-menu
+    .header
+      .top-bar-container.contain-to-grid.show-for-medium-up
+        %nav.top-bar{"data-topbar" => ""}
+          %ul.title-area
+            %li.name
+              %h1
+                %a{href: "/"}
+                  =image_tag 'logo.png'
+          %section.top-bar-section
+            %ul#menu-main-menu.top-bar-menu.right
+              %li.icon-about.skiplink
+                %a{href: "/about"} About Us
+              %li.icon-rewards.skiplink
+                %a{href: "#savings-section"} Savings
+              %li.icon-health.skiplink
+                %a{href: "#health-section"} Health
+              %li.icon-insurance.skiplink
+                %a{href: "#insurance-section"} Insurance
+              %li.icon-security.skiplink
+                %a{href: "#security-section"} Security

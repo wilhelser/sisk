@@ -9,9 +9,12 @@
     = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    <script src="//use.typekit.net/pur7wlk.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
   %body
-    %header
-      = render 'layouts/navigation'
-    %main{:role => "main"}
-      = render 'layouts/messages'
-      = yield
+    = render 'shared/header'
+    %section.container{role: "document"}
+      .row
+        = render 'layouts/messages'
+        = yield
+    = render 'shared/footer'
