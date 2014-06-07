@@ -14,10 +14,10 @@
   %body{class: 'sites'}
     = render 'shared/site_header'
     %section.interior-title
-      %h1 Member Benefits
+      %h1= @page_title ||= "Member Benefits"
     %section.content
       .row
-        .medium-10.column.medium-offset-1
+        .medium-10.columns.medium-offset-1
           = render 'layouts/messages'
           = yield
     = render 'shared/footer'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607034940) do
+ActiveRecord::Schema.define(version: 20140607054706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,20 @@ ActiveRecord::Schema.define(version: 20140607034940) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "assets", force: true do |t|
+    t.string   "storage_uid"
+    t.string   "storage_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "storage_width"
+    t.integer  "storage_height"
+    t.float    "storage_aspect_ratio"
+    t.integer  "storage_depth"
+    t.string   "storage_format"
+    t.string   "storage_mime_type"
+    t.string   "storage_size"
+  end
+
   create_table "benefits", force: true do |t|
     t.string   "title",      null: false
     t.string   "subtitle"
@@ -58,6 +72,14 @@ ActiveRecord::Schema.define(version: 20140607034940) do
     t.datetime "updated_at"
   end
 
+  create_table "benefits_categories", id: false, force: true do |t|
+    t.integer "benefit_id"
+    t.integer "category_id"
+  end
+
+  add_index "benefits_categories", ["benefit_id", "category_id"], name: "index_benefits_categories_on_benefit_id_and_category_id", using: :btree
+  add_index "benefits_categories", ["category_id", "benefit_id"], name: "index_benefits_categories_on_category_id_and_benefit_id", using: :btree
+
   create_table "benefits_sites", id: false, force: true do |t|
     t.integer "benefit_id"
     t.integer "site_id"
@@ -65,6 +87,12 @@ ActiveRecord::Schema.define(version: 20140607034940) do
 
   add_index "benefits_sites", ["benefit_id", "site_id"], name: "index_benefits_sites_on_benefit_id_and_site_id", using: :btree
   add_index "benefits_sites", ["site_id", "benefit_id"], name: "index_benefits_sites_on_site_id_and_benefit_id", using: :btree
+
+  create_table "categories", force: true do |t|
+    t.string   "title",      limit: 50, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sites", force: true do |t|
     t.integer  "site_id"

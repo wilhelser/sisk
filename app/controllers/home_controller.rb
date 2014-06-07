@@ -1,10 +1,15 @@
 class HomeController < ApplicationController
+  layout 'sites', only: [:about]
 
   def index
     if params[:site_code]
       @site_code = params[:site_code]
       send_to_site(@site_code)
     end
+  end
+
+  def about
+    @page_title = "About Us"
   end
 
   private

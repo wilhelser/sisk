@@ -16,7 +16,8 @@ class SitesController < ApplicationController
   end
 
   def savings
-
+    @page_title = "Savings Made Easy"
+    @benefits = Category.find_by_title('Savings').benefits
   end
 
   def health
