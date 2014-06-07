@@ -6,12 +6,13 @@ class SitesController < ApplicationController
   # GET /sites.json
   def index
     @sites = Site.all
-    @benefits = Benefit.all
+
   end
 
   # GET /sites/1
   # GET /sites/1.json
   def show
+    @benefits = Benefit.all
   end
 
   def savings

@@ -1,15 +1,17 @@
-%p#notice= notice
-
-%p
-  %b Site:
-  = @site.site_id
-%p
-  %b Name:
-  = @site.name
-%p
-  %b Url:
-  = @site.url
-
-= link_to 'Edit', edit_site_path(@site)
-\|
-= link_to 'Back', sites_path
+%ul.large-block-grid-4.small-block-grid-1
+  - @benefits.each do |benefit|
+    %li.benefit
+      .inner
+        .flip
+          .card
+            .face.front
+              .benefit-title= benefit.title
+            .face.back
+              .benefit-title= benefit.content.html_safe
+:javascript
+  $('.flip').click(function(){
+          $(this).find('.card').addClass('flipped').mouseleave(function(){
+              $(this).removeClass('flipped');
+          });
+          return false;
+      });
