@@ -1,0 +1,8 @@
+- content_tag_for(:li, benefit) do
+  .inner
+    .flip
+      .card
+        .face.front
+          .reward-title= benefit.title
+        .face.back
+          .reward-title= benefit.content.html_safe

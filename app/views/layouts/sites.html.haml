@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= content_for?(:title) ? yield(:title) : 'Sisk'
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Sisk'}"}
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    -# Modernizr is required for Zurb Foundation
+    = javascript_include_tag 'vendor/modernizr'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    <script src="//use.typekit.net/pur7wlk.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+  %body{class: params[:controller].gsub!('/', '') || 'home'}
+    = render 'shared/site_header'
+    %section.container{role: "document"}
+      .row
+        = render 'layouts/messages'
+        = yield :interior_header
+        = yield
+    = render 'shared/footer'

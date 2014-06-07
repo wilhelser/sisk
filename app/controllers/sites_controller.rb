@@ -1,10 +1,12 @@
 class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy]
+  layout 'sites'
 
   # GET /sites
   # GET /sites.json
   def index
     @sites = Site.all
+    @benefits = Benefit.all
   end
 
   # GET /sites/1
@@ -85,6 +87,6 @@ class SitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
-      params.require(:site).permit(:site_id, :name, :url)
+      params.require(:site).permit(:name, :url, :site_code)
     end
 end
