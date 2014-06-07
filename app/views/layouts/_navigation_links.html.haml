@@ -1,0 +1,22 @@
+- if @site
+  %li.icon-about.menu-item
+    = link_to 'About Us', 'about'
+  %li.icon-rewards.menu-item
+    = link_to "Savings", savings_site_path(@site)
+  %li.icon-health.menu-item
+    = link_to "Health", health_site_path(@site)
+  %li.icon-insurance.menu-item
+    = link_to "Insurance", insurance_site_path(@site)
+  %li.icon-security.menu-item
+    = link_to "Security", security_site_path(@site)
+- else
+  %li.icon-about.menu-item
+    %a{href: "/about"} About Us
+  %li.icon-rewards.skiplink.menu-item
+    %a{href: "#savings-section"} Savings
+  %li.icon-health.skiplink.menu-item
+    %a{href: "#health-section"} Health
+  %li.icon-insurance.skiplink.menu-item
+    %a{href: "#insurance-section"} Insurance
+  %li.icon-security.skiplink.menu-item
+    %a{href: "#security-section"} Security

@@ -9,6 +9,6 @@ class BenefitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def benefit_params
-      params.require(:benefit).permit(:title, :subtitle, :content, :link)
+      params.require(:benefit).permit(:title, :subtitle, :content, :link, :category_ids, :site_ids)
     end
 end
