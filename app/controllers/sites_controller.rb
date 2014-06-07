@@ -12,6 +12,22 @@ class SitesController < ApplicationController
   def show
   end
 
+  def savings
+
+  end
+
+  def health
+
+  end
+
+  def insurance
+
+  end
+
+  def security
+
+  end
+
   # GET /sites/new
   def new
     @site = Site.new

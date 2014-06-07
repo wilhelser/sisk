@@ -1,7 +1,15 @@
-%h2 Sign in
-= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
-  = f.input :email, :autofocus => true
-  = f.input :password
-  = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
-  = f.button :submit, "Sign in", :class => 'btn-primary'
-= render "devise/shared/links"
+%section.container{role: "document"}
+  .row
+    %section#home-hero
+      .row
+        .medium-7.columns.right
+          %h2 Save Money, Great Value, Peace of Mind
+        %aside.medium-4.columns.medium-offset-1.home-login-form.left
+          .row
+            .inner
+              %header.small-10.columns.small-offset-1 Access Benefits
+              #errorMSG
+              .clearfix
+              = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-centered' }) do |f|
+                = f.input :email, :autofocus => true
+                = f.input :password

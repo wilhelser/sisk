@@ -11,10 +11,11 @@
     = csrf_meta_tags
     <script src="//use.typekit.net/pur7wlk.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
-  %body
+  %body{class: params[:controller].gsub!('/', '') || 'home'}
     = render 'shared/header'
     %section.container{role: "document"}
       .row
         = render 'layouts/messages'
+        = yield :interior_header
         = yield
     = render 'shared/footer'
