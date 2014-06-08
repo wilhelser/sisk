@@ -17,6 +17,9 @@ gem 'thin'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'activeadmin-dragonfly', github: 'stefanoverna/activeadmin-dragonfly'
 gem 'activeadmin-wysihtml5', github: 'stefanoverna/activeadmin-wysihtml5'
+gem 'httparty'
+gem 'nokogiri'
+gem 'feedjira'
 group :production do
   gem 'rails_12factor'
 end

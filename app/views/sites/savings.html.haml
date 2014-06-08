@@ -1,1 +1,11 @@
 .rewards-heading.medium-10.medium-offset-1= @page_title
+%ul.large-block-grid-4.small-block-grid-1
+  - @entries.each do |entry|
+    %li.benefit
+      .inner
+        .flip
+          .card
+            .face.front
+              .reward-title= entry.title
+            .face.back
+              .reward-title= entry.title

@@ -1,4 +1,5 @@
 class SitesController < ApplicationController
+  require 'nokogiri'
   before_action :set_site, only: [:show, :edit, :update, :destroy]
   layout 'sites'
 
@@ -25,7 +26,9 @@ class SitesController < ApplicationController
 
   def savings
     @page_title = "Savings Made Easy"
-    @benefits = Category.find_by_title('Savings').benefits
+    rss = HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/offers?uuid=1401914342909", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
+    feed = Feedjira::Feed.parse rss
+    @entries = feed.entries
   end
 
   def health
