@@ -6,6 +6,13 @@ Sisk::Application.routes.draw do
   resources :sites do
     member do
       get "savings", to: 'sites#savings'
+      get "about", to: 'sites#about'
+      get "savings", to: 'sites#savings'
+      get "health", to: 'sites#health'
+      get "insurance", to: 'sites#insurance'
+      get "security", to: 'sites#security'
+      get "register", to: 'sites#register'
+      get "login", to: 'sites#login'
     end
   end
 
@@ -13,8 +20,5 @@ Sisk::Application.routes.draw do
   devise_for :users
   root :to => "home#index"
   get "about", to: 'home#about'
-  get "sites/:site_id/savings", to: 'sites#savings'
-  get "sites/:site_id/health", to: 'sites#health'
-  get "sites/:site_id/insurance", to: 'sites#insurance'
-  get "sites/:site_id/security", to: 'sites#security'
+
 end

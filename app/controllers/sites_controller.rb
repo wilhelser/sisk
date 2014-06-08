@@ -5,7 +5,16 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
+    if params[:site_code].present?
+      @show_registration_form = true
+    else
+      @show_registration_form = false
+    end
     @sites = Site.all
+  end
+
+  def about
+
   end
 
   # GET /sites/1
