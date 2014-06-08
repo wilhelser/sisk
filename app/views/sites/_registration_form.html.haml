@@ -1,8 +1,8 @@
 .medium-8.column.medium-offset-2
-  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-centered' }) do |f|
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form' }) do |f|
     = f.error_notification
     = display_base_errors resource
-    = f.input :name, :autofocus => true
+    = f.input :site_id, as: :hidden, value: @site.id
     = f.input :first_name, :required => true
     = f.input :last_name, :required => true
     = f.input :email, :required => true

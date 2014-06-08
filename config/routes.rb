@@ -18,6 +18,7 @@ Sisk::Application.routes.draw do
 
   get "home/index"
   devise_for :users
+  resources :users
   root :to => "home#index"
   get "about", to: 'home#about'
 
