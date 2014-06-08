@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
   require 'nokogiri'
-  before_action :set_site, only: [:show, :edit, :update, :destroy]
+  before_action :set_site
   layout 'sites'
 
   # GET /sites
@@ -32,15 +32,15 @@ class SitesController < ApplicationController
   end
 
   def health
-
+    @benefits = Category.find(2).benefits
   end
 
   def insurance
-
+    @benefits = Category.find(3).benefits
   end
 
   def security
-
+    @benefits = Category.find(4).benefits
   end
 
   # GET /sites/new

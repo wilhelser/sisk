@@ -10,9 +10,9 @@
               %header.small-10.columns.small-offset-1 Access Benefits
               #errorMSG
               %form{action: "#{root_url}", method: "get"}
-                .small-4.columns.no-padding
-                  %label.right.inline{for: "site_code"} Member ID
-                .small-6.columns.no-padding
+                .small-4.columns
+                  %label.inline.right{for: "site_code"} Member ID
+                .small-6.columns
                   %input#member_id{name: "site_code", placeholder: "", type: "text"}
                 .clearfix
                 .small-10.columns.small-centered
