@@ -1,5 +1,5 @@
 ActiveAdmin.register Benefit do
-  permit_params :title, :subtitle, :content, :link, category_ids: [:id], site_ids: [:id]
+  permit_params :title, :subtitle, :content, :link, category_ids: [], site_ids: []
   # Index
   index do
     selectable_column
