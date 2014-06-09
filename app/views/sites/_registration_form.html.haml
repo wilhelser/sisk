@@ -1,5 +1,5 @@
 .medium-8.column.medium-offset-2
-  = simple_form_for(resource, :as => resource_name, :url => register_site_path(@site), :html => {:class => 'form' }) do |f|
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form' }) do |f|
     = f.error_notification
     = display_base_errors resource
     = f.input :site_id, as: :hidden, value: @site.id
