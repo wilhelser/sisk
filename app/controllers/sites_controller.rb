@@ -33,6 +33,7 @@ class SitesController < ApplicationController
     rss = HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/offers?uuid=1401914342909", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
     feed = Feedjira::Feed.parse rss
     @entries = feed.entries
+    @benefits = Category.find(1).benefits
   end
 
   def health
