@@ -4,16 +4,16 @@
       .row
         .medium-7.columns.right
           %h2 Save Money, Great Value, Peace of Mind
-        %aside.medium-4.columns.medium-offset-1.home-login-form.left
-          .row
-            .inner
-              %header.small-10.columns.small-offset-1 Access Benefits
-              #errorMSG
-              %form.login-form{action: "#{root_url}", method: "get"}
-                .small-4.columns
-                  %label.inline.right{for: "site_code"} Member ID
-                .small-6.columns
-                  %input#member_id{name: "site_code", placeholder: "", type: "text"}
-                .clearfix
-                .small-10.columns.small-centered
-                  %input#home-submit{name: "home-submit", type: "submit", value: "Send"}
+        %aside.medium-4.medium-offset-1.home-login-form.left
+          .inner
+            %header Access Benefits
+            #errorMSG
+            = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form', :autocomplete => "off" }) do |f|
+              .login-input-wrap
+                = f.input :email, :autofocus => true
+              .login-input-wrap
+                = f.input :password
+              .clearfix
+              = f.submit "Send", id: "home-submit"
+              .clearfix
+              = link_to 'Register for an account', ''
