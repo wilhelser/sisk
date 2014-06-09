@@ -1,2 +1,11 @@
-%ul.large-block-grid-4.small-block-grid-1
-  = render @benefits
+.benefits-heading.medium-12.columns Security
+%ul.large-block-grid-3.small-block-grid-1
+  - @benefits.each do |benefit|
+    %li.benefit
+      .inner
+        .flip
+          .card
+            .face.front
+              .reward-title= benefit.title
+            .face.back
+              .reward-title= benefit.content.html_safe

@@ -1,0 +1,11 @@
+.benefits-heading.medium-10.medium-offset-1 Insurance
+%ul.large-block-grid-4.small-block-grid-1
+  - @benefits.each do |benefit|
+    %li.benefit
+      .inner
+        .flip
+          .card
+            .face.front
+              .reward-title= benefit.title
+            .face.back
+              .reward-title= benefit.content.html_safe

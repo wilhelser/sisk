@@ -1,3 +1,4 @@
+.benefits-heading.medium-10.medium-offset-1 Health
 %ul.large-block-grid-4.small-block-grid-1
   - @benefits.each do |benefit|
     %li.benefit
@@ -5,6 +6,6 @@
         .flip
           .card
             .face.front
-              .benefit-title= benefit.title
+              .reward-title= benefit.title
             .face.back
-              .benefit-title= benefit.content.html_safe
+              .reward-title= benefit.content.html_safe
