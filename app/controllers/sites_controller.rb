@@ -21,7 +21,7 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
-    @sections = HomeSection.all
+    @sections = HomeSection.order(:id)
   end
 
   def savings
