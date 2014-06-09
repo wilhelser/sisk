@@ -72,17 +72,24 @@
 
 .benefit
   margin-bottom: 2%
+  background: $blue
+  padding: 2% 3%
   .inner
     position: relative
     overflow: hidden
-    background: $blue
     height: 300px
-    line-height: 300px
-    color: #fff
-    text-align: center
     font-family: $proxima
-    font-weight: 300
     font-size: 1.5rem
+    .front
+      text-align: center
+      line-height: 300px
+      font-weight: 300
+      color: #fff
+    .back
+      color: #000
+
+.benefit-flipped
+  background: #ccc
 
 .flip
   -webkit-perspective: 800
@@ -109,12 +116,10 @@
 .flip .card .front
   position: absolute
   z-index: 1
-  background: $blue
   cursor: pointer
 
 .flip .card .back
   -webkit-transform: rotatex(-180deg)
-  background: #ccc
   cursor: pointer
 
 footer
