@@ -7,6 +7,7 @@ Sisk::Application.routes.draw do
   ActiveAdmin.routes(self)
   resources :sites do
     member do
+      get "usage", to: 'sites#usage'
       get "savings", to: 'sites#savings'
       get "about", to: 'sites#about'
       get "savings", to: 'sites#savings'
@@ -19,6 +20,7 @@ Sisk::Application.routes.draw do
   end
 
   get "home/index"
+  get "usage", :to => 'home#usage'
   devise_for :users
   resources :users
   root :to => "home#index"

@@ -12,6 +12,10 @@ class HomeController < ApplicationController
     @page_title = "About Us"
   end
 
+  def usage
+    @page_title = "Member Benefit Usage Instructions"
+  end
+
   private
 
   def send_to_site(site_code)
