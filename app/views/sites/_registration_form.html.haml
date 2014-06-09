@@ -1,4 +1,4 @@
-.medium-8.column.medium-offset-2
+.medium-10.column.medium-offset-1
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form' }) do |f|
     = f.error_notification
     = display_base_errors resource
@@ -8,11 +8,10 @@
     = f.input :email, :required => true
     = f.input :password, :required => true
     = f.input :password_confirmation, :required => true
-    = f.input :member_id, :required => true
+    = f.input :member_id, :required => true, label: "Member ID"
     = f.input :login_code, :required => true
     = f.input :email_updates
     = f.button :submit, 'Sign up', :class => 'btn-primary'
-  = render "devise/shared/links"
 
 - content_for :interior_header do
   %section.interior-title
