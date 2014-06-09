@@ -1,0 +1,25 @@
+%h1 Listing home_sections
+
+%table
+  %tr
+    %th Title
+    %th Content
+    %th Link
+    %th Visible
+    %th
+    %th
+    %th
+
+  - @home_sections.each do |home_section|
+    %tr
+      %td= home_section.title
+      %td= home_section.content
+      %td= home_section.link
+      %td= home_section.visible
+      %td= link_to 'Show', home_section
+      %td= link_to 'Edit', edit_home_section_path(home_section)
+      %td= link_to 'Destroy', home_section, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Home section', new_home_section_path

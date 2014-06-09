@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @home_section.title
+%p
+  %b Content:
+  = @home_section.content
+%p
+  %b Link:
+  = @home_section.link
+%p
+  %b Visible:
+  = @home_section.visible
+
+= link_to 'Edit', edit_home_section_path(@home_section)
+\|
+= link_to 'Back', home_sections_path

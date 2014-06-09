@@ -21,7 +21,7 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
-    @benefits = Benefit.all
+    @sections = HomeSection.all
   end
 
   def savings
