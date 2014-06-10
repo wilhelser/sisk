@@ -49,7 +49,9 @@ class SitesController < ApplicationController
   end
 
   def security
-    @benefits = Category.find(4).benefits
+    @identitytheft_benefits = Category.find(7).benefits
+    @lifelock_benefits = Category.find(9).benefits
+    @lifestep_benefits = Category.find(8).benefits
   end
 
   # GET /sites/new
