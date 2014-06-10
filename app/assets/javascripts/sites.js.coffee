@@ -1,5 +1,5 @@
 $ ->
-  $('.benefit').click ->
+  $(document).delegate '.benefit', 'click', ->
     $(@).addClass "benefit-flipped"
     $(this).find(".card").addClass("flipped").mouseleave ->
       $(this).removeClass "flipped"
