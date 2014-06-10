@@ -15,6 +15,7 @@ Sisk::Application.routes.draw do
       get "insurance", to: 'sites#insurance'
       get "security", to: 'sites#security'
       get "register", to: 'sites#register'
+      post "pull_savings", to: 'sites#pull_savings'
       get "login", to: 'sites#login'
     end
   end

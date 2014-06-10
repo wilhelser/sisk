@@ -1,0 +1,9 @@
+- @benefits.each do |benefit|
+  %li.benefit
+    .inner
+      .flip
+        .card
+          .face.front
+            .reward-title= benefit.title
+          .face.back
+            = benefit.content

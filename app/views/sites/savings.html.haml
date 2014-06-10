@@ -1,16 +1,9 @@
 .benefits-heading.medium-12= @page_title
 .clearfix
 .medium-10.search-fields.medium-offset-1
-  = simple_form_for :search, html: {method: 'get'} do |f|
-    = f.input :zip_code
+  = simple_form_for :search, url: pull_savings_site_path(@site), html: {method: 'post'}, remote: true do |f|
+    = f.input :zip_code, label: "Enter a zip code to search"
+    = f.input :category, :as => :select, :collection => entertainment_categories
     = f.submit 'Search', class: 'button'
-%ul.large-block-grid-4.small-block-grid-1
-  - @benefits.each do |benefit|
-    %li.benefit
-      .inner
-        .flip
-          .card
-            .face.front
-              .reward-title= benefit.title
-            .face.back
-              .reward-title
+%ul#api-results-wrap.large-block-grid-4.small-block-grid-1
+
