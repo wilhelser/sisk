@@ -1,3 +1,16 @@
 .benefits-heading.medium-12= @page_title
+.clearfix
+.medium-10.search-fields.medium-offset-1
+  = simple_form_for :search, html: {method: 'get'} do |f|
+    = f.input :zip_code
+    = f.submit 'Search', class: 'button'
 %ul.large-block-grid-4.small-block-grid-1
-  = render @benefits
+  - @benefits.each do |benefit|
+    %li.benefit
+      .inner
+        .flip
+          .card
+            .face.front
+              .reward-title= benefit.title
+            .face.back
+              .reward-title

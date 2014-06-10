@@ -30,10 +30,15 @@ class SitesController < ApplicationController
 
   def savings
     @page_title = "Savings Made Easy"
-    rss = HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/offers?uuid=1401914342909", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
+    if params[:search][:zip_code]
+      @zip_code = params[:search][:zip_code]
+      rss = HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/offers?uuid=1401914342909&location=@zip_code&distance=25", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
+    else
+      rss = HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/offers?uuid=1401914342909&location=@zip_code", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
+    end
     feed = Feedjira::Feed.parse rss
-    @entries = feed.entries
-    @benefits = Category.find(1).benefits
+    @benefits = feed.entries
+    # @benefits = Category.find(1).benefits
   end
 
   def health
