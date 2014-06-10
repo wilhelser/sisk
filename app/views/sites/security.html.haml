@@ -11,23 +11,23 @@
               .reward-title= benefit.content.html_safe
 .benefits-heading.medium-12.columns Life Steps
 %ul.large-block-grid-3.small-block-grid-1
-  - @lifesteps_benefits.each do |benefit|
-      %li.benefit
-        .inner
-          .flip
-            .card
-              .face.front
-                .reward-title= benefit.title
-              .face.back
-                .reward-title= benefit.content.html_safe
+  - @lifestep_benefits.each do |benefit|
+    %li.benefit
+      .inner
+        .flip
+          .card
+            .face.front
+              .reward-title= benefit.title
+            .face.back
+              .reward-title= benefit.content.html_safe
 .benefits-heading.medium-12.columns Lifelock
 %ul.large-block-grid-3.small-block-grid-1
   - @lifelock_benefits.each do |benefit|
-        %li.benefit
-          .inner
-            .flip
-              .card
-                .face.front
-                  .reward-title= benefit.title
-                .face.back
-                  .reward-title= benefit.content.html_safe
+    %li.benefit
+      .inner
+        .flip
+          .card
+            .face.front
+              .reward-title= benefit.title
+            .face.back
+              .reward-title= benefit.content.html_safe
