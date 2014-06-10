@@ -4,3 +4,6 @@ $ ->
     $(this).find(".card").addClass("flipped").mouseleave ->
       $(this).removeClass "flipped"
       $('.benefit-flipped').removeClass "benefit-flipped"
+
+  $('.disabled').click ->
+    false

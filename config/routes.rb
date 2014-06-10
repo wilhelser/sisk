@@ -22,7 +22,7 @@ Sisk::Application.routes.draw do
 
   get "home/index"
   get "usage", :to => 'home#usage'
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations"}
   resources :users
   root :to => "home#index"
   get "about", to: 'home#about'

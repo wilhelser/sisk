@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :site
+  validates :first_name, :last_name, :email, :password, :password_confirmation, :member_id, :login_code, presence: true
+  before_create :set_site
   after_create :send_welcome_email
 
   def can_access_site(site)
@@ -15,6 +17,12 @@ class User < ActiveRecord::Base
   end
 
   private
+  def set_site
+    @code = self.login_code
+    @site = Site.find_by_site_code(@code)
+    self.site = @site
+  end
+
   def send_welcome_email
     Notifier.welcome_email(self).deliver
   end
