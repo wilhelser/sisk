@@ -20,6 +20,7 @@ gem 'activeadmin-wysihtml5', github: 'stefanoverna/activeadmin-wysihtml5'
 gem 'httparty'
 gem 'nokogiri'
 gem 'feedjira'
+gem 'jquery-minicolors-rails'
 group :production do
   gem 'rails_12factor'
 end
