@@ -1,3 +1,6 @@
-.benefits-heading.medium-12 Health
+.benefits-heading.medium-12 Prescriptions
 %ul.large-block-grid-4.small-block-grid-1
-  = render @benefits
+  = render @prescriptions if @prescriptions.any?
+.benefits-heading.medium-12 Vision
+%ul.large-block-grid-4.small-block-grid-1
+  = render @vision if @vision.any?

@@ -42,6 +42,8 @@ class SitesController < ApplicationController
 
   def health
     @benefits = Category.find(2).benefits
+    @prescriptions = Category.find(5).benefits
+    @vision = Category.find(6).benefits
   end
 
   def insurance
