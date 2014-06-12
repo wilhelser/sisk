@@ -13,7 +13,8 @@
     <script>try{Typekit.load();}catch(e){}</script>
   %body{class: 'sites'}
     - if user_signed_in?
-      = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'logout-link'
+      .show-for-medium-up
+        = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'logout-link'
     = render 'shared/site_header'
     %section.interior-title
       %h1= @page_title ||= "Member Benefits"
