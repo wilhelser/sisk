@@ -6,8 +6,12 @@
           %span
       %section.middle.tab-bar-section
         %h1
-          %a{href: "/"}
-            =image_tag 'logo.png'
+          - if @site
+            = link_to @site do
+              = image_tag 'logo.png'
+          - else
+            %a{href: "/"}
+              =image_tag 'logo.png'
     %aside.right-off-canvas-menu
 
     .header
@@ -16,8 +20,12 @@
           %ul.title-area
             %li.name
               %h1
-                %a{href: "/"}
-                  =image_tag 'logo.png'
+                - if @site
+                  = link_to @site do
+                    = image_tag 'logo.png'
+                - else
+                  %a{href: "/"}
+                    =image_tag 'logo.png'
           %section.top-bar-section
             %ul#main-menu.top-bar-menu.right
               = render 'layouts/navigation_links'

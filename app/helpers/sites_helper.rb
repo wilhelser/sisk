@@ -6,4 +6,13 @@ module SitesHelper
       ['Travel', 91],
     ]
   end
+
+  def entertainment_distances
+    [
+      ['5', 5],
+      ['10', 10],
+      ['15', 15],
+      ['25', 25]
+    ]
+  end
 end

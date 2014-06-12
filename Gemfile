@@ -21,6 +21,7 @@ gem 'httparty'
 gem 'nokogiri'
 gem 'feedjira'
 gem 'jquery-minicolors-rails'
+gem 'ratom'
 group :production do
   gem 'rails_12factor'
 end

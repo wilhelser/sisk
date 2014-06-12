@@ -1,5 +1,1 @@
-<% if @benefits.any? %>
-  $('#api-results-wrap').html("<%= j render 'api_results', collection: @benefits %>");
-<% else %>
-  $('#api-results-wrap').html("No results for your query. Try another search?");
-<% end %>
+$('#api-results-wrap').html("<%= j render 'api_results' %>");
