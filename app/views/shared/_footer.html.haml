@@ -28,15 +28,15 @@
           Local: 817-735-4884
     %article#text-5.large-3.columns.widget.widget_text
       %h3 Sitemap
-      .textwidget
-        %p
-          About
-          %br/
-          Travel
-          %br/
-          Health
-          %br/
-          Insurance
-          %br/
-          Security
+      %ul.sitemap
+        - if @site
+          %li= link_to 'Home', @site
+          %li= link_to 'About', about_site_path(@site)
+          %li= link_to 'Savings', savings_site_path(@site)
+          %li= link_to 'Health', health_site_path(@site)
+          %li= link_to 'Insurance', insurance_site_path(@site)
+          %li= link_to 'Security', security_site_path(@site)
+        - else
+          %li= link_to 'Home', '/'
+          %li= link_to 'About', '/about'
 %a.exit-off-canvas
