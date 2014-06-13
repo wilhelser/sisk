@@ -1,0 +1,6 @@
+.show-for-medium-up
+  %ul.settings
+    %li.account-link
+      = link_to raw("Account &nbsp;&nbsp; <i class='fa fa-user'></i>").html_safe, edit_user_registration_path
+    %li.logout-link
+      = link_to raw("Logout &nbsp;&nbsp; <i class='fa fa-sign-out'></i>").html_safe, destroy_user_session_path, method: :delete
