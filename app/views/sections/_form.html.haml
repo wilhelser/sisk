@@ -1,0 +1,10 @@
+= simple_form_for(@section) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :content
+    = f.input :benefit_id
+
+  .form-actions
+    = f.button :submit

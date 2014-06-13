@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613062618) do
+ActiveRecord::Schema.define(version: 20140613171852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,14 @@ ActiveRecord::Schema.define(version: 20140613062618) do
 
   add_index "home_sections_sites", ["home_section_id", "site_id"], name: "index_home_sections_sites_on_home_section_id_and_site_id", using: :btree
   add_index "home_sections_sites", ["site_id", "home_section_id"], name: "index_home_sections_sites_on_site_id_and_home_section_id", using: :btree
+
+  create_table "sections", force: true do |t|
+    t.string   "title",      null: false
+    t.text     "content",    null: false
+    t.integer  "benefit_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sites", force: true do |t|
     t.integer  "site_id"

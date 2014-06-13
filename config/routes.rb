@@ -1,4 +1,6 @@
 Sisk::Application.routes.draw do
+  resources :sections
+
   resources :home_sections
 
   resources :benefits
