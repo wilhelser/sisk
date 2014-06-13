@@ -1,5 +1,5 @@
 ActiveAdmin.register Benefit do
-  permit_params :title, :subtitle, :content, :link, category_ids: [], site_ids: []
+  permit_params :title, :subtitle, :content, :link, :link_one_text, :link_two, :link_two_text, :link_three, :link_three_text, category_ids: [], site_ids: []
   # Index
   index do
     selectable_column
@@ -15,6 +15,11 @@ ActiveAdmin.register Benefit do
       f.input :subtitle
       f.input :content, as: :wysihtml5, commands: [:bold, :italic, :underline, :ul, :ol, :outdent, :indent, :link, :source], blocks: [:h1, :h2, :h3, :h4, :h5, :h6, :p]
       f.input :link
+      f.input :link_one_text
+      f.input :link_two
+      f.input :link_two_text
+      f.input :link_three
+      f.input :link_three_text
     end
     f.inputs "Categories" do
       f.input :category_ids, as: :check_boxes, collection: Category.all, label: "Categories"
