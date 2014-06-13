@@ -6,10 +6,10 @@
     %h1
       - if @site
         = link_to @site do
-          = image_tag 'logo.png'
+          = image_tag 'mobile-logo.png'
       - else
         %a{href: "/"}
-          =image_tag 'logo.png'
+          =image_tag 'mobile-logo.png'
 %aside.right-off-canvas-menu
   %ul.off-canvas-list
     = render 'shared/mobile_navigation_links'

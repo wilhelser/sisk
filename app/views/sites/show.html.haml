@@ -5,7 +5,15 @@
         %li.home_section
           .inner
             %h2= benefit.title
-            .section-content= benefit.content.html_safe
+            - if benefit.link.present?
+              .link-one
+                %a{href: "#{benefit.link}", target: '_blank'}= benefit.link_one_text
+            - if benefit.link_two.present?
+              .link-one
+                %a{href: "#{benefit.link_two}", target: '_blank'}= benefit.link_two_text
+            - if benefit.link_three.present?
+              .link-one
+                %a{href: "#{benefit.link_three}", target: '_blank'}= benefit.link_three_text
   - else
     %p You don't have access to this content.
     %p= link_to 'Home', '/'
