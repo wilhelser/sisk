@@ -27,7 +27,7 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
-    @sections = HomeSection.visible.order(:id)
+    @sections = @site.home_sections.visible.order(:id)
   end
 
   def savings
