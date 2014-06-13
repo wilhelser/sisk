@@ -14,7 +14,11 @@
   %body{class: 'sites'}
     - if user_signed_in?
       .show-for-medium-up
-        = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'logout-link'
+        %ul.settings
+          %li.account-link
+            = link_to raw("Account &nbsp;&nbsp; <i class='fa fa-user'></i>").html_safe, edit_user_registration_path
+          %li.logout-link
+            = link_to raw("Logout &nbsp;&nbsp; <i class='fa fa-user'></i>").html_safe, destroy_user_session_path, method: :delete
     = render 'shared/site_header'
     %section.interior-title
       %h1= @page_title ||= "Member Benefits"

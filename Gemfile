@@ -22,6 +22,7 @@ gem 'nokogiri'
 gem 'feedjira'
 gem 'jquery-minicolors-rails'
 gem 'ratom'
+gem "font-awesome-rails"
 group :production do
   gem 'rails_12factor'
 end

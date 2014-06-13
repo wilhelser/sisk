@@ -1,15 +1,6 @@
 .name h1
   margin-top: 60px !important
 
-.logout-link
-  color: #fff
-  font-family: $proxima
-  text-transform: uppercase
-  z-index: 5
-  position: absolute
-  top: 5px
-  right: 10px
-
 .no-padding
   padding: 0 !important
 
@@ -19,6 +10,44 @@
 
 .top-bar-section ul li
   background-color: transparent!important
+
+.settings
+  display: block
+  background: transparent image-url("settings-bg.png") no-repeat left
+  list-style: none
+  height: 25px
+  margin: 0
+  width: 348px
+  padding: 0 0 0 22px
+  position: absolute
+  right: 0
+  top: 0
+  z-index: 5
+  overflow: hidden
+  li
+    height: 25px
+    display: block
+    position: absolute
+    a
+      height: 100%
+      line-height: 25px
+      display: block
+      text-align: center
+      background: #056CA1
+      color: #fff
+      text-transform: uppercase
+      font-family: $proxima
+      cursor: pointer
+      &:hover
+        opacity: 0.7
+
+.account-link
+  left: 22px
+  width: 180px
+
+.logout-link
+  width: 146px
+  right: 0
 
 // .top-bar-section
 //   li:not(.has-form) a:not(.button)
