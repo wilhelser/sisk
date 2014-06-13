@@ -14,12 +14,14 @@
   %body{class: 'sites'}
     - if user_signed_in?
       = render 'shared/settings_nav'
-    = render 'shared/site_header'
-    %section.interior-title
-      %h1= @page_title ||= "Member Benefits"
-    %section.content
-      .row
-        .medium-10.columns.medium-offset-1
-          = render 'layouts/messages'
-          = yield
-    = render 'shared/footer'
+    .off-canvas-wrap{"data-offcanvas" => ""}
+      .inner-wrap
+        = render 'shared/site_header'
+        %section.interior-title
+          %h1= @page_title ||= "Member Benefits"
+        %section.content
+          .row
+            .medium-10.columns.medium-offset-1
+              = render 'layouts/messages'
+              = yield
+        = render 'shared/footer'

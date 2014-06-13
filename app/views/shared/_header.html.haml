@@ -1,34 +1,32 @@
-.off-canvas-wrap
-  .inner-wrap
-    %nav.tab-bar.show-for-small-only
-      %section.right-small
-        %a.right-off-canvas-toggle.menu-icon
-          %span
-      %section.middle.tab-bar-section
-        %h1
-          - if @site
-            = link_to @site do
-              = image_tag 'logo.png'
-          - else
-            %a{href: "/"}
-              =image_tag 'logo.png'
-    %aside.right-off-canvas-menu
+%nav.top-bar.show-for-medium-down
+  %section.right-small
+    %a.right-off-canvas-toggle.menu-icon
+      %span
+  %section.middle.tab-bar-section
+    %h1
+      - if @site
+        = link_to @site do
+          = image_tag 'logo.png'
+      - else
+        %a{href: "/"}
+          =image_tag 'logo.png'
+%aside.right-off-canvas-menu
 
-    .header
-      .top-bar-container.contain-to-grid.show-for-large-up
-        %nav.top-bar{"data-topbar" => ""}
-          %ul.title-area
-            %li.name
-              %h1
-                - if @site
-                  = link_to @site do
-                    = image_tag 'logo.png'
-                - else
-                  %a{href: "/"}
-                    =image_tag 'logo.png'
-          %section.top-bar-section
-            %ul#main-menu.top-bar-menu.right
-              = render 'layouts/navigation_links'
+.header
+  .top-bar-container.contain-to-grid.hide-for-medium-down
+    %nav.top-bar{"data-topbar" => ""}
+      %ul.title-area
+        %li.name
+          %h1
+            - if @site
+              = link_to @site do
+                = image_tag 'logo.png'
+            - else
+              %a{href: "/"}
+                =image_tag 'logo.png'
+      %section.top-bar-section
+        %ul#main-menu.top-bar-menu.right
+          = render 'layouts/navigation_links'
 
 
 

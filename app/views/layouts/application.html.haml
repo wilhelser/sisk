@@ -14,10 +14,11 @@
   %body{class: params[:controller].gsub!('/', '') || @body_class}
     - if user_signed_in?
       = render 'shared/settings_nav'
-    = render 'shared/header'
-    %section.container{role: "document"}
-      .row
-        = render 'layouts/messages'
-        = yield :interior_header
-        = yield
-    = render 'shared/home_footer'
+    .off-canvas-wrap{"data-offcanvas" => ""}
+      = render 'shared/header'
+      %section.container{role: "document"}
+        .row
+          = render 'layouts/messages'
+          = yield :interior_header
+          = yield
+      = render 'shared/home_footer'

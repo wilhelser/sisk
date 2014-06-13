@@ -12,10 +12,11 @@
     <script src="//use.typekit.net/pur7wlk.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
   %body{class: 'home'}
-    = render 'shared/header'
-    %section.container{role: "document"}
-      .row
-        = render 'layouts/messages'
-        = yield :interior_header
-        = yield
-    = render 'shared/home_footer'
+    .off-canvas-wrap{"data-offcanvas" => ""}
+      = render 'shared/header'
+      %section.container{role: "document"}
+        .row
+          = render 'layouts/messages'
+          = yield :interior_header
+          = yield
+      = render 'shared/home_footer'
