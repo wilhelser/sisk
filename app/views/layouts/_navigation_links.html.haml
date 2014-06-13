@@ -1,16 +1,16 @@
 - if @site
-  %li.icon-about.menu-item
+  %li.icon-about.menu-item.hover-dim
     = link_to 'About Us', about_site_path(@site)
-  %li.icon-rewards.menu-item
+  %li.icon-rewards.menu-item.hover-dim
     = link_to "Savings", savings_site_path(@site)
-  %li.icon-health.menu-item
+  %li.icon-health.menu-item.hover-dim
     = link_to "Health", health_site_path(@site)
-  %li.icon-insurance.menu-item
+  %li.icon-insurance.menu-item.hover-dim
     = link_to "Insurance", insurance_site_path(@site)
-  %li.icon-security.menu-item
+  %li.icon-security.menu-item.hover-dim
     = link_to "Security", security_site_path(@site)
 - else
-  %li.icon-about.menu-item
+  %li.icon-about.menu-item.hover-dim
     %a{href: "/about"} About Us
   %li.icon-rewards.menu-item.disabled
     = link_to "Savings", '#'
