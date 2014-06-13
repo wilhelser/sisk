@@ -1,7 +1,11 @@
 - if user_signed_in?
   - if current_user.can_access_site(@site)
     %ul.large-block-grid-4.small-block-grid-1
-      = render @sections
+      - @benefits.each do |benefit|
+        %li.home_section
+          .inner
+            %h2= benefit.title
+            .section-content= benefit.content.html_safe
   - else
     %p You don't have access to this content.
     %p= link_to 'Home', '/'

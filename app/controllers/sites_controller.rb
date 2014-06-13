@@ -8,11 +8,6 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    if params[:site_code].present?
-      @show_registration_form = true
-    else
-      @show_registration_form = false
-    end
     @sites = Site.all
   end
 
@@ -27,7 +22,7 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
-    @sections = @site.home_sections.visible.order(:id)
+    @benefits = @site.benefits
   end
 
   def savings
