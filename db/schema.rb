@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614203031) do
+ActiveRecord::Schema.define(version: 20140614212909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,14 @@ ActiveRecord::Schema.define(version: 20140614203031) do
 
   add_index "benefits_categories", ["benefit_id", "category_id"], name: "index_benefits_categories_on_benefit_id_and_category_id", using: :btree
   add_index "benefits_categories", ["category_id", "benefit_id"], name: "index_benefits_categories_on_category_id_and_benefit_id", using: :btree
+
+  create_table "benefits_sections", id: false, force: true do |t|
+    t.integer "benefit_id"
+    t.integer "section_id"
+  end
+
+  add_index "benefits_sections", ["benefit_id", "section_id"], name: "index_benefits_sections_on_benefit_id_and_section_id", using: :btree
+  add_index "benefits_sections", ["section_id", "benefit_id"], name: "index_benefits_sections_on_section_id_and_benefit_id", using: :btree
 
   create_table "benefits_sites", id: false, force: true do |t|
     t.integer "benefit_id"
