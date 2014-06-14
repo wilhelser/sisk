@@ -1,8 +1,6 @@
 Sisk::Application.routes.draw do
   resources :sections
 
-  resources :home_sections
-
   resources :benefits
 
   devise_for :admin_users, ActiveAdmin::Devise.config
