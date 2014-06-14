@@ -4,6 +4,7 @@ module SitesHelper
       ['Dining', 25],
       ['Shopping', 27],
       ['Travel', 91],
+      ['Events & Attractions', 26]
     ]
   end
 

@@ -1,10 +1,5 @@
-= content_tag_for(:li, benefit) do
-  .inner
-    .flip
-      .card
-        .face.front
-          .inner
-            .reward-title= benefit.title
-        .face.back
-          .inner
-            .reward-title= benefit.content.html_safe
+.benefits-heading.medium-12= benefit.title
+%ul.large-block-grid-2.small-block-grid-1
+  - if benefit.sections.any?
+    - @sections = benefit.sections
+    = render @sections

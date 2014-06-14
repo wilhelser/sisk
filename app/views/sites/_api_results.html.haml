@@ -1,11 +1,13 @@
-- @benefits.each do |benefit|
-  %li.benefit
-    .inner
-      .flip
-        .card
-          .face.front
-            .inner
-              .reward-title= benefit.title
-          .face.back
-            .inner
-              = benefit.content
+-# - @benefits.each do |benefit|
+-#   %li.benefit
+-#     .inner
+-#       .flip
+-#         .card
+-#           .face.front
+-#             .inner
+-#               .reward-title= benefit.title
+-#           .face.back
+-#             .inner
+-#               = benefit.content
+-#               = benefit.epi_state
+= @benefits.first.to_s

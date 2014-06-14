@@ -33,9 +33,9 @@ class SitesController < ApplicationController
     @zip_code = params[:search][:zip_code]
     @category = params[:search][:category]
     @distance = params[:search][:distance] ||= 25
-    # rss = HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/offers?uuid=1401914342909&location=#{@zip_code}&distance=25&category=#{@category}", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
-    # @feed = RSS::Parser.parse(rss, false)
-    @feed = Atom::Feed.load_feed(URI.parse("http://api.entertainment.com/AtomServer3/feeds/offers?uuid=1401914342909&location=#{@zip_code}&distance=#{@distance}&category=#{@category}"), :user => 'INFO@SISK.COM', :pass => 'T1aPw4SjF')
+    rss = HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/offers?uuid=1401914342909&location=#{@zip_code}&distance=25&category=#{@category}", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
+    @feed = RSS::Parser.parse(rss, false)
+    # @feed = Atom::Feed.load_feed(URI.parse("http://api.entertainment.com/AtomServer3/feeds/offers?uuid=1401914342909&location=#{@zip_code}&distance=#{@distance}&category=#{@category}"), :user => 'INFO@SISK.COM', :pass => 'T1aPw4SjF')
     # @feed = Feedjira::Feed.fetch_and_parse("http://api.entertainment.com/AtomServer3/feeds/offers?uuid=1401914342909&location=#{@zip_code}&distance=#{@distance}&category=#{@category}", :http_authentication => ["INFO@SISK.COM", "T1aPw4SjF"])
     # @response = RSS::Parser.parse(rss, false)
     @benefits = @feed.entries
@@ -43,8 +43,6 @@ class SitesController < ApplicationController
 
   def health
     @benefits = Category.find(2).benefits
-    @prescriptions = Category.find(5).benefits
-    @vision = Category.find(6).benefits
   end
 
   def insurance
@@ -52,9 +50,7 @@ class SitesController < ApplicationController
   end
 
   def security
-    @identitytheft_benefits = Category.find(7).benefits
-    @lifelock_benefits = Category.find(9).benefits
-    @lifestep_benefits = Category.find(8).benefits
+    @benefits = Category.find(4).benefits
   end
 
   # GET /sites/new
