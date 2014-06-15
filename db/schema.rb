@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614231350) do
+ActiveRecord::Schema.define(version: 20140615005543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,15 +75,8 @@ ActiveRecord::Schema.define(version: 20140614231350) do
     t.string   "link_two_text"
     t.string   "link_three"
     t.string   "link_three_text"
+    t.integer  "category_id"
   end
-
-  create_table "benefits_categories", id: false, force: true do |t|
-    t.integer "benefit_id"
-    t.integer "category_id"
-  end
-
-  add_index "benefits_categories", ["benefit_id", "category_id"], name: "index_benefits_categories_on_benefit_id_and_category_id", using: :btree
-  add_index "benefits_categories", ["category_id", "benefit_id"], name: "index_benefits_categories_on_category_id_and_benefit_id", using: :btree
 
   create_table "benefits_sections", id: false, force: true do |t|
     t.integer "benefit_id"

@@ -1,5 +1,5 @@
 ActiveAdmin.register Benefit do
-  permit_params :title, :subtitle, :content, :link, :link_one_text, :link_two, :link_two_text, :link_three, :link_three_text, category_ids: [], site_ids: []
+  permit_params :title, :subtitle, :content, :link, :link_one_text, :link_two, :link_two_text, :link_three, :link_three_text, :category_id, site_ids: []
   # Index
   index do
     selectable_column
@@ -22,7 +22,7 @@ ActiveAdmin.register Benefit do
       f.input :link_three_text
     end
     f.inputs "Categories" do
-      f.input :category_ids, as: :check_boxes, collection: Category.all, label: "Categories"
+      f.input :category_id, as: :select, collection: Category.all, label: "Categories"
       f.input :site_ids, as: :check_boxes, collection: Site.all, label: "Show on Sites"
     end
     f.actions
