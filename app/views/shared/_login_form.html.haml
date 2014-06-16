@@ -1,0 +1,16 @@
+= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form', :autocomplete => "off" }) do |f|
+  .divider
+  .small-4.columns.no-padding
+    %label.right.inline{for: "user_email"} Email
+  .small-6.columns
+    = f.input_field :email, :autofocus => true
+  .clearfix
+  .divider
+  .small-4.columns.no-padding
+    %label.right.inline{for: "user_password"} Password
+  .small-6.columns.no-padding
+    = f.input_field :password
+  .clearfix
+  = f.submit "Send", class: "home-submit"
+  .clearfix
+  = link_to 'Register for an account', new_user_registration_path, class: 'home-submit home-register'

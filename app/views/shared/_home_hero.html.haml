@@ -1,20 +1,15 @@
-%section.container{role: "document"}
-  .row
-    %section#home-hero
-      .row
-        .medium-7.columns.right
-          .fifty-percent
-            %h2 Save Money, Great Value, Peace of Mind
-        %aside.medium-4.medium-offset-1.home-login-form.left
-          .inner
-            %header Access Benefits
-            #errorMSG
-            = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form', :autocomplete => "off" }) do |f|
-              .login-input-wrap
-                = f.input :email, :autofocus => true
-              .login-input-wrap
-                = f.input :password
-              .clearfix
-              = f.submit "Send", class: "home-submit"
-              .clearfix
-              = link_to 'Register for an account', new_user_registration_path, class: 'home-submit home-register'
+- content_for :home_hero do
+  %section.container{role: "document"}
+    .row
+      %section#home-hero
+        .row
+          .large-7.columns.right
+            .fifty-percent.show-for-large-up
+              %h2 Save Money, Great Value, Peace of Mind
+            .show-for-medium-down.center
+              %h2 Save Money, Great Value, Peace of Mind
+          %aside.large-4.large-offset-1.home-login-form.left
+            .inner
+              %header Access Benefits
+              #errorMSG
+              = render 'shared/login_form'

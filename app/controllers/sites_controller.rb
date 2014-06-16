@@ -3,11 +3,6 @@ class SitesController < ApplicationController
   require 'atom'
   require 'rss'
   before_action :set_site
-  layout 'sites'
-
-  def index
-    @sites = Site.all
-  end
 
   def about
 
@@ -49,50 +44,10 @@ class SitesController < ApplicationController
     @benefits = @site.security_benefits
   end
 
-  def new
-    @site = Site.new
-  end
-
-  def edit
-  end
-
-  def create
-    @site = Site.new(site_params)
-
-    respond_to do |format|
-      if @site.save
-        format.html { redirect_to @site, notice: 'Site was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @site }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @site.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @site.update(site_params)
-        format.html { redirect_to @site, notice: 'Site was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @site.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @site.destroy
-    respond_to do |format|
-      format.html { redirect_to sites_url }
-      format.json { head :no_content }
-    end
-  end
-
   private
   def set_site
     @site = Site.find(params[:id])
+    @body_class = 'sites'
   end
 
   def site_params

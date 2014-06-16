@@ -10,6 +10,4 @@
               %header.small-10.columns.small-offset-1 Access Benefits
               #errorMSG
               .clearfix
-              = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-centered' }) do |f|
-                = f.input :email, :autofocus => true
-                = f.input :password
+              = render 'shared/login_form'

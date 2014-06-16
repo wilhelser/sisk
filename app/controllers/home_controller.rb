@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  layout 'sites', only: [:about]
 
   def index
     @body_class = 'home'
