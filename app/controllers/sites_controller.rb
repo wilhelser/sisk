@@ -38,16 +38,15 @@ class SitesController < ApplicationController
   end
 
   def health
-    @benefits = @site.benefits.health
+    @benefits = @site.health_benefits
   end
 
   def insurance
-    # @benefits = Category.find(3).benefits
-    @benefits = @site.benefits.insurance
+    @benefits = @site.insurance_benefits
   end
 
   def security
-    @benefits = @site.benefits.security
+    @benefits = @site.security_benefits
   end
 
   def new

@@ -1,1 +1,17 @@
-= render @benefits
+- @benefits.each do |benefit|
+  .benefits-heading.medium-12= benefit.title
+  %ul.large-block-grid-2.small-block-grid-1
+    - if benefit.sections.any?
+      - @sections = benefit.sections
+      - @sections.each do |section|
+        %li.section
+          .inner
+            .flip
+              .card
+                .face.front
+                  .inner
+                    .reward-title= section.title
+                .face.back
+                  .inner
+                    .reward-title= section.content.html_safe
+  .clearfix
