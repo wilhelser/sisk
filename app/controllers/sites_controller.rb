@@ -5,8 +5,6 @@ class SitesController < ApplicationController
   before_action :set_site
   layout 'sites'
 
-  # GET /sites
-  # GET /sites.json
   def index
     @sites = Site.all
   end
@@ -19,8 +17,6 @@ class SitesController < ApplicationController
 
   end
 
-  # GET /sites/1
-  # GET /sites/1.json
   def show
     @benefits = @site.benefits
   end
@@ -54,17 +50,13 @@ class SitesController < ApplicationController
     @benefits = @site.benefits.security
   end
 
-  # GET /sites/new
   def new
     @site = Site.new
   end
 
-  # GET /sites/1/edit
   def edit
   end
 
-  # POST /sites
-  # POST /sites.json
   def create
     @site = Site.new(site_params)
 
@@ -79,8 +71,6 @@ class SitesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /sites/1
-  # PATCH/PUT /sites/1.json
   def update
     respond_to do |format|
       if @site.update(site_params)
@@ -93,8 +83,6 @@ class SitesController < ApplicationController
     end
   end
 
-  # DELETE /sites/1
-  # DELETE /sites/1.json
   def destroy
     @site.destroy
     respond_to do |format|

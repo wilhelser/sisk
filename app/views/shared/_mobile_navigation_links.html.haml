@@ -12,5 +12,6 @@
 - else
   %li
     %a{href: "/about"} About Us
+- if user_signed_in?
   %li= link_to "Account", edit_user_registration_path
   %li= link_to "Log Out", destroy_user_session_path
