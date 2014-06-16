@@ -18,6 +18,7 @@ class SitesController < ApplicationController
 
   def savings
     @page_title = "Savings Made Easy"
+    @benefits = @site.savings_benefits
   end
 
   def pull_savings

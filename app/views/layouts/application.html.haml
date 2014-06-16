@@ -15,8 +15,9 @@
       = render 'shared/settings_nav'
     .off-canvas-wrap{"data-offcanvas" => ""}
       .inner-wrap
-        = render 'shared/header'
-        = yield :home_hero
+        .header-wrapper
+          = render 'shared/header'
+          = yield :home_hero
         - if @body_class == 'sites'
           %section.container
             .row

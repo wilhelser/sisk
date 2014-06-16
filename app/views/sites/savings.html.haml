@@ -7,3 +7,5 @@
     = f.input :distance, :as => :select, :collection => entertainment_distances
     = f.submit 'Search', class: 'button'
 %ul#api-results-wrap.large-block-grid-2.small-block-grid-1
+  - if @benefits.any?
+    = render @benefits
