@@ -3,6 +3,9 @@ class HomeController < ApplicationController
 
   def index
     @body_class = 'home'
+    if user_signed_in?
+      redirect_to current_user.site
+    end
   end
 
   def about
