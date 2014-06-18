@@ -18,13 +18,12 @@
         .header-wrapper
           = render 'shared/header'
           = yield :home_hero
-        - if @body_class == 'sites'
-          %section.container
+          - if @body_class == 'sites'
             .row
               .interior-title
                 %h1= @page_title ||= "Member Benefits"
-        - else
-          = yield :interior_header
+          - else
+            = yield :interior_header
         %section.content
           .row
             .medium-10.columns.medium-offset-1
