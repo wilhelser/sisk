@@ -17,6 +17,10 @@
             - if benefit.link_three.present?
               .link-one
                 %a{href: "#{benefit.link_three}", target: '_blank'}= benefit.link_three_text
+            - unless benefit.link_two.present?
+              - if benefit.link_two_text.present?
+                .link-bottom
+                  %p.small= benefit.link_two_text.html_safe
   - else
     %p You don't have access to this content.
     %p= link_to 'Home', '/'
