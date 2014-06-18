@@ -5,6 +5,9 @@
         %li.home_section
           .inner
             %h2= benefit.title
+            - if benefit.title == 'Savings Made Easy'
+              .link-one
+                %a{href: "/sites/#{@site.id}/savings"} Click here to save
             - if benefit.link.present?
               .link-one
                 %a{href: "#{benefit.link}", target: '_blank'}= benefit.link_one_text
