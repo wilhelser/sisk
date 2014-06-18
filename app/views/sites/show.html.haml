@@ -4,7 +4,9 @@
       - @benefits.each do |benefit|
         %li.home_section
           .inner
-            %h2.box-title= benefit.title
+            .outer
+              .inner
+                %h2.box-title= benefit.title
             - if benefit.title == 'Savings Made Easy'
               .link-one
                 %a{href: "/sites/#{@site.id}/savings"} Click here to save

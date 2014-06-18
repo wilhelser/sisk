@@ -13,7 +13,3 @@ $ ->
 
   $('.disabled').click ->
     false
-
-  # $('.box-title').each =->
-  #   @height = $(@).outerHeight()
-  #   $(@).css('margin-top', "-#{@height}")
