@@ -1,0 +1,27 @@
+%li.benefit.savings-item
+  .inner
+    .flip
+      .card
+        .face.front
+          .inner
+            .reward-title= entry[:title]
+        .face.back
+          .inner
+            %button.savings-button= entry[:redemption]
+            %h3.savings-title= entry[:title]
+            %p.savings-content= entry[:content]
+            %p.savings-vendor
+              %strong= entry[:title]
+            %p.vendor-address
+              %span.savings-address= entry[:street_address]
+              &nbsp;
+              %span.savings-city= entry[:city]
+              ,
+              &nbsp;
+              %span.savings-state= entry[:state]
+              &nbsp;&nbsp;
+              %span.entry-zip= entry[:postal_code]
+            %span.entry-distance
+              Distance:
+              = number_with_precision(entry[:distance], precision: 2)
+              &nbsp; miles

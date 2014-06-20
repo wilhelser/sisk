@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.2'
 gem 'rails', '4.0.4'
 gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
@@ -21,6 +21,10 @@ gem 'httparty'
 gem 'nokogiri'
 gem 'jquery-minicolors-rails'
 gem "font-awesome-rails"
+gem "simple-rss"
+
+gem 'feedjira'
+
 group :production do
   gem 'rails_12factor'
 end
