@@ -1,6 +1,7 @@
 .benefits-heading.medium-12
-  = benefit.title
-  .clearfix
+  .outer
+    .inner.benefit-inner
+      = benefit.title
   - if benefit.link
     %a.benefit-link{href: benefit.link}= benefit.link_one_text
 %ul.large-block-grid-2.small-block-grid-1
