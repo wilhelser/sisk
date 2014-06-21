@@ -13,3 +13,9 @@ $ ->
 
   $('.disabled').click ->
     false
+
+  $('.search-form').submit ->
+    $('.search-button').after("&nbsp;<img class='loader' src='/sisk-loader.gif'>")
+
+  $(document).delegate ".coupon-print-btn", 'click', ->
+    $(".printable").print()

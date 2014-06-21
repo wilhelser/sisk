@@ -16,11 +16,17 @@ class User < ActiveRecord::Base
     end
   end
 
+  def generate_uuid
+    cs = [*'0'..'9']
+    10.times.map { cs.sample }.join
+  end
+
   private
   def set_site
     @code = self.login_code
     @site = Site.find_by_site_code(@code)
     self.site = @site
+    self.uuid = generate_uuid
   end
 
   def send_welcome_email

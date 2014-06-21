@@ -1,5 +1,6 @@
 require 'epi_atom_retriever'
 require 'feedjira/parser/sisk'
+require 'feedjira'
 
 class SitesController < ApplicationController
   before_action :set_site
@@ -38,6 +39,13 @@ class SitesController < ApplicationController
 
   def security
     @benefits = @site.security_benefits
+  end
+
+  def pull_print_coupon
+    offer_id = params[:offer_id]
+    rss = HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/print?uuid=1401914342909&offerid=#{offer_id}", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
+    xml = Feedjira::Feed.parse rss
+    @coupon = xml.entries.first
   end
 
 private

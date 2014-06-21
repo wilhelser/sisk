@@ -23,6 +23,7 @@ module Feedjira
       elements :category, :as => :categories, :value => :term
       elements :link, :as => :links, :value => :href
 
+      # element :"epi:value", :as => :btn_text, :value => :text
       element :"epi:rating", :as => :rating, :value => :value
       element :"epi:redemption", :as => :redemption, :value => :method
       element :"epi:printable", :as => :printable, :value => :count
@@ -39,5 +40,6 @@ module Feedjira
         @url ||= links.first
       end
     end
+
   end
 end

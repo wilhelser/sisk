@@ -1,0 +1,11 @@
+.printable
+  - if coupon.links.any?
+    #coupon-image
+      %img.center{src: "#{coupon.links.first}"}
+  %h3= coupon.title
+  %p= coupon.content
+  %p
+    %strong
+      %em= coupon.summary
+  .divider
+  %a.savings-button.coupon-print-btn.centered Print
