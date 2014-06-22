@@ -4,6 +4,8 @@
   = simple_form_for :search, url: pull_savings_site_path(@site), html: {method: 'post', class: 'search-form'}, remote: true do |f|
     = f.input :zip_code, label: "Enter a zip code to search"
     = f.input :category, :as => :select, :collection => entertainment_categories
+    .dining-type-select
+      = f.input :subcategory, :as => :select, :collection => dining_subcategories
     = f.input :distance, :as => :select, :collection => entertainment_distances
     = f.submit 'Search', class: 'button search-button'
 %ul#api-results-wrap.large-block-grid-2.small-block-grid-1

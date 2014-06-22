@@ -8,6 +8,14 @@ module SitesHelper
     ]
   end
 
+  def dining_subcategories
+    [
+      ['Fast Food', 38],
+      ['Casual Dining', 39],
+      ['Fine Dining', 42]
+    ]
+  end
+
   def entertainment_distances
     [
       ['5', 5],

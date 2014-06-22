@@ -25,7 +25,7 @@ private
   end
 
   def base_url
-    "http://api.entertainment.com/AtomServer3/feeds/offers?uuid=1401914342909"
+    "http://api.entertainment.com/AtomServer3/feeds/offers?uuid=#{current_user.uuid}"
   end
 
   def basic_auth_hash

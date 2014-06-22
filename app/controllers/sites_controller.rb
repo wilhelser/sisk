@@ -43,7 +43,7 @@ class SitesController < ApplicationController
 
   def pull_print_coupon
     offer_id = params[:offer_id]
-    rss = HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/print?uuid=1401914342909&offerid=#{offer_id}", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
+    rss = HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/print?uuid=#{current_user.uuid}&offerid=#{offer_id}", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
     xml = Feedjira::Feed.parse rss
     @coupon = xml.entries.first
   end
@@ -53,6 +53,9 @@ private
   def set_site
     @site = Site.find(params[:id])
     @body_class = 'sites'
+    if user_signed_in?
+      @uuid = current_user.uuid
+    end
   end
 
   def site_params
