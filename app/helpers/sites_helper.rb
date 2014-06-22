@@ -16,6 +16,25 @@ module SitesHelper
     ]
   end
 
+  def cuisine_subcategories
+    [
+      [ 'African', 193],
+      [ 'American', 168 ],
+      [ 'Asian', 182 ],
+      [ 'Cajun/Creole', 184 ],
+      [ 'Canadian', 185 ],
+      [ 'Caribbean', 190 ],
+      [ 'European', 180 ],
+      [ 'Indian', 176 ],
+      [ 'Italian', 170 ],
+      [ 'Kosher', 189 ],
+      [ 'Mexican', 171 ],
+      [ 'Middle Eastern', 178 ],
+      [ 'South American', 197 ],
+      [ 'Vegetarian', 194 ]
+    ]
+  end
+
   def entertainment_distances
     [
       ['5', 5],
