@@ -18,6 +18,7 @@ class SitesController < ApplicationController
   end
 
   def savings
+    session[:uuid] = current_user.uuid unless session[:uuid].present?
     @page_title = "Savings Made Easy"
     @sections = @site.savings_benefits.first.sections
   end
