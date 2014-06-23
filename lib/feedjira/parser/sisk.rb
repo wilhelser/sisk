@@ -4,6 +4,12 @@ require 'feedjira/parser/sisk_entry'
 module Feedjira
   module Parser
 
+    class Atom
+      include SAXMachine
+      include FeedEntryUtilities
+      element :"epi:resultCount", :as => :results, :value => :count
+    end
+
     class SiskEntry
       include SAXMachine
       include FeedEntryUtilities

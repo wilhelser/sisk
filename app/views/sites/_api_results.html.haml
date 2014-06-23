@@ -1,5 +1,6 @@
 - if @feed.entries.any?
   - @feed.entries.each do |entry|
     = render :partial => 'sites/entry', :locals => { :entry => entry }
+  = render 'pagination'
 - else
   %p Sorry, no results for that query...

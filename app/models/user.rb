@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :site
-  validates :first_name, :last_name, :email, :password, :password_confirmation, :member_id, :login_code, :uuid, presence: true
+  validates :first_name, :last_name, :email, :password, :member_id, :login_code, presence: true
   validates_uniqueness_of :uuid
   before_create :set_site
   after_create :send_welcome_email

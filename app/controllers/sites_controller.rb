@@ -28,6 +28,10 @@ class SitesController < ApplicationController
                             params[:search][:distance],
                             params[:search][:category])
     @feed = Feedjira::Parser::Sisk.parse(rss)
+    @newfeed = Feedjira::Feed.parse(rss)
+    Rails.logger.info @newfeed
+    # divisor = @result_count / 25
+    # Rails.logger.info divisor
   end
 
   def health
