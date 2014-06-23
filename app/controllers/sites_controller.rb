@@ -24,14 +24,15 @@ class SitesController < ApplicationController
   end
 
   def pull_savings
+    categories = []
+    categories << params[:search][:category].to_i
+    categories << params[:search][:subcategory].to_i unless params[:search][:subcategory].blank?
+    categories << params[:search][:cuisine_subcategory].to_i unless params[:search][:cuisine_subcategory].blank?
     rss = EpiAtomRetriever.(params[:search][:zip_code],
                             params[:search][:distance],
-                            params[:search][:category])
+                            categories)
     @feed = Feedjira::Parser::Sisk.parse(rss)
-    @newfeed = Feedjira::Feed.parse(rss)
-    Rails.logger.info @newfeed
-    # divisor = @result_count / 25
-    # Rails.logger.info divisor
+    Rails.logger.info @feed.size
   end
 
   def health

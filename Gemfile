@@ -24,6 +24,7 @@ gem "font-awesome-rails"
 gem "simple-rss"
 gem 'ratom'
 gem 'feedjira'
+gem 'will_paginate'
 group :production do
   gem 'rails_12factor'
 end

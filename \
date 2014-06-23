@@ -13,23 +13,18 @@ module EpiAtomRetriever
     atom_pages, current_count = [], 25
 
     puts "Getting initial resultset"
-    atom = atom_retriever(resource_url, basic_auth_hash)
-    number_of_records = result_count(atom)
-    number_of_records > 250 ? total_records = 250 : total_records = number_of_records
-    records_left = total_records
-    puts "Gathered some atom, there are still #{records_left} left to go"
+    atom, results_left = atom_retriever(resource_url, basic_auth_hash)
+    puts "Gathered some atom, there are still #{results_left} left to go"
     atom_pages << atom
 
-    while records_left > 0
+    while results_left > 0
       puts "Getting paged resultset"
-      atom = atom_retriever(paged_url(resource_url, current_count),
-                            basic_auth_hash)
-      puts "Gathered some atom, there are still #{records_left} left to go"
-      records_left = total_records - current_count
+      paged_url = [resource_url, "start-index=#{current_count}"].join("&")
+      atom, results_left = atom_retriever(paged_url, basic_auth_hash)
+      puts "Gathered some atom, there are still #{results_left} left to go"
       current_count = current_count + 25
-      puts current_count
       atom_pages << atom
-      sleep 0.25
+      sleep 5
     end
 
     atom_pages
@@ -37,10 +32,6 @@ module EpiAtomRetriever
   alias_method :call, :get_atom
 
 private
-
-  def paged_url(url, count)
-    [url, "start-index=#{count}"].join("&")
-  end
 
   def result_count(atom)
     atom.match(/resultCount count="(\d+)"/)[1].to_i
@@ -67,7 +58,8 @@ private
   end
 
   def atom_retriever(url, auth)
-    HTTParty.get(url, auth)
+    atom = HTTParty.get(url, auth)
+    [atom, result_count(atom)]
   end
 
   def base_url
