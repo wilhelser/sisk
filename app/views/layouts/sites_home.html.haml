@@ -12,11 +12,23 @@
     <script src="//use.typekit.net/pur7wlk.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
   %body{class: 'home'}
+    - if user_signed_in?
+      = render 'shared/settings_nav'
     .off-canvas-wrap{"data-offcanvas" => ""}
-      = render 'shared/header'
-      %section.container{role: "document"}
-        .row
-          = render 'layouts/messages'
-          = yield :interior_header
-          = yield
-      = render 'shared/home_footer'
+      .inner-wrap
+        .header-wrapper
+          = render 'shared/header'
+          = yield :home_hero
+          - if @body_class == 'sites'
+            .row
+              .interior-title
+                %h1= @page_title ||= "Member Benefits"
+          - else
+            = yield :interior_header
+        %section.content
+          .row
+            .medium-10.columns.medium-offset-1
+              = render 'layouts/messages'
+              = yield
+        = render 'shared/footer'
+        = render 'sites/print_modal'
