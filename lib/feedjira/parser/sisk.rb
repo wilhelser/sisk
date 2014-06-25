@@ -75,6 +75,11 @@ module Feedjira
       def self.preprocess(xml)
         Preprocessor.new(xml).to_xml
       end
+
+
+      def self.parse_pages(pages)
+        pages.map {|page| [parse(page)].flatten.map(&:entries) }.flatten
+      end
     end
   end
 

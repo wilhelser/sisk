@@ -1,6 +1,5 @@
-require 'epi_atom_retriever'
-require 'feedjira/parser/sisk'
-require 'feedjira'
+require_dependency'epi_atom_retriever'
+require_dependency'feedjira/parser/sisk'
 
 class SitesController < ApplicationController
   before_action :set_site
@@ -24,15 +23,7 @@ class SitesController < ApplicationController
   end
 
   def pull_savings
-    categories = []
-    categories << params[:search][:category].to_i
-    categories << params[:search][:subcategory].to_i unless params[:search][:subcategory].blank?
-    categories << params[:search][:cuisine_subcategory].to_i unless params[:search][:cuisine_subcategory].blank?
-    rss = EpiAtomRetriever.(params[:search][:zip_code],
-                            params[:search][:distance],
-                            categories)
-    @feed = Feedjira::Parser::Sisk.parse(rss)
-    Rails.logger.info @feed.size
+    @feed_entries = feed_entries
   end
 
   def health
@@ -49,12 +40,34 @@ class SitesController < ApplicationController
 
   def pull_print_coupon
     offer_id = params[:offer_id]
-    rss = HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/print?uuid=#{current_user.uuid}&offerid=#{offer_id}", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
+    rss = HTTParty.get(
+      "http://api.entertainment.com/AtomServer3/feeds/print?" +
+      "uuid=#{current_user.uuid}&offerid=#{offer_id}",
+      basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
     xml = Feedjira::Feed.parse rss
     @coupon = xml.entries.first
   end
 
 private
+
+  def categories_from_params
+    search = params[:search]
+    categories = [search.fetch(:category, [])] +
+                 [search.fetch(:subcategory, [])] +
+                 [search.fetch(:cuisine_subcategory, [])]
+    categories.reject {|category| category.to_s.chars.count == 0 }
+  end
+
+  def atom_pages
+    Rails.logger.info categories_from_params
+    EpiAtomRetriever.(params[:search][:zip_code],
+                      params[:search][:distance],
+                      categories_from_params)
+  end
+
+  def feed_entries
+    Feedjira::Parser::Sisk.parse_pages(atom_pages)
+  end
 
   def set_site
     @site = Site.find(params[:id])

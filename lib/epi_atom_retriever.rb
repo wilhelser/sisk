@@ -13,7 +13,7 @@ module EpiAtomRetriever
     atom_pages, current_count = [], 25
 
     puts "Getting initial resultset"
-    atom = atom_retriever(resource_url, basic_auth_hash)
+    atom = atom_retriever(resource_url)
     number_of_records = result_count(atom)
     number_of_records > 250 ? total_records = 250 : total_records = number_of_records
     records_left = total_records
@@ -22,8 +22,7 @@ module EpiAtomRetriever
 
     while records_left > 0
       puts "Getting paged resultset"
-      atom = atom_retriever(paged_url(resource_url, current_count),
-                            basic_auth_hash)
+      atom = atom_retriever(paged_url(resource_url, current_count))
       puts "Gathered some atom, there are still #{records_left} left to go"
       records_left = total_records - current_count
       current_count = current_count + 25
@@ -58,7 +57,7 @@ private
   end
 
   def build_categories_params(categories)
-    categories.map {|category| "category=#{category}" }
+    categories.map {|cat| "category=#{cat}" }
   end
 
   def assert_server_has_curl
@@ -66,16 +65,17 @@ private
     raise "You need to install curl on this server"
   end
 
-  def atom_retriever(url, auth)
-    HTTParty.get(url, auth)
+  def atom_retriever(url)
+    assert_server_has_curl
+    `curl --user #{basic_auth} #{url}`
   end
 
   def base_url
     "http://api.entertainment.com/AtomServer3/feeds/offers?uuid=#{@current_uuid}"
   end
 
-  def basic_auth_hash
-    { basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" } }
+  def basic_auth
+    "INFO@SISK.COM:T1aPw4SjF"
   end
 
 end
