@@ -9,6 +9,7 @@ module EpiAtomRetriever
   def get_atom(zipcode, distance, categories)
     assert_server_has_curl
     resource_url = resource_url_with_params(zipcode, distance, categories)
+    Rails.logger.info "Query Params: #{resource_url}"
 
     atom_pages, current_count = [], 25
 
@@ -50,7 +51,8 @@ private
   end
 
   def resource_params(zipcode, distance, categories)
-    ["location=#{zipcode}",
+    ["uuid=#{set_uuid}",
+     "location=#{zipcode}",
      "distance=#{distance}",
      *build_categories_params(categories)
     ].join("&")
@@ -71,7 +73,8 @@ private
   end
 
   def base_url
-    "http://api.entertainment.com/AtomServer3/feeds/offers?uuid=#{@current_uuid}"
+    Rails.logger.info session.inspect
+    "http://api.entertainment.com/AtomServer3/feeds/offers"
   end
 
   def basic_auth

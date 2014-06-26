@@ -21,6 +21,7 @@
           - if @body_class == 'sites'
             .row
               .interior-title
+                = @current_uuid
                 %h1= @page_title ||= "Member Benefits"
           - else
             = yield :interior_header

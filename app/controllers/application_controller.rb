@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def set_uuid
     if user_signed_in?
-      @current_uuid = current_user.uuid
+      current_user.uuid
     end
   end
 
