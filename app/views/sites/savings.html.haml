@@ -1,8 +1,9 @@
 .benefits-heading.medium-12= @page_title
 .clearfix
 .medium-10.search-fields.medium-offset-1
-  %p Please click the link below to access your benefit.
-  %a.button.savers-guide-button{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Savings Made Easy
+  .savings-link-wrap
+    %p Please click the link below to access your benefits.
+    %a.button.savers-guide-button{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Savings Made Easy
 %ul#api-results-wrap.large-block-grid-2.small-block-grid-1
   - if @sections.any?
     = render @sections
