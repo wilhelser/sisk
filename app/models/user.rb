@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   def generate_uuid
     cs = [*'0'..'9']
-    10.times.map { cs.sample }.join
+    9.times.map { cs.sample }.join
   end
 
   def has_registered_with_ent_api?
