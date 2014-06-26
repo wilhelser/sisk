@@ -51,7 +51,7 @@ private
   end
 
   def resource_params(zipcode, distance, categories)
-    ["uuid=#{set_uuid}",
+    ["uuid=0753309663",
      "location=#{zipcode}",
      "distance=#{distance}",
      *build_categories_params(categories)
@@ -73,7 +73,6 @@ private
   end
 
   def base_url
-    Rails.logger.info session.inspect
     "http://api.entertainment.com/AtomServer3/feeds/offers"
   end
 
