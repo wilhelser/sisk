@@ -1,4 +1,4 @@
-eclass BenefitsController < ApplicationController
+class BenefitsController < ApplicationController
   before_action :set_benefit, only: [:show]
 
   private
