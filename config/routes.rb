@@ -1,10 +1,9 @@
 Sisk::Application.routes.draw do
-  resources :sections
 
-  resources :benefits
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  resources :sections
+  resources :benefits
   resources :sites do
     member do
       get "usage", to: 'sites#usage'
