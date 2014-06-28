@@ -7,6 +7,6 @@ class SectionsController < InheritedResources::Base
   end
 
   def section_params
-    params.require(:site).permit(:name, :url, :site_code, :benefit_ids)
+    params.require(:site).permit(:name, :url, :site_code, :benefit_ids, :position)
   end
 end
