@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :site
   validates :first_name, :last_name, :email, :password, :member_id, :login_code, presence: true
+  validates_uniqueness_of :uuid
   before_create :set_site
   after_create :send_welcome_email
 
@@ -35,7 +36,7 @@ class User < ActiveRecord::Base
     @code = self.login_code
     @site = Site.find_by_site_code(@code)
     self.site = @site
-    self.uuid = self.member_id
+    self.uuid = generate_uuid
   end
 
   def send_welcome_email

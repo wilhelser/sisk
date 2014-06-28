@@ -18,11 +18,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'activeadmin-dragonfly', github: 'stefanoverna/activeadmin-dragonfly'
 gem 'activeadmin-wysihtml5', github: 'stefanoverna/activeadmin-wysihtml5'
 gem 'httparty'
-gem 'nokogiri'
 gem 'jquery-minicolors-rails'
 gem "font-awesome-rails"
-gem "simple-rss"
-gem 'ratom'
 gem 'feedjira'
 group :production do
   gem 'rails_12factor'
