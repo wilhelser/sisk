@@ -10,6 +10,8 @@
       font-size: 2rem!important
   .header-wrapper
     height: 190px
+    h1
+      line-height: 1
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em)
   #home-hero
@@ -19,6 +21,10 @@
     font-size: 2rem
   .header-wrapper
     height: 190px
+    h1
+      line-height: 1
+  .memberid-help
+    right: 0
 
 // Large
 @media only screen and (min-width: 40.063em)
@@ -28,6 +34,8 @@
   body.home, body.devisesessions
     .header-wrapper
       height: 670px
+  .memberid-help
+    left: 21%
   .top-bar-container
     height: 200px
     background-color: rgba(0, 0, 0, 0.4)
@@ -60,16 +68,13 @@
       .slug-text
         width: 60%
         margin: 0 auto
-        %p
+        p
           font-family: $proxima
           font-size: 24px
   .benefits-heading
     font-size: 2.25rem
     height: 100px
     line-height: 100px
-  .ft-widget-wrap
-    article:first-child
-      margin-top: 105px
   .interior-title
     height: 150px
     h1

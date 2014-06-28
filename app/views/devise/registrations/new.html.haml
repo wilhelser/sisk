@@ -1,5 +1,5 @@
-#register-form-wrap.medium-8.column.medium-offset-2
-  %h1.center Create Your Account
+- @page_title = "Create Your Account"
+#register-form-wrap.medium-10.columns.medium-offset-1
   %p We have made several improvements to our website and the login process has changed. If you have not yet created your account required for login, please complete the form below.
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form', autocomplete: 'off' }) do |f|
     = f.error_notification
