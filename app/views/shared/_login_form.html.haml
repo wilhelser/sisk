@@ -2,13 +2,13 @@
   .divider
   .small-3.columns.no-padding
     %label.right.inline{for: "user_email"} Email
-  .small-7.columns.no-padding
-    = f.input_field :email, :autofocus => true
+  .small-9.columns.no-padding
+    = f.input_field :email
   .clearfix
   .divider
   .small-3.columns.no-padding
     %label.right.inline{for: "user_password"} Password
-  .small-7.columns.no-padding
+  .small-9.columns.no-padding
     = f.input_field :password
   .clearfix
   = f.submit "Send", class: "home-submit"
