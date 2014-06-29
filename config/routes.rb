@@ -1,5 +1,14 @@
 Sisk::Application.routes.draw do
 
+  namespace :api do
+    namespace :v1 do
+      resources :users
+      resources :sites
+      resources :benefits
+      resources :sections
+    end
+  end
+
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
   resources :sections
@@ -19,6 +28,8 @@ Sisk::Application.routes.draw do
       get "login", to: 'sites#login'
     end
   end
+
+  devise_for :users, :token_authentication_key => 'authentication_key'
 
   get "home/index"
   get "usage", :to => 'home#usage'

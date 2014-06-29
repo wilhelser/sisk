@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_uuid
+  before_filter :after_token_authentication
+
+  def after_token_authentication
+    if params[:authentication_key].present?
+      @user = User.find_by_authentication_token(params[:authentication_key])
+      the user with the authentication_key with which devise has authenticated the user
+      sign_in @user if @user
+      redirect_to root_path
+    end
+  end
 
   def set_uuid
     if user_signed_in?
