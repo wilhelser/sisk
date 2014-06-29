@@ -28,11 +28,9 @@ Sisk::Application.routes.draw do
     end
   end
 
-  devise_for :users, :token_authentication_key => 'authentication_key'
-
   get "home/index"
   get "usage", :to => 'home#usage'
-  devise_for :users, :controllers => { :registrations => "registrations"}
+  devise_for :users, :controllers => { :registrations => "registrations"}, :token_authentication_key => 'authentication_key'
   resources :users
   root :to => "home#index"
   get "about", to: 'home#about'
