@@ -1,10 +1,6 @@
-= content_tag_for(:li, section) do
-  .inner
-    .flip
-      .card
-        .face.front
-          .inner
-            .reward-title= section.title
-        .face.back
-          .inner
-            .reward-title= section.content.html_safe
+= content_tag_for(:li, section, class: 'benefit') do
+  .sectionFlip= section.title
+  .sectionData
+    .sectionDescription= section.content.html_safe
+
+

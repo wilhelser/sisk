@@ -1,0 +1,48 @@
+.benefit, .section
+  margin-bottom: 2%
+  padding: 2% 3%
+  .inner
+    background: $blue
+    position: relative
+    overflow: hidden
+    height: 300px
+    font-family: $proxima
+    font-size: 1.5rem
+    p, ul, h3
+      line-height: 1.2!important
+    .front
+      text-align: center
+      line-height: 300px
+      font-weight: 300
+      color: #fff
+    .back
+      color: #000
+
+.sectionFlip
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  border: 1px solid #ddd
+  &:hover
+    border: 1px solid #999
+    -moz-box-shadow: 0 0 30px #999 inset
+    -webkit-box-shadow: 0 0 30px #999 inset
+    box-shadow: 0 0 30px #999 inset
+  img
+    position: absolute
+    top: 50%
+    left: 50%
+    margin: -70px 0 0 -70px
+
+.sectionData
+  display: none
+
+.sectionDescription
+  font-size: 11px
+  padding: 50px 10px 20px 20px
+  font-style: italic
+
+.clear
+  clear: both
