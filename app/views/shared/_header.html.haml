@@ -1,4 +1,4 @@
-%nav.tab-bar.hide-for-large-up
+%nav.tab-bar.show-for-medium-down
   %section.right-small
     %a.right-off-canvas-toggle.menu-icon
       %span
@@ -9,7 +9,7 @@
     - else
       %a{href: "/"}
         =image_tag 'mobile-logo.png'
-%aside.right-off-canvas-menu{"data-offcanvas" => ""}
+%aside.right-off-canvas-menu
   %ul.off-canvas-list
     = render 'shared/mobile_navigation_links'
 
