@@ -33,6 +33,7 @@ group :development do
   gem 'rails_layout'
   gem 'habtm_generator'
   gem 'railroady'
+  gem 'annotate'
   # gem 'debugger'
 end
 group :development, :test do

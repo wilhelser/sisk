@@ -9,7 +9,7 @@
     - else
       %a{href: "/"}
         =image_tag 'mobile-logo.png'
-%aside.right-off-canvas-menu
+%aside.right-off-canvas-menu{"data-offcanvas" => ""}
   %ul.off-canvas-list
     = render 'shared/mobile_navigation_links'
 
