@@ -13,7 +13,11 @@ class SitesController < ApplicationController
   end
 
   def show
-    @benefits = @site.benefits
+    if current_user.is_superadmin?
+      @benefits = Benefit.all
+    else
+      @benefits = @site.benefits
+    end
   end
 
   def savings
@@ -27,15 +31,27 @@ class SitesController < ApplicationController
   end
 
   def health
-    @benefits = @site.health_benefits
+    if current_user.is_superadmin?
+      @benefits = Benefit.where(:category_id == 2)
+    else
+      @benefits = @site.health_benefits
+    end
   end
 
   def insurance
-    @benefits = @site.insurance_benefits
+    if current_user.is_superadmin?
+      @benefits = Benefit.where(:category_id == 3)
+    else
+      @benefits = @site.insurance_benefits
+    end
   end
 
   def security
-    @benefits = @site.security_benefits
+    if current_user.is_superadmin?
+      @benefits = Benefit.where(:category_id == 4)
+    else
+      @benefits = @site.security_benefits
+    end
   end
 
   def pull_print_coupon

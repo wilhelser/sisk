@@ -55,6 +55,10 @@ class User < ActiveRecord::Base
     self.ent_registered?
   end
 
+  def is_superadmin?
+    self.id == 4
+  end
+
   def register_with_entertainment
     HTTParty.get("http://api.entertainment.com/AtomServer3/feeds/register?uuid=#{self.uuid}&firstName=#{self.first_name}&lastName=#{self.last_name}&action=SAVE", basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
     Rails.logger.info "Registered!"
