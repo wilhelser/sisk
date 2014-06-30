@@ -1,18 +1,4 @@
 $ ->
-  # $(document).delegate '.benefit', 'click', ->
-  #   $(@).addClass "benefit-flipped"
-  #   $(this).find(".card").addClass("flipped").mouseleave ->
-  #     $(this).removeClass "flipped"
-  #     $('.benefit-flipped').removeClass "benefit-flipped"
-
-  # $(document).delegate '.section', 'click', ->
-  #   $(@).addClass "benefit-flipped"
-  #   $(this).find(".card").addClass("flipped").mouseleave ->
-  #     $(this).removeClass "flipped"
-  #     $('.benefit-flipped').removeClass "benefit-flipped"
-
-  # $('.benefit').quickFlip()
-  # $('.section').quickFlip()
 
   $('.disabled').click ->
     false
@@ -30,4 +16,3 @@ $ ->
       $(@front).hide('fast')
       $(@back).show()
       $(@).addClass('flipped')
-
