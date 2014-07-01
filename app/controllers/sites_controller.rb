@@ -35,7 +35,11 @@ class SitesController < ApplicationController
   end
 
   def security
-    @benefits = @site.security_benefits
+    if Rails.env == "development"
+      @benefits = Benefit.where(:category_id => 4)
+    else
+      @benefits = @site.security_benefits
+    end
   end
 
   def pull_print_coupon
