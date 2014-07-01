@@ -5,10 +5,10 @@ Sisk::Application.routes.draw do
       resources :sites
       resources :benefits
       resources :sections
-      devise_scope :user do
-        post "/sign_in", :to => 'session#create'
-        delete "/sign_out", :to => 'session#destroy'
-      end
+      # devise_scope :user do
+      #   post "/sign_in", :to => 'session#create'
+      #   delete "/sign_out", :to => 'session#destroy'
+      # end
     end
   end
 
