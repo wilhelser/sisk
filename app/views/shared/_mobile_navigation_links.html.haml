@@ -1,6 +1,6 @@
 - if @site
   %li
-    = link_to "Savings", "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target:'_blank'
+    = link_to "Savings", savings_site_path(@site)
   %li
     = link_to "Health", health_site_path(@site)
   %li

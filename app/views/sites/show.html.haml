@@ -7,7 +7,7 @@
             %h2.box-title= benefit.title
             - if benefit.title == 'Savings Made Easy'
               .link-one
-                %a{href: "/sites/#{@site.id}/savings"} Click here to save
+                %a{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}"} Click here to save
             - if benefit.link.present?
               .link-one
                 %a{href: "#{benefit.link}", target: '_blank'}= benefit.link_one_text
@@ -34,7 +34,7 @@
     %p= link_to 'Home', '/'
 - else
   = render 'registration_form'
-
+%img.pixel-image{src: "http://www.saversguide.com/custom/savingsmadeeasy/affiliate.gif?uuid=#{current_user.uuid}", width: "1", height: "1", alt: "Savings made Easy"}
 :javascript
   $('.flip').click(function(){
     $(this).find('.card').addClass('flipped').mouseleave(function(){
