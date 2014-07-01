@@ -1,6 +1,6 @@
 - if @site
   %li.icon-rewards.menu-item.hover-dim
-    = link_to "Savings", savings_site_path(@site)
+    = link_to "Savings", "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target:'_blank'
   - if @site.health_benefits.any?
     %li.icon-health.menu-item.hover-dim
       = link_to "Health", health_site_path(@site)
