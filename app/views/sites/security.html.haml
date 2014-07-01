@@ -13,12 +13,8 @@
       - @sections.each do |section|
         %li.section
           .inner
-            .flip
-              .card
-                .face.front
-                  .inner
-                    .reward-title= section.title
-                .face.back
-                  .inner
-                    .reward-title= section.content.html_safe
+            .flip-front
+              .inner= section.title
+            .flip-back
+              .inner= section.content.html_safe
   .clearfix

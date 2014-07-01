@@ -1,6 +1,8 @@
 = content_tag_for(:li, section, class: 'benefit') do
-  .sectionFlip= section.title
-  .sectionData
-    .sectionDescription= section.content.html_safe
+  .inner
+    .flip-front
+      .inner= section.title
+    .flip-back
+      .inner= section.content.html_safe
 
 
