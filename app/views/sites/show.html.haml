@@ -17,10 +17,18 @@
             - if benefit.link_three.present?
               .link-one
                 %a{href: "#{benefit.link_three}", target: '_blank'}= benefit.link_three_text
+            - if benefit.id == 37
+              .link-one
+                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"} Click Here to Enroll in Identity IQ Protect Max
+            - if benefit.id == 38
+              .link-one
+                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"} Click Here to Enroll in Identity IQ Protect Pro
+            %ul.large-block-grid-2.small-block-grid-1
             - unless benefit.link_two.present?
               - if benefit.link_two_text.present?
                 .link-bottom
                   %p.small= benefit.link_two_text.html_safe
+
   - else
     %p You don't have access to this content.
     %p= link_to 'Home', '/'
