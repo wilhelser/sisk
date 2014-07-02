@@ -23,7 +23,7 @@
           - elsif benefit.id == 39
             %ul.benefit-links-ul
               %li
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect Pro
+                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"} Enroll in Identity IQ
               - if benefit.link_two.present?
                 %li.show-for-large-only= link_to benefit.link_two_text, benefit.link_two
               - if benefit.link_three.present?
