@@ -7,27 +7,27 @@
           - if benefit.id == 37
             %ul.benefit-links-ul
               %li
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect Max now
+                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect Max
               - if benefit.link_two.present?
-                %li.show-for-large-only= link_to benefit.link_two_text, benefit.link_two
+                %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
               - if benefit.link_three.present?
-                %li.show-for-large-only= link_to benefit.link_three_text, benefit.link_three
+                %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
           - elsif benefit.id == 38
             %ul.benefit-links-ul
               %li
                 %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect Pro
               - if benefit.link_two.present?
-                %li.show-for-large-only= link_to benefit.link_two_text, benefit.link_two
+                %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
               - if benefit.link_three.present?
-                %li.show-for-large-only= link_to benefit.link_three_text, benefit.link_three
+                %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
           - elsif benefit.id == 39
             %ul.benefit-links-ul
               %li
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect Pro
+                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect
               - if benefit.link_two.present?
-                %li.show-for-large-only= link_to benefit.link_two_text, benefit.link_two
+                %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
               - if benefit.link_three.present?
-                %li.show-for-large-only= link_to benefit.link_three_text, benefit.link_three
+                %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
           - else
             - if benefit.link
               .benefit-link-wrap

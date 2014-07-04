@@ -7,7 +7,16 @@
             %h2.box-title= benefit.title
             - if benefit.title == 'Savings Made Easy'
               .link-one
-                %a{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}"} Click here to save
+                %a{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.member_id}"} Click here to save
+            - if benefit.id == 37
+              .link-one
+                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect Max
+            - if benefit.id == 38
+              .link-one
+                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect
+            - if benefit.id == 39
+              .link-one
+                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect Pro
             - if benefit.link.present?
               .link-one
                 %a{href: "#{benefit.link}", target: '_blank'}= benefit.link_one_text
@@ -17,12 +26,6 @@
             - if benefit.link_three.present?
               .link-one
                 %a{href: "#{benefit.link_three}", target: '_blank'}= benefit.link_three_text
-            - if benefit.id == 37
-              .link-one
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect Max Now
-            - if benefit.id == 38
-              .link-one
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect Pro Now
             %ul.large-block-grid-2.small-block-grid-1
             - unless benefit.link_two.present?
               - if benefit.link_two_text.present?
@@ -34,7 +37,7 @@
     %p= link_to 'Home', '/'
 - else
   = render 'registration_form'
-%img.pixel-image{src: "http://www.saversguide.com/custom/savingsmadeeasy/affiliate.gif?uuid=#{current_user.uuid}", width: "1", height: "1", alt: "Savings made Easy"}
+%img.pixel-image{src: "http://www.saversguide.com/custom/savingsmadeeasy/affiliate.gif?uuid=#{current_user.member_id}", width: "1", height: "1", alt: "Savings made Easy"}
 :javascript
   $('.flip').click(function(){
     $(this).find('.card').addClass('flipped').mouseleave(function(){

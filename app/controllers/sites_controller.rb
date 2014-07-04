@@ -13,7 +13,11 @@ class SitesController < ApplicationController
   end
 
   def show
-    @benefits = @site.benefits
+    if Rails.env == "development"
+      @benefits = Benefit.all
+    else
+      @benefits = @site.benefits
+    end
   end
 
   def savings

@@ -34,7 +34,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable
   belongs_to :site
   validates :first_name, :last_name, :email, :password, :member_id, :login_code, presence: true
-  validates_uniqueness_of :uuid
+  validates_uniqueness_of :member_id
+  validate :is_not_old_member_id
   before_create :set_site
   after_create :send_welcome_email
 
@@ -49,6 +50,12 @@ class User < ActiveRecord::Base
   def generate_uuid
     cs = [*'0'..'9']
     9.times.map { cs.sample }.join
+  end
+
+  def is_not_old_member_id
+    if member_id == "0045508563"
+      errors.add(:member_id, "Member id is not valid.")
+    end
   end
 
   def has_registered_with_ent_api?
