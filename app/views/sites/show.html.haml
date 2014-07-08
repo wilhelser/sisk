@@ -10,13 +10,13 @@
                 %a{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.member_id}"} Click here to save
             - if benefit.id == 37
               .link-one
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect Max
+                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"}= benefit.link_one_text
             - if benefit.id == 38
               .link-one
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect
+                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
             - if benefit.id == 39
               .link-one
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"} Enroll in Identity IQ Protect Pro
+                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
             - if benefit.link.present?
               .link-one
                 %a{href: "#{benefit.link}", target: '_blank'}= benefit.link_one_text
