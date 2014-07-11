@@ -1,5 +1,6 @@
 Sisk::Application.routes.draw do
 
+  apipie
   namespace :api do
     namespace :v1 do
       resources :sites

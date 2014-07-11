@@ -21,6 +21,8 @@ gem 'httparty'
 gem 'jquery-minicolors-rails'
 gem "font-awesome-rails"
 gem 'feedjira'
+gem 'apipie-rails'
+gem 'simple_token_authentication'
 group :production do
   gem 'rails_12factor'
 end
