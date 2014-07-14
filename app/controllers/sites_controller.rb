@@ -46,16 +46,6 @@ class SitesController < ApplicationController
     end
   end
 
-  def pull_print_coupon
-    offer_id = params[:offer_id]
-    rss = HTTParty.get(
-      "http://api.entertainment.com/AtomServer3/feeds/print?" +
-      "uuid=#{current_user.uuid}&offerid=#{offer_id}",
-      basic_auth: { username: "INFO@SISK.COM", password: "T1aPw4SjF" })
-    xml = Feedjira::Feed.parse rss
-    @coupon = xml.entries.first
-  end
-
 private
 
   def categories_from_params
