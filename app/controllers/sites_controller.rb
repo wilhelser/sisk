@@ -24,6 +24,7 @@ class SitesController < ApplicationController
     session[:uuid] = current_user.uuid unless session[:uuid].present?
     @page_title = "Member Benefits"
     @sections = @site.savings_benefits.first.sections
+    @body_class = "sites savings-body"
   end
 
   def pull_savings
@@ -32,10 +33,12 @@ class SitesController < ApplicationController
 
   def health
     @benefits = @site.health_benefits
+    @body_class = "sites health-body"
   end
 
   def insurance
     @benefits = @site.insurance_benefits
+    @body_class = "sites insurance-body"
   end
 
   def security
@@ -44,6 +47,7 @@ class SitesController < ApplicationController
     else
       @benefits = @site.security_benefits
     end
+    @body_class = "sites security-body"
   end
 
 private

@@ -1,5 +1,5 @@
 class API::V1::BenefitsController < API::V1::ApiController
-  before_filter :validate_auth_token
+  before_filter :after_token_authentication
   before_filter :set_benefit, only: :show
   respond_to :json
 
@@ -19,8 +19,16 @@ class API::V1::BenefitsController < API::V1::ApiController
     @benefit = Benefit.find(params[:id])
   end
 
-  def validate_auth_token
-    @user = User.find_by_authentication_token(params[:auth_token])
-    render :status => 401, :json => {errors: [t('api.v1.token.invalid_token')]} if @user.nil?
+
+  def after_token_authentication
+    if params[:auth_token].present?
+      @user = User.find_by_authentication_token(params[:auth_token])
+      if @user
+        sign_in @user
+        render json: @user, status: 200
+      else
+        render json: "buuulllshiiiiiit", status: 200
+      end
+    end
   end
 end
