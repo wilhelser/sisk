@@ -18,6 +18,7 @@ class SitesController < ApplicationController
     else
       @benefits = @site.benefits
     end
+    @body_class = "sites landing-body"
   end
 
   def savings
