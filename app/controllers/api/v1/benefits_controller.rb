@@ -25,9 +25,8 @@ class API::V1::BenefitsController < API::V1::ApiController
       @user = User.find_by_authentication_token(params[:auth_token])
       if @user
         sign_in @user
-        render json: @user, status: 200
       else
-        render json: "buuulllshiiiiiit", status: 200
+        render json: "Bad auth token", status: 200
       end
     end
   end

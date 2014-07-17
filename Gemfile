@@ -23,6 +23,7 @@ gem "font-awesome-rails"
 gem 'feedjira'
 gem 'apipie-rails'
 gem 'simple_token_authentication'
+gem 'airbrake'
 group :production do
   gem 'rails_12factor'
 end
