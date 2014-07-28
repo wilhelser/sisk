@@ -1,16 +1,9 @@
 Sisk::Application.routes.draw do
 
-  apipie
-  namespace :api do
-    namespace :v1 do
-      resources :benefits do
-        resources :sections
-      end
-      devise_for :users, :controllers => { :sessions => "api/v1/sessions"}
-    end
-  end
-
   ActiveAdmin.routes(self)
+  devise_for :users, :controllers => { :registrations => "registrations"}, :token_authentication_key => 'authentication_key'
+  resources :users
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   resources :sections
   resources :benefits
@@ -32,9 +25,18 @@ Sisk::Application.routes.draw do
 
   get "home/index"
   get "usage", :to => 'home#usage'
-  devise_for :users, :controllers => { :registrations => "registrations"}, :token_authentication_key => 'authentication_key'
-  resources :users
+
   root :to => "home#index"
   get "about", to: 'home#about'
+
+  # apipie
+  namespace :api do
+    namespace :v1 do
+      resources :benefits do
+        resources :sections
+      end
+      devise_for :users, :controllers => { :sessions => "api/v1/sessions"}
+    end
+  end
 
 end
