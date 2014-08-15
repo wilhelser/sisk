@@ -1,0 +1,14 @@
+%section.container{role: "document"}
+  .row
+    %section#home-hero
+      .row
+        .large-7.columns.right
+          .large-9.hide-for-medium-down
+            %h2 Sample Text Goes Here
+          .show-for-medium-down.center
+            %h2 Sample Text Goes Here
+        %aside.large-4.large-offset-1.home-login-form.left
+          .inner
+            %header Join Now
+            #errorMSG
+            = render 'shared/login_form'

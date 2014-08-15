@@ -15,6 +15,9 @@ class SitesController < ApplicationController
   end
 
   def show
+    unless session[:custom_site].blank?
+      render :layout => 'custom_site'
+    end
     if Rails.env == "development"
       @benefits = Benefit.all
     else
@@ -36,12 +39,18 @@ class SitesController < ApplicationController
 
   def health
     @benefits = @site.health_benefits
-    @body_class = "sites health-body"
+    @body_class = "sites health-body interior"
+    unless session[:custom_site].blank?
+      render :layout => 'custom_site'
+    end
   end
 
   def insurance
     @benefits = @site.insurance_benefits
-    @body_class = "sites insurance-body"
+    @body_class = "sites insurance-body interior"
+    unless session[:custom_site].blank?
+      render :layout => 'custom_site'
+    end
   end
 
   def security
@@ -50,7 +59,10 @@ class SitesController < ApplicationController
     else
       @benefits = @site.security_benefits
     end
-    @body_class = "sites security-body"
+    @body_class = "sites security-body interior"
+    unless session[:custom_site].blank?
+      render :layout => 'custom_site'
+    end
   end
 
 private
@@ -89,12 +101,12 @@ private
 
   def add_custom_site_params
     unless session[:custom_site].blank?
-      site = session[:custom_site]
-      @link_color = site.link_color
-      @link_hover_color = site.link_hover_color
-      @primary_color = site.primary_color
-      @secondary_color = site.secondary_color
-      @template = site.template
+      @custom_site = CustomSite.find(session[:custom_site])
+      @link_color = @custom_site.link_color
+      @link_hover_color = @custom_site.link_color_hover
+      @primary_color = @custom_site.primary_color
+      @secondary_color = @custom_site.secondary_color
+      @template = @custom_site.template
     end
   end
 

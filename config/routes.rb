@@ -27,6 +27,7 @@ Sisk::Application.routes.draw do
 
   get "home/index"
   get "usage", :to => 'home#usage'
+  get "mb/:site_slug", :to => 'custom_sites#index'
   # get "wil-is-a-pimp", :to => 'home#index'
 
   root :to => "home#index"

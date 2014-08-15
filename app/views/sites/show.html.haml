@@ -1,36 +1,39 @@
 - if user_signed_in?
   - if current_user.can_access_site(@site)
-    %ul.large-block-grid-4.small-block-grid-1
-      - @benefits.each do |benefit|
-        %li.home_section
-          .inner
-            %h2.box-title= benefit.title
-            - if benefit.title == 'Savings Made Easy'
-              .link-one
-                %a{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.member_id}"} Click here to save
-            - if benefit.id == 37
-              .link-one
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"}= benefit.link_one_text
-            - if benefit.id == 38
-              .link-one
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
-            - if benefit.id == 39
-              .link-one
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
-            - if benefit.link.present?
-              .link-one
-                %a{href: "#{benefit.link}", target: '_blank'}= benefit.link_one_text
-            - if benefit.link_two.present?
-              .link-one
-                %a{href: "#{benefit.link_two}", target: '_blank'}= benefit.link_two_text
-            - if benefit.link_three.present?
-              .link-one
-                %a{href: "#{benefit.link_three}", target: '_blank'}= benefit.link_three_text
-            %ul.large-block-grid-2.small-block-grid-1
-            - unless benefit.link_two.present?
-              - if benefit.link_two_text.present?
-                .link-bottom
-                  %p.small= benefit.link_two_text.html_safe
+    - if @template
+      = render "sites/#{@template}/show"
+    - else
+      %ul.large-block-grid-4.small-block-grid-1
+        - @benefits.each do |benefit|
+          %li.home_section
+            .inner
+              %h2.box-title= benefit.title
+              - if benefit.title == 'Savings Made Easy'
+                .link-one
+                  %a{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.member_id}"} Click here to save
+              - if benefit.id == 37
+                .link-one
+                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"}= benefit.link_one_text
+              - if benefit.id == 38
+                .link-one
+                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
+              - if benefit.id == 39
+                .link-one
+                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
+              - if benefit.link.present?
+                .link-one
+                  %a{href: "#{benefit.link}", target: '_blank'}= benefit.link_one_text
+              - if benefit.link_two.present?
+                .link-one
+                  %a{href: "#{benefit.link_two}", target: '_blank'}= benefit.link_two_text
+              - if benefit.link_three.present?
+                .link-one
+                  %a{href: "#{benefit.link_three}", target: '_blank'}= benefit.link_three_text
+              %ul.large-block-grid-2.small-block-grid-1
+              - unless benefit.link_two.present?
+                - if benefit.link_two_text.present?
+                  .link-bottom
+                    %p.small= benefit.link_two_text.html_safe
 
   - else
     %p You don't have access to this content.

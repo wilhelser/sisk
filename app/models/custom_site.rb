@@ -22,14 +22,5 @@
 #  account_number   :string(60)
 #
 class CustomSite < ActiveRecord::Base
-  after_create :write_redirect_to_routes
 
-  def write_redirect_to_routes
-    # insert_into_file "config/routes.rb", "\n  get \"#{self.url}\", :to => 'home#index'", :before => /^end/
-    open('config/routes.rb', 'a') do |f|
-      f << "\n  get \"#{self.url}\""
-    end
-    # new_route = "\n  get \"#{self.url}\", :to => 'home#index'"
-    # route new_route
-  end
 end

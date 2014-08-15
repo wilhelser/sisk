@@ -1,0 +1,21 @@
+%nav.tab-bar.show-for-medium-down
+  %section.right-small
+    %a.right-off-canvas-toggle.menu-icon
+      %span
+  %section.middle.tab-bar-section
+    %a{href: "index.html"}
+      = image_tag "#{@template}/mobile-logo.png"
+%aside.right-off-canvas-menu
+  = render 'shared/mobile_navigation_links'
+
+.header
+  .top-bar-container.contain-to-grid.show-for-large-up
+    %nav.top-bar{"data-topbar" => ""}
+      %ul.title-area
+        %li.name
+          %h1
+            %a{href: "index.html"}
+              = image_tag "#{@template}/logo.png"
+      %section.top-bar-section
+        %ul#main-menu.top-bar-menu.right
+          = render 'layouts/navigation_links'

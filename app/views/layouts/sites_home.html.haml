@@ -5,6 +5,8 @@
     %title= content_for?(:title) ? yield(:title) : 'Sisk'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Sisk'}"}
     = stylesheet_link_tag 'application', media: 'all'
+    - if @template
+      = stylesheet_link_tag "#{@template}/style", media: 'all'
     -# Modernizr is required for Zurb Foundation
     = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application'
@@ -12,6 +14,7 @@
     <script src="//use.typekit.net/pur7wlk.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
   %body{class: 'home'}
+    = session[:custom_site]
     /[if lt IE 9]
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     - if user_signed_in?

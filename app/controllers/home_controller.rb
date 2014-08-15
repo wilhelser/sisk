@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+  # if params[:site_slug].present?
+  #   layout 'custom_site'
+  # end
 
   def index
     @body_class = 'home'

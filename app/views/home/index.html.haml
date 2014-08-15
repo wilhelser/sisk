@@ -1,4 +1,8 @@
-= render 'shared/home_hero'
+- if @template?
+  = render "shared/template1/home_hero"
+  = render "templates/template1/home/index"
+- else
+  = render 'shared/home_hero'
 .home-sections-wrap
   %section#savings-section
     .row

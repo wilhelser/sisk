@@ -5,6 +5,8 @@
     %title= content_for?(:title) ? yield(:title) : 'Member Benefits Packages'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Sisk'}"}
     = stylesheet_link_tag 'application', media: 'all'
+    - if @template
+      = stylesheet_link_tag "#{@template}/style", media: 'all'
     = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application'
     = csrf_meta_tags
@@ -17,8 +19,11 @@
       = render 'shared/settings_nav'
     .off-canvas-wrap{"data-offcanvas" => ""}
       .inner-wrap
-        .header-wrapper
-          = render 'shared/header'
+        .header-wrapper{class: "#{@body_class}"}
+          - if @template
+            = render "shared/#{@template}/header"
+          - else
+            = render 'shared/header'
           = yield :home_hero
           - if @body_class == 'sites'
             .row
@@ -30,11 +35,9 @@
         %section.content
           .row
             .medium-10.columns.medium-offset-1
-              = session[:current_site]
               = render 'layouts/messages'
               = yield
         = render 'shared/footer'
-        = render 'sites/print_modal'
     :javascript
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
               e=o.createElement(i);r=o.getElementsByTagName(i)[0];
