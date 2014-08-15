@@ -23,16 +23,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def check_for_custom_site
-    @url = request.fullpath
-    @custom_slugs = get_custom_site_slugs
-    if @custom_slugs.include?(@url)
-      @custom_site = CustomSite.find_by_url(@url)
-      session[:custom_site] = @custom_site.id
-      redirect_to :controller => 'sites',custom_site_url(@custom_site, custom_site: @custom_site)
-    end
-  end
-
   def set_user_session
     if devise_controller?
       if user_signed_in?
