@@ -19,7 +19,7 @@
 #  site_id                :integer
 #  first_name             :string(60)
 #  last_name              :string(60)
-#  member_id              :integer
+#  member_id              :string(10)
 #  login_code             :integer
 #  email_updates          :boolean          default(FALSE)
 #  uuid                   :string(10)

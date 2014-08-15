@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711154941) do
+ActiveRecord::Schema.define(version: 20140815143824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,26 @@ ActiveRecord::Schema.define(version: 20140711154941) do
     t.string   "title",      limit: 50, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "custom_sites", force: true do |t|
+    t.string   "name",             limit: 60
+    t.string   "url",              limit: 60
+    t.string   "company_name",     limit: 60
+    t.string   "city",             limit: 60
+    t.string   "state",            limit: 30
+    t.string   "zip_code",         limit: 10
+    t.string   "primary_color",    limit: 10
+    t.string   "secondary_color",  limit: 10
+    t.string   "link_color",       limit: 10
+    t.string   "link_color_hover", limit: 10
+    t.string   "club_name",        limit: 60
+    t.string   "bank_website",     limit: 60
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "template",         limit: 20
+    t.string   "logo"
+    t.string   "account_number",   limit: 60
   end
 
   create_table "home_sections_sites", id: false, force: true do |t|

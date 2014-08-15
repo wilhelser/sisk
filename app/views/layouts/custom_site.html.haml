@@ -10,8 +10,9 @@
     = csrf_meta_tags
     <script src="//use.typekit.net/pur7wlk.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
-  %body{class: @body_class ||= 'sites'}
-    = session.inspect
+  %body{class: @body_class ||= 'custom-sites'}
+    :style
+      a { color: #{@custom_site.link_color}!important;}
     /[if lt IE 9]
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     - if user_signed_in?

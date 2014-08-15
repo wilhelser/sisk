@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_uuid
   before_filter :set_user_session
+  # before_filter :check_for_custom_site
   # before_filter :after_token_authentication
 
   def after_token_authentication
@@ -19,6 +20,16 @@ class ApplicationController < ActionController::Base
   def set_uuid
     if user_signed_in?
       current_user.uuid
+    end
+  end
+
+  def check_for_custom_site
+    @url = request.fullpath
+    @custom_slugs = get_custom_site_slugs
+    if @custom_slugs.include?(@url)
+      @custom_site = CustomSite.find_by_url(@url)
+      session[:custom_site] = @custom_site.id
+      redirect_to :controller => 'sites',custom_site_url(@custom_site, custom_site: @custom_site)
     end
   end
 
@@ -48,6 +59,10 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource_or_scope)
     root_path
+  end
+
+  def get_custom_site_slugs
+    CustomSite.all.pluck(:url)
   end
 
   protected

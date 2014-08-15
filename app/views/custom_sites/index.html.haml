@@ -1,0 +1,41 @@
+%h1 Listing custom_sites
+
+%table
+  %tr
+    %th Name
+    %th Url
+    %th Company name
+    %th City
+    %th State
+    %th Zip code
+    %th Primary color
+    %th Secondary color
+    %th Link color
+    %th Link color hover
+    %th Club name
+    %th Bank website
+    %th
+    %th
+    %th
+
+  - @custom_sites.each do |custom_site|
+    %tr
+      %td= custom_site.name
+      %td= custom_site.url
+      %td= custom_site.company_name
+      %td= custom_site.city
+      %td= custom_site.state
+      %td= custom_site.zip_code
+      %td= custom_site.primary_color
+      %td= custom_site.secondary_color
+      %td= custom_site.link_color
+      %td= custom_site.link_color_hover
+      %td= custom_site.club_name
+      %td= custom_site.bank_website
+      %td= link_to 'Show', custom_site
+      %td= link_to 'Edit', edit_custom_site_path(custom_site)
+      %td= link_to 'Destroy', custom_site, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Custom site', new_custom_site_path
