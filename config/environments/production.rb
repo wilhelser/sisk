@@ -86,6 +86,15 @@ Sisk::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['siskuploads'],
+      :access_key_id => ENV['AKIAIQR3PSHFWQLW7AUA'],
+      :secret_access_key => ENV['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']
+    }
+  }
+
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false

@@ -11,9 +11,10 @@
     = csrf_meta_tags
     <script src="//use.typekit.net/pur7wlk.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
-  %body{class: @body_class ||= 'custom-sites'}
+  %body{class: @body_class ||= 'custom-sites sites'}
     :css
-      -# a { color: #{@link_color}!important;}
+      a { color: #{@link_color}!important;}
+      a:hover { color: #{@link_hover_color}!important;}
     /[if lt IE 9]
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     - if user_signed_in?
@@ -21,7 +22,10 @@
     .off-canvas-wrap{"data-offcanvas" => ""}
       .inner-wrap
         .header-wrapper{class: "#{@body_class}"}
-          = render "shared/#{@template}/header"
+          - unless @template.blank?
+            = render "shared/#{@template}/header"
+          - else
+            = render "shared/header"
           = yield :home_header
           - if @body_class == 'sites'
             .row
@@ -35,7 +39,10 @@
             .medium-10.columns.medium-offset-1
               = render 'layouts/messages'
               = yield
-        = render "shared/#{@template}/footer"
+        - unless @template.blank?
+          = render "shared/#{@template}/footer"
+        - else
+          = render "shared/footer"
     :javascript
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
               e=o.createElement(i);r=o.getElementsByTagName(i)[0];

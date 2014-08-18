@@ -1,23 +1,13 @@
-- if @template == 'template1'
-  %section.content.interior
-    .row.interior-title
-      .medium-12.columns.text-center
-        %h2= benefit.title
-    .row.interior-content
-      -# - if benefit.sections.any?
-      - @sections = benefit.sections
-      = render @sections
-- else
-  .benefits-heading.medium-12
-    .inner
-    .outer
-      .inner.benefit-inner
-        = benefit.title
-        - if benefit.link
-          .benefit-link-wrap
-            %a.benefit-link{href: benefit.link}= benefit.link_one_text
-  %ul.large-block-grid-2.small-block-grid-1
-    - if benefit.sections.any?
-      - @sections = benefit.sections
-      = render @sections
-  .clearfix
+.benefits-heading.medium-12
+  .inner
+  .outer
+    .inner.benefit-inner
+      = benefit.title
+      - if benefit.link
+        .benefit-link-wrap
+          %a.benefit-link{href: benefit.link}= benefit.link_one_text
+%ul.large-block-grid-2.small-block-grid-1
+  - if benefit.sections.any?
+    - @sections = benefit.sections
+    = render @sections
+.clearfix

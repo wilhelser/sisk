@@ -1,12 +1,11 @@
 Sisk::Application.routes.draw do
 
-  resources :custom_sites
-
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => { :registrations => "registrations"}, :token_authentication_key => 'authentication_key'
   resources :users
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+  resources :custom_sites
   resources :sections
   resources :benefits
   resources :sites do
@@ -28,7 +27,6 @@ Sisk::Application.routes.draw do
   get "home/index"
   get "usage", :to => 'home#usage'
   get "mb/:site_slug", :to => 'custom_sites#index'
-  # get "wil-is-a-pimp", :to => 'home#index'
 
   root :to => "home#index"
   get "about", to: 'home#about'

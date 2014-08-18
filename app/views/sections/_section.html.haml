@@ -1,11 +1,6 @@
-- if @template == 'template1'
-  = div_for(section, class: 'benefit medium-6 columns')
-    %h2= section.title
-    = section.content.html_safe
--else
-  = content_tag_for(:li, section, class: 'benefit') do
-    .inner
-      .flip-front
-        .inner= section.title
-      .flip-back
-        .inner= section.content.html_safe
+= content_tag_for(:li, section, class: 'benefit') do
+  .inner
+    .flip-front
+      .inner= section.title
+    .flip-back
+      .inner= section.content.html_safe

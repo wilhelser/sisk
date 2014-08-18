@@ -34,4 +34,13 @@ Sisk::Application.configure do
   # Send email in development mode?
   config.action_mailer.perform_deliveries = true
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['siskuploads'],
+      :access_key_id => ENV['AKIAIQR3PSHFWQLW7AUA'],
+      :secret_access_key => ENV['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']
+    }
+  }
+
 end

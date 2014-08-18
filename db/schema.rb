@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815143824) do
+ActiveRecord::Schema.define(version: 20140818134720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,23 +102,26 @@ ActiveRecord::Schema.define(version: 20140815143824) do
   end
 
   create_table "custom_sites", force: true do |t|
-    t.string   "name",             limit: 60
-    t.string   "url",              limit: 60
-    t.string   "company_name",     limit: 60
-    t.string   "city",             limit: 60
-    t.string   "state",            limit: 30
-    t.string   "zip_code",         limit: 10
-    t.string   "primary_color",    limit: 10
-    t.string   "secondary_color",  limit: 10
-    t.string   "link_color",       limit: 10
-    t.string   "link_color_hover", limit: 10
-    t.string   "club_name",        limit: 60
-    t.string   "bank_website",     limit: 60
+    t.string   "name",              limit: 60
+    t.string   "url",               limit: 60
+    t.string   "company_name",      limit: 60
+    t.string   "city",              limit: 60
+    t.string   "state",             limit: 30
+    t.string   "zip_code",          limit: 10
+    t.string   "primary_color",     limit: 10
+    t.string   "secondary_color",   limit: 10
+    t.string   "link_color",        limit: 10
+    t.string   "link_color_hover",  limit: 10
+    t.string   "club_name",         limit: 60
+    t.string   "bank_website",      limit: 60
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "template",         limit: 20
-    t.string   "logo"
-    t.string   "account_number",   limit: 60
+    t.string   "template",          limit: 20
+    t.string   "account_number",    limit: 60
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "home_sections_sites", id: false, force: true do |t|

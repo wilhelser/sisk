@@ -29,7 +29,8 @@ ActiveAdmin.register CustomSite do
       f.input :link_color_hover, input_html: { class: 'colorpicker' }
       f.input :club_name
       f.input :bank_website
-      f.input :logo
+      # f.input :logo, :as => :file
+      f.input :logo, :as => :file, :hint => f.template.image_tag(f.object.logo.url(:thumb))
     end
     f.actions
   end
