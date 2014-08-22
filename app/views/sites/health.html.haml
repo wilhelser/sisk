@@ -1,26 +1,27 @@
-.row
-  .medium-10.columns.medium-offset-1
-    = render 'layouts/messages'
-    - if @template.blank?
-      - @benefits.each do |benefit|
-        .benefits-heading.medium-12
-          .inner
-          .outer
-            .inner.benefit-inner
-              = benefit.title
-              - if benefit.link
-                .benefit-link-wrap
-                  %a.benefit-link{href: benefit.link}= benefit.link_one_text
-        %ul.large-block-grid-2.small-block-grid-1
-          - if benefit.sections.any?
-            - @sections = benefit.sections
-            - @sections.each do |section|
-              %li.benefit
-                .inner
-                  .flip-front
-                    .inner= section.title
-                  .flip-back
-                    .inner= section.content.html_safe
-        .clearfix
-    - else
-      = render :partial => "benefits/#{@template}/benefits", locals: { benefits: @benefits }
+%section.content.interior
+  .row
+    .medium-10.columns.medium-offset-1
+      = render 'layouts/messages'
+      - if @template.blank?
+        - @benefits.each do |benefit|
+          .benefits-heading.medium-12
+            .inner
+            .outer
+              .inner.benefit-inner
+                = benefit.title
+                - if benefit.link
+                  .benefit-link-wrap
+                    %a.benefit-link{href: benefit.link}= benefit.link_one_text
+          %ul.large-block-grid-2.small-block-grid-1
+            - if benefit.sections.any?
+              - @sections = benefit.sections
+              - @sections.each do |section|
+                %li.benefit
+                  .inner
+                    .flip-front
+                      .inner= section.title
+                    .flip-back
+                      .inner= section.content.html_safe
+          .clearfix
+      - else
+        = render :partial => "benefits/#{@template}/benefits", locals: { benefits: @benefits }

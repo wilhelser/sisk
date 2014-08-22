@@ -14,6 +14,10 @@ class HomeController < ApplicationController
     @page_title = "About Us"
   end
 
+  def privacy
+    @page_title = "Privacy Policy"
+  end
+
   def usage
     @page_title = "Member Benefit Usage Instructions"
   end

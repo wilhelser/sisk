@@ -26,6 +26,7 @@ Sisk::Application.routes.draw do
 
   get "home/index"
   get "usage", :to => 'home#usage'
+  get "privacy", :to => 'home#privacy'
   get "mb/:site_slug", :to => 'custom_sites#index'
 
   root :to => "home#index"
