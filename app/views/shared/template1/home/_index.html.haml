@@ -2,7 +2,7 @@
   .row
     .medium-3.columns.text-center
       = image_tag "#{@template}/rewards.png"
-      %h2.text-center Rewards
+      %h2.text-center Rewardsyo
       %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error eveniet a eius temporibus nostrum alias, blanditiis architecto reprehenderit ab id mollitia sit, necessitatibus minus iste, libero aut obcaecati provident officia sapiente non soluta. Doloribus obcaecati minus numquam consequatur debitis dolor voluptatibus, nulla dolore deleniti, earum quod, magni asperiores animi. Explicabo!
     .medium-3.columns.text-center
       = image_tag "#{@template}/health.png"
@@ -17,5 +17,18 @@
       %h2.text-center Security
       %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis excepturi perspiciatis provident maiores eum accusantium suscipit accusamus, deleniti expedita dolorum at fugit. Perferendis quia, similique architecto et facere. Mollitia similique voluptate quis accusantium rem, autem. Quae facere vitae assumenda deserunt recusandae distinctio reiciendis voluptatibus. Recusandae at doloribus modi illo reprehenderit?
 
-= content_for :home_header do
-  = render "shared/#{@template}/home_hero"
+- content_for :home_header do
+  %section.container{role: "document"}
+  .row
+    %section#home-hero
+      .row
+        .large-7.columns.right
+          .large-9.hide-for-medium-down
+            %h2 Sample Text Goes Here
+          .show-for-medium-down.center
+            %h2 Sample Text Goes Here
+        %aside.large-4.large-offset-1.home-login-form.left
+          .inner
+            %header Join Now
+            #errorMSG
+            = render 'shared/login_form'

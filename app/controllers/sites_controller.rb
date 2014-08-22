@@ -15,15 +15,15 @@ class SitesController < ApplicationController
   end
 
   def show
-    unless session[:custom_site].blank?
-      render :layout => 'custom_site'
-    end
+    # unless session[:custom_site].blank?
+    #   render :layout => 'custom_site'
+    # end
     if Rails.env == "development"
       @benefits = Benefit.all
     else
       @benefits = @site.benefits
     end
-    @body_class = "sites landing-body"
+    @body_class = "sites landing-body home"
   end
 
   def savings
