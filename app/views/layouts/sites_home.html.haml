@@ -5,24 +5,29 @@
     %title= content_for?(:title) ? yield(:title) : 'Sisk'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Sisk'}"}
     = stylesheet_link_tag 'application', media: 'all'
-    - if @template
+    - unless @template.blank?
       = stylesheet_link_tag "#{@template}/style", media: 'all'
-    -# Modernizr is required for Zurb Foundation
     = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application'
     = csrf_meta_tags
     <script src="//use.typekit.net/pur7wlk.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
   %body{class: 'home'}
-    = session[:custom_site]
+    - unless @site.blank?
+      :css
+        a { color: #{@link_color}!important;}
+        a:hover { color: #{@link_hover_color}!important;}
     /[if lt IE 9]
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     - if user_signed_in?
       = render 'shared/settings_nav'
     .off-canvas-wrap{"data-offcanvas" => ""}
       .inner-wrap
-        .header-wrapper
-          = render 'shared/header'
+        .header-wrapper.home
+          - unless @template.blank?
+            = render "shared/#{@template}/header"
+          - else
+            = render "shared/header"
           = yield :home_hero
           - if @body_class == 'sites'
             .row
@@ -30,13 +35,11 @@
                 %h1= @page_title ||= "Member Benefits"
           - else
             = yield :interior_header
-        %section.content
-          .row
-            .medium-10.columns.medium-offset-1
-              = render 'layouts/messages'
-              = yield
-        = render 'shared/footer'
-        = render 'sites/print_modal'
+        = yield
+        - unless @template.blank?
+          = render "shared/#{@template}/footer"
+        - else
+          = render "shared/footer"
     :javascript
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
               e=o.createElement(i);r=o.getElementsByTagName(i)[0];

@@ -5,16 +5,18 @@
     %title= content_for?(:title) ? yield(:title) : 'Member Benefits Packages'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Sisk'}"}
     = stylesheet_link_tag 'application', media: 'all'
-    = stylesheet_link_tag "#{@template}/style.css"
+    - unless @template.blank?
+      = stylesheet_link_tag "#{@template}/style.css"
     = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application'
     = csrf_meta_tags
     <script src="//use.typekit.net/pur7wlk.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
   %body{class: @body_class ||= 'custom-sites sites'}
-    :css
-      a { color: #{@link_color}!important;}
-      a:hover { color: #{@link_hover_color}!important;}
+    - unless @site.blank?
+      :css
+        a { color: #{@link_color}!important;}
+        a:hover { color: #{@link_hover_color}!important;}
     /[if lt IE 9]
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     - if user_signed_in?
@@ -34,11 +36,7 @@
                 %h1= @page_title ||= "Member Benefits"
           - else
             = yield :interior_header
-        %section.content
-          .row
-            .medium-10.columns.medium-offset-1
-              = render 'layouts/messages'
-              = yield
+        = yield
         - unless @template.blank?
           = render "shared/#{@template}/footer"
         - else

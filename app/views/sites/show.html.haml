@@ -1,7 +1,8 @@
+= render 'layouts/messages'
 - if user_signed_in?
   - if current_user.can_access_site(@site)
     - unless @template.blank?
-      = render "sites/#{@template}/show", layout: 'custom_site'
+      = render "sites/#{@template}/show"
     - else
       %ul.large-block-grid-4.small-block-grid-1
         - @benefits.each do |benefit|
