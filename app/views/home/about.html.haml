@@ -1,7 +1,8 @@
-.row
-  .medium-10.columns.medium-offset-1
-    = render 'layouts/messages'
-    - unless @site.blank?
-      = render 'home/subsite_about'
-    - else
-      = render 'home/main_site_about'
+%section.content
+  .row
+    .medium-10.columns.medium-offset-1
+      = render 'layouts/messages'
+      - unless @site.blank?
+        = render 'home/subsite_about'
+      - else
+        = render 'home/main_site_about'
