@@ -1,8 +1,8 @@
-%section.content.interior
-  .row
-    .medium-10.columns.medium-offset-1
-      = render 'layouts/messages'
-      - if @template.blank?
+- if @template.blank?
+  %section.content.interior
+    .row
+      .medium-10.columns.medium-offset-1
+        = render 'layouts/messages'
         - @benefits.each do |benefit|
           .benefits-heading.medium-12
             .inner
@@ -23,6 +23,6 @@
                     .flip-back
                       .inner= section.content.html_safe
           .clearfix
-      - else
-        = render :partial => "benefits/#{@template}/benefits", locals: { benefits: @benefits }
+- else
+  = render :partial => "sites/#{@template}/insurance", locals: { benefits: @benefits }
 

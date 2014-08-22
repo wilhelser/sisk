@@ -3,30 +3,30 @@
     .row
       .large-12.columns.text-center
         .large-8.large-offset-2
-          %h2 The main heading for the section goes here.dfsdfdsfdf
-        %h3.home Subheadline for the sections look like this.
-        .button Learn about rewards
+          %h2 Travel, Shopping  Entertainment
+        %h3.home Savings Made Easy
+        = link_to "Learn about rewards", savings_site_path(@site), class: 'button'
   .home-item-2
     .row
       .large-12.columns.text-center
         .large-8.large-offset-2
-          %h2 The main heading for the section goes here.
-        %h3.home Subheadline for the sections look like this.
-        .button Learn about rewards
+          %h2 Health
+        %h3.home Medicine Made Affordable
+        = link_to "Learn about rewards", health_site_path(@site), class: 'button'
   .home-item-3
     .row
       .large-12.columns.text-center
         .large-8.large-offset-2
-          %h2 The main heading for the section goes here.
-        %h3.home Subheadline for the sections look like this.
-        .button Learn about rewards
+          %h2 Insurance
+        %h3.home Step Towards Savings
+        = link_to "Learn about rewards", insurance_site_path(@site), class: 'button'
   .home-item-4
     .row
       .large-12.columns.text-center
         .large-8.large-offset-2
-          %h2 The main heading for the section goes here.
-        %h3.home Subheadline for the sections look like this.
-        .button Learn about rewards
+          %h2 Security
+        %h3.home Protecting Who You Are
+        = link_to "Learn about rewards", security_site_path(@site), class: 'button'
 
 - content_for :interior_header do
   %section.container{:role => "document"}

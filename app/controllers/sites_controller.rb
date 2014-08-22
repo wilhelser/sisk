@@ -30,7 +30,7 @@ class SitesController < ApplicationController
     session[:uuid] = current_user.uuid unless session[:uuid].present?
     @page_title = "Member Benefits"
     @sections = @site.savings_benefits.first.sections
-    @body_class = "sites savings-body"
+    @body_class = "sites savings-body interior"
   end
 
   def pull_savings
