@@ -1,0 +1,19 @@
+%form#new_user.simple_form.form{"accept-charset" => "UTF-8", :action => "/users/sign_in", :autocomplete => "off", :method => "post", :novalidate => "novalidate"}
+  %div{:style => "margin:0;padding:0;display:inline"}
+    %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+    %input{:name => "authenticity_token", :type => "hidden", :value => "PH3peB8BC8/G/4tiPto9SEs/pQByGHmYDGMCAaH4quU="}/
+  .small-12.columns.no-padding
+    %label.right.inline{:for => "user_email"} Member ID
+  .small-12.columns.no-padding
+    %input#user_email.string.email.required{:maxlength => "255", :name => "user[email]", :size => "255", :type => "email", :value => ""}/
+  .clearfix
+  .small-12.columns.no-padding
+    %label.right.inline{:for => "user_password"} Password
+  .small-12.columns.no-padding
+    %input#user_password.password.required{:name => "user[password]", :type => "password"}/
+  .clearfix
+  .small-10.small-offset-1.columns
+    %input.home-submit{:name => "commit", :type => "submit", :value => "Submit"}/
+    .clearfix
+    %a.home-submit.home-register{:href => "users/sign_up.html"} Register for an account
+    %a.forgot-password{:href => "users/password/new.html"} Forgot your password?

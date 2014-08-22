@@ -1,0 +1,13 @@
+- benefits.each do |benefit|
+  %section.content.interior
+    .row.interior-title
+      .medium-12.columns.text-center
+        %h2= benefit.title
+    .row.interior-content
+      - if benefit.sections.any?
+        - @sections = benefit.sections
+        - @sections.each do |section|
+          .benefit.medium-6.columns
+            %h2= section.title
+            = section.content.html_safe
+
