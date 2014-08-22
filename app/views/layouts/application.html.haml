@@ -6,7 +6,7 @@
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Sisk'}"}
     = stylesheet_link_tag 'application', media: 'all'
     - unless @template.blank?
-      = stylesheet_link_tag "#{@template}/style.css"
+      = stylesheet_link_tag "#{@template}.css"
     = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application'
     = csrf_meta_tags
