@@ -29,7 +29,7 @@ ActiveAdmin.register CustomSite do
       f.input :link_color_hover, input_html: { class: 'colorpicker' }
       f.input :club_name
       f.input :bank_website
-      f.input :template
+      f.input :template, :as => :select, :collection => ["template1", "template2", "template3"]
       f.inputs "Logo", :multipart => true do
         f.input :logo, :as => :file, :hint => f.template.image_tag(f.object.logo.url)
         f.input :logo_cache, :as => :hidden
