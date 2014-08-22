@@ -107,6 +107,7 @@ private
       @primary_color = @custom_site.primary_color
       @secondary_color = @custom_site.secondary_color
       @template = @custom_site.template
+      @logo = @custom_site.logo.url
     end
   end
 

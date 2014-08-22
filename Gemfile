@@ -19,12 +19,15 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'activeadmin-dragonfly', github: 'stefanoverna/activeadmin-dragonfly'
 gem 'activeadmin-wysihtml5', github: 'stefanoverna/activeadmin-wysihtml5'
 gem 'httparty'
+gem 'carrierwave'
 gem 'jquery-minicolors-rails'
 gem "font-awesome-rails"
 gem 'feedjira'
 gem 'apipie-rails'
 gem 'simple_token_authentication'
-gem 'airbrake'
+gem 'mini_magick'
+# gem 'airbrake'
+gem "fog"
 group :production do
   gem 'rails_12factor'
 end

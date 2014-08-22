@@ -4,7 +4,7 @@
       %span
   %section.middle.tab-bar-section
     %a{href: "index.html"}
-      = image_tag "#{@template}/mobile-logo.png"
+      %img{src: "#{@logo}"}
 %aside.right-off-canvas-menu
   = render 'shared/mobile_navigation_links'
 
@@ -15,7 +15,7 @@
         %li.name
           %h1
             %a{href: "index.html"}
-              = image_tag "#{@template}/logo.png"
+              %img{src: "#{@logo}"}
       %section.top-bar-section
         %ul#main-menu.top-bar-menu.right
           = render 'layouts/navigation_links'

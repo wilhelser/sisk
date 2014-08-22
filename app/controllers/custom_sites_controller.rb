@@ -23,6 +23,7 @@ class CustomSitesController < ApplicationController
       @link_color = @custom_site.link_color
       @link_hover_color = @custom_site.link_color_hover
       @template = @custom_site.template
+      @logo = @custom_site.logo.url
     end
   end
 end

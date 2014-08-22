@@ -25,7 +25,5 @@
 #  logo_updated_at   :datetime
 #
 class CustomSite < ActiveRecord::Base
-  # require 'paperclip'
-  # has_attached_file :logo, :styles => { :medium => "171x75#", :thumb => "85x17#" }
-  image_accessor :logo
+  mount_uploader :logo, CustomLogoUploader
 end
