@@ -12,7 +12,7 @@
     = csrf_meta_tags
     <script src="//use.typekit.net/pur7wlk.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
-  %body{class: @body_class ||= 'custom-sites sites'}
+  %body{class: @body_class ||= "custom-sites sites"}
     - unless @site.blank?
       :css
         a { color: #{@link_color}!important;}
