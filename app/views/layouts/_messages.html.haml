@@ -1,7 +1,8 @@
-.row
-  .large-8.columns.large-offset-2
-    - flash.each do |name, msg|
-      - if msg.is_a?(String)
-        %div{:class => "alert-box", "data-alert" => ""}
-          = content_tag :div, msg
-          %a.close{:href => "#"} &times;
+- content_for :messages do
+  .row.no-bg
+    .large-8.columns.large-offset-2
+      - flash.each do |name, msg|
+        - if msg.is_a?(String)
+          %div{:class => "alert-box", "data-alert" => ""}
+            = content_tag :div, msg
+            %a.close{:href => "#"} &times;

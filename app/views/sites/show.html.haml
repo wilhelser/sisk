@@ -1,4 +1,3 @@
-= render 'layouts/messages'
 - if user_signed_in?
   - if current_user.can_access_site(@site)
     - unless @template.blank?
