@@ -1,5 +1,7 @@
 Sisk::Application.routes.draw do
 
+  resources :site_configs
+
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => { :registrations => "registrations"}, :token_authentication_key => 'authentication_key'
   resources :users
@@ -38,6 +40,7 @@ Sisk::Application.routes.draw do
       resources :benefits do
         resources :sections
       end
+      resources :site_configs
       devise_for :users, :controllers => { :sessions => "api/v1/sessions"}
     end
   end

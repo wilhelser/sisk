@@ -1,0 +1,10 @@
+= simple_form_for(@site_config) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :identity_iq_protect_link
+    = f.input :identity_iq_pro_link
+    = f.input :identity_iq_protect_max_link
+
+  .form-actions
+    = f.button :submit

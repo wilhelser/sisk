@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140822172721) do
+ActiveRecord::Schema.define(version: 20140826213518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,14 @@ ActiveRecord::Schema.define(version: 20140822172721) do
     t.datetime "updated_at"
   end
 
+  create_table "configurations", force: true do |t|
+    t.string   "identity_iq_protect_link",     limit: 180
+    t.string   "identity_iq_pro_link",         limit: 180
+    t.string   "identity_iq_protect_max_link", limit: 180
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "custom_sites", force: true do |t|
     t.string   "name",             limit: 60
     t.string   "url",              limit: 60
@@ -135,6 +143,14 @@ ActiveRecord::Schema.define(version: 20140822172721) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+  end
+
+  create_table "site_configs", force: true do |t|
+    t.string   "identity_iq_protect_link",     limit: 180
+    t.string   "identity_iq_pro_link",         limit: 180
+    t.string   "identity_iq_protect_max_link", limit: 180
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sites", force: true do |t|

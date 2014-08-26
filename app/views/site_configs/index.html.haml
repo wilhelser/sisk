@@ -1,0 +1,23 @@
+%h1 Listing site_configs
+
+%table
+  %tr
+    %th Identity iq protect link
+    %th Identity iq pro link
+    %th Identity iq protect max link
+    %th
+    %th
+    %th
+
+  - @site_configs.each do |site_config|
+    %tr
+      %td= site_config.identity_iq_protect_link
+      %td= site_config.identity_iq_pro_link
+      %td= site_config.identity_iq_protect_max_link
+      %td= link_to 'Show', site_config
+      %td= link_to 'Edit', edit_site_config_path(site_config)
+      %td= link_to 'Destroy', site_config, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Site config', new_site_config_path

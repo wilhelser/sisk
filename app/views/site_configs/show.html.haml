@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Identity iq protect link:
+  = @site_config.identity_iq_protect_link
+%p
+  %b Identity iq pro link:
+  = @site_config.identity_iq_pro_link
+%p
+  %b Identity iq protect max link:
+  = @site_config.identity_iq_protect_max_link
+
+= link_to 'Edit', edit_site_config_path(@site_config)
+\|
+= link_to 'Back', site_configs_path
