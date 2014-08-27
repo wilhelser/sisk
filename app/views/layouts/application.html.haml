@@ -29,13 +29,12 @@
           - else
             = render "shared/header"
           = yield :home_header
-          - if @body_class == 'sites' && @template.blank?
-            .row
-              .interior-title
-                = @current_uuid
-                %h1= @page_title ||= "Member Benefits"
-          - else
-            = yield :interior_header
+          -# - if @body_class == 'sites' && @template.blank?
+          -#   .row
+          -#     .interior-title
+          -#       %h1= @page_title ||= "Member Benefits"
+          -# - else
+          = yield :interior_header
         = yield
         - unless @template.blank?
           = render "shared/#{@template}/footer"

@@ -36,10 +36,10 @@
                     - if benefit.link_two_text.present?
                       .link-bottom
                         %p.small= benefit.link_two_text.html_safe
-    - content_for :interior_header do
-      .row
-        .interior-title
-          %h1= @page_title ||= "Member Benefits"
+    -# - content_for :interior_header do
+    -#   .row
+    -#     .interior-title
+    -#       %h1= @page_title ||= "Member Benefits"
   - else
     %p You don't have access to this content.
     %p= link_to 'Home', '/'
@@ -53,12 +53,3 @@
     });
     return false;
   });
-
-- content_for :interior_header do
-  %section.container{:role => "document"}
-    .row
-      %section#home-hero.interior
-        .row
-          .large-12.text-center
-            %h2.white Rewards
-
