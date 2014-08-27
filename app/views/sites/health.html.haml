@@ -22,5 +22,9 @@
                     .flip-back
                       .inner= section.content.html_safe
           .clearfix
+  - content_for :interior_header do
+    .row
+      .interior-title
+        %h1= @page_title ||= "Member Benefits"
 - else
   = render :partial => "sites/#{@template}/health", locals: { benefits: @benefits }

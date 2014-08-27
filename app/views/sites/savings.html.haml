@@ -14,6 +14,10 @@
         %ul#api-results-wrap.large-block-grid-2.small-block-grid-1
           - if @sections.any?
             = render @sections
+  - content_for :interior_header do
+    .row
+      .interior-title
+        %h1= @page_title ||= "Member Benefits"
 - else
   = render :partial => "sites/#{@template}/savings", locals: { sections: @sections }
 

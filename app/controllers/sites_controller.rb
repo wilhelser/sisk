@@ -40,6 +40,7 @@ class SitesController < ApplicationController
   def health
     @benefits = @site.health_benefits
     @body_class = "sites health-body interior"
+    @page_title = "Health"
     # unless session[:custom_site].blank?
     #   render layout: 'custom_site'
     # end
@@ -48,6 +49,7 @@ class SitesController < ApplicationController
   def insurance
     @benefits = @site.insurance_benefits
     @body_class = "sites insurance-body interior"
+    @page_title = "Insurance"
     # unless session[:custom_site].blank?
     #   render :layout => 'custom_site'
     # end
@@ -60,6 +62,7 @@ class SitesController < ApplicationController
       @benefits = @site.security_benefits
     end
     @body_class = "sites security-body interior"
+    @page_title = "Security"
     # unless session[:custom_site].blank?
     #   render :layout => 'custom_site'
     # end
