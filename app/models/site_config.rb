@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: configurations
+# Table name: site_configs
 #
 #  id                           :integer          not null, primary key
 #  identity_iq_protect_link     :string(180)

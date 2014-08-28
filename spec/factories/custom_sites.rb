@@ -20,6 +20,7 @@
 #  template         :string(20)
 #  account_number   :string(60)
 #  logo             :string(255)
+#  login_code       :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

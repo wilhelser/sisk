@@ -94,8 +94,13 @@ private
   end
 
   def set_site
-    @site = Site.find(params[:id])
-    @site_session = session[:custom_site] unless session[:custom_site].blank?
+    unless session[:custom_site].blank?
+      custom_site = CustomSite.find(session[:custom_site])
+      @site = Site.find_by_name(custom_site.login_code)
+      @site_session = session[:custom_site]
+    else
+      @site = Site.find(params[:id])
+    end
     @body_class = 'sites'
     if user_signed_in?
       @uuid = current_user.uuid

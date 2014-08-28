@@ -10,7 +10,7 @@ class CustomSitesController < ApplicationController
   end
 
   def custom_site_params
-    params.require(:site).permit(:name, :url, :company_name, :city, :state, :zip_code, :primary_color, :secondary_color, :link_color, :link_color_hover, :club_name, :bank_website, :template, :account_number, :logo)
+    params.require(:site).permit(:name, :url, :company_name, :city, :state, :zip_code, :primary_color, :secondary_color, :link_color, :login_code, :link_color_hover, :club_name, :bank_website, :template, :account_number, :logo)
   end
 
   private
@@ -24,6 +24,7 @@ class CustomSitesController < ApplicationController
       @link_hover_color = @custom_site.link_color_hover
       @template = @custom_site.template
       @logo = @custom_site.logo.url
+      @login_code = @custom_site.login_code
     end
   end
 end

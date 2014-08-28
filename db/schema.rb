@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826213518) do
+ActiveRecord::Schema.define(version: 20140828160829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 20140826213518) do
     t.string   "template",         limit: 20
     t.string   "account_number",   limit: 60
     t.string   "logo"
+    t.integer  "login_code"
   end
 
   create_table "home_sections_sites", id: false, force: true do |t|
