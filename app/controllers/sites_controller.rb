@@ -96,7 +96,7 @@ private
   def set_site
     unless session[:custom_site].blank?
       custom_site = CustomSite.find(session[:custom_site])
-      @site = Site.find_by_name(custom_site.login_code)
+      @site = Site.find_by_name(custom_site.login_code.to_s)
       @site_session = session[:custom_site]
     else
       @site = Site.find(params[:id])
