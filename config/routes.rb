@@ -7,7 +7,7 @@ Sisk::Application.routes.draw do
   resources :users
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  resources :custom_sites
+  # resources :custom_sites
   resources :sections
   resources :benefits
   resources :sites do
@@ -29,7 +29,7 @@ Sisk::Application.routes.draw do
   get "home/index"
   get "usage", :to => 'home#usage'
   get "privacy", :to => 'home#privacy'
-  get "mb/:site_slug", :to => 'custom_sites#index'
+  get "mb/:site_slug", :to => 'custom_sites#home'
 
   root :to => "home#index"
   get "about", to: 'home#about'

@@ -13,7 +13,8 @@
     <script src="//use.typekit.net/pur7wlk.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
   %body{class: @body_class ||= "custom-sites sites"}
-    - unless @site.blank?
+    = puts @template unless @template.blank?
+    - unless @template.blank?
       :css
         a { color: #{@link_color}!important;}
         a:hover { color: #{@link_hover_color}!important;}
@@ -29,11 +30,6 @@
           - else
             = render "shared/header"
           = yield :home_header
-          -# - if @body_class == 'sites' && @template.blank?
-          -#   .row
-          -#     .interior-title
-          -#       %h1= @page_title ||= "Member Benefits"
-          -# - else
           = yield :interior_header
         = yield
         - unless @template.blank?
