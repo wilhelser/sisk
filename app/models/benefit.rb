@@ -32,4 +32,5 @@ class Benefit < ActiveRecord::Base
   def parent
     self.category.title
   end
+
 end

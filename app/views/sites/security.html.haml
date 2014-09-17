@@ -11,7 +11,7 @@
                   - if benefit.id == 37
                     %ul.benefit-links-ul
                       %li
-                        %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"}= benefit.link_one_text
+                        %a{href: "#{benefit.link}#{current_user.member_id}"}= benefit.link_one_text
                       - if benefit.link_two.present?
                         %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
                       - if benefit.link_three.present?
