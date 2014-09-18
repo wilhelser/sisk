@@ -1,6 +1,6 @@
 ActiveAdmin.register CustomSite do
 
-  permit_params :name, :url, :company_name, :city, :state, :zip_code, :primary_color, :secondary_color, :link_color, :link_color_hover, :club_name, :bank_website, :template, :account_number, :logo, :login_code
+  permit_params :name, :url, :company_name, :city, :state, :zip_code, :primary_color, :secondary_color, :link_color, :link_color_hover, :club_name, :bank_website, :template, :account_number, :logo, :login_code, :content_section
 
   # Index
   index do
@@ -29,6 +29,7 @@ ActiveAdmin.register CustomSite do
       f.input :link_color_hover, input_html: { class: 'colorpicker' }
       f.input :club_name
       f.input :bank_website
+      f.input :content_section, as: :select, collection: ContentSection.all
       f.input :login_code, as: :select, collection: Site.all.map{|u| ["#{u.name}", u.name.to_i]}
       f.input :template, :as => :select, :collection => ["template1", "template2", "template3"]
       f.inputs "Logo", :multipart => true do

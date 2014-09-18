@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828160829) do
+ActiveRecord::Schema.define(version: 20140918135851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,16 @@ ActiveRecord::Schema.define(version: 20140828160829) do
     t.datetime "updated_at"
   end
 
+  create_table "content_sections", force: true do |t|
+    t.text     "intro_content"
+    t.text     "health_content"
+    t.text     "insurance_content"
+    t.text     "savings_content"
+    t.text     "security_content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "custom_sites", force: true do |t|
     t.string   "name",             limit: 60
     t.string   "url",              limit: 60
@@ -128,6 +138,7 @@ ActiveRecord::Schema.define(version: 20140828160829) do
     t.string   "account_number",   limit: 60
     t.string   "logo"
     t.integer  "login_code"
+    t.integer  "content_section",  limit: 2
   end
 
   create_table "home_sections_sites", id: false, force: true do |t|
