@@ -22,10 +22,7 @@
     .off-canvas-wrap{"data-offcanvas" => ""}
       .inner-wrap
         .header-wrapper{class: "#{@body_class}"}
-          - unless @template.blank?
-            = render "shared/#{@template}/header"
-          - else
-            = render "shared/header"
+          = render "shared/#{@template}/header"
           = yield :home_header
           - if @body_class == 'sites'
             .row
@@ -39,10 +36,7 @@
             .medium-10.columns.medium-offset-1
               = render 'layouts/messages'
               = yield
-        - unless @template.blank?
-          = render "shared/#{@template}/footer"
-        - else
-          = render "shared/footer"
+        = render "shared/#{@template}/footer"
     :javascript
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
               e=o.createElement(i);r=o.getElementsByTagName(i)[0];

@@ -25,4 +25,26 @@
 
 class CustomSite < ActiveRecord::Base
   mount_uploader :logo, CustomLogoUploader
+
+  def benefits
+    site = Site.find_by_name(self.login_code.to_s)
+    site.benefits
+  end
+
+  def savings_benefits
+    self.benefits.where(:category_id => 1)
+  end
+
+  def health_benefits
+    self.benefits.where(:category_id => 2)
+  end
+
+  def insurance_benefits
+    self.benefits.where(:category_id => 3)
+  end
+
+  def security_benefits
+    self.benefits.where(:category_id => 4)
+  end
+
 end

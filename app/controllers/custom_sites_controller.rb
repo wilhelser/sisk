@@ -4,9 +4,44 @@ class CustomSitesController < ApplicationController
 
   def index
     @body_class = 'login'
-    if user_signed_in?
-      redirect_to current_user.site
+    @benefits = @custom_site.benefits
+  end
+
+  def show
+    if Rails.env == "development"
+      @benefits = Benefit.all
+    else
+      @benefits = @custom_site.benefits
     end
+  end
+
+  def savings
+    session[:uuid] = current_user.uuid unless session[:uuid].present?
+    @page_title = "Member Benefits"
+    @sections = @custom_site.savings_benefits.first.sections
+    @body_class = "sites savings-body interior"
+  end
+
+  def health
+    @benefits = @custom_site.health_benefits
+    @body_class = "sites health-body interior"
+    @page_title = "Health"
+  end
+
+  def insurance
+    @benefits = @custom_site.insurance_benefits
+    @body_class = "sites insurance-body interior"
+    @page_title = "Insurance"
+  end
+
+  def security
+    if Rails.env == "development"
+      @benefits = Benefit.where(:category_id => 4)
+    else
+      @benefits = @custom_site.security_benefits
+    end
+    @body_class = "sites security-body interior"
+    @page_title = "Security"
   end
 
   def custom_site_params
