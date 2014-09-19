@@ -13,7 +13,8 @@
 #
 
 class ContentSection < ActiveRecord::Base
+  has_many :custom_sites
   def to_s
-    self.id
+    self.id.to_s
   end
 end

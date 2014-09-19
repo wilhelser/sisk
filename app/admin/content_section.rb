@@ -2,6 +2,13 @@ ActiveAdmin.register ContentSection do
 
   permit_params :intro_content, :health_content, :insurance_content, :savings_content, :security_content
 
+  # Index
+  index do
+    selectable_column
+    column :id
+    actions
+  end
+
   # Form
   form do |f|
     f.inputs "Content Section Details" do

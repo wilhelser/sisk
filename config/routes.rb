@@ -29,7 +29,11 @@ Sisk::Application.routes.draw do
   get "home/index"
   get "usage", :to => 'home#usage'
   get "privacy", :to => 'home#privacy'
-  get "mb/:site_slug", :to => 'custom_sites#index'
+  get "mb/:site_slug", :to => 'custom_sites#index', :as => 'custom_site_home'
+  get "mb/:site_slug/savings", :to => 'custom_sites#savings', :as => 'custom_site_savings'
+  get "mb/:site_slug/health", :to => 'custom_sites#health', :as => 'custom_sites_health'
+  get "mb/:site_slug/insurance", :to => 'custom_sites#insurance', :as => 'custom_sites_insurance'
+  get "mb/:site_slug/security", :to => 'custom_sites#security', :as => 'custom_sites_security'
 
   root :to => "home#index"
   get "about", to: 'home#about'

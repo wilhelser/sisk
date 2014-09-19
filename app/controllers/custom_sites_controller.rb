@@ -45,7 +45,7 @@ class CustomSitesController < ApplicationController
   end
 
   def custom_site_params
-    params.require(:site).permit(:name, :url, :company_name, :city, :state, :zip_code, :primary_color, :secondary_color, :link_color, :login_code, :link_color_hover, :club_name, :bank_website, :template, :account_number, :logo)
+    params.require(:site).permit(:name, :url, :company_name, :city, :state, :zip_code, :primary_color, :secondary_color, :link_color, :login_code, :link_color_hover, :club_name, :bank_website, :template, :account_number, :logo, :content_section)
   end
 
   private
@@ -60,6 +60,12 @@ class CustomSitesController < ApplicationController
       @template = @custom_site.template
       @logo = @custom_site.logo.url
       @login_code = @custom_site.login_code
+      content_section = @custom_site.content_section
+      @intro_content = @custom_site.content_section.intro_content.gsub!("[BANK_NAME]", @custom_site.name)
+      @health_content = content_section.health_content.gsub!("[BANK_NAME]", @custom_site.name)
+      @insurance_content = content_section.insurance_content.gsub!("[BANK_NAME]", @custom_site.name)
+      @savings_content = content_section.savings_content.gsub!("[BANK_NAME]", @custom_site.name)
+      @security_content = content_section.security_content.gsub!("[BANK_NAME]", @custom_site.name)
     end
   end
 end

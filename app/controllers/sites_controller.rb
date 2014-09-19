@@ -116,6 +116,13 @@ private
       @secondary_color = @custom_site.secondary_color
       @template = @custom_site.template
       @logo = @custom_site.logo.url
+      @login_code = @custom_site.login_code
+      content_section = ContentSection.find(@custom_site.content_section)
+      @intro_content = @custom_site.content_section.intro_content.gsub!("[BANK_NAME]", @custom_site.name)
+      @health_content = content_section.health_content.gsub!("[BANK_NAME]", @custom_site.name)
+      @insurance_content = content_section.insurance_content.gsub!("[BANK_NAME]", @custom_site.name)
+      @savings_content = content_section.savings_content.gsub!("[BANK_NAME]", @custom_site.name)
+      @security_content = content_section.security_content.gsub!("[BANK_NAME]", @custom_site.name)
     end
   end
 

@@ -1,0 +1,23 @@
+- if user_signed_in?
+  %li.menu-item.hover-dim
+    = link_to "Savings", custom_site_savings_path(@custom_site)
+  - if @custom_site.health_benefits.any?
+    %li.menu-item.hover-dim
+      = link_to "Health", custom_site_health_path(@custom_site)
+  - if @custom_site.insurance_benefits.any?
+    %li.menu-item.hover-dim
+      = link_to "Insurance", custom_site_insurance_path(@custom_site)
+  - if @custom_site.health_benefits.any?
+    %li.menu-item.hover-dim
+      = link_to "Security", custom_site_security_path(@custom_site)
+- else
+  %li.menu-item.hover-dim
+    %a{href: "/about"} About Us
+  %li.menu-item.disabled
+    = link_to "Savings", '#'
+  %li.menu-item.disabled
+    = link_to "Health", '#'
+  %li.menu-item.disabled
+    = link_to "Insurance", '#'
+  %li.menu-item.disabled
+    = link_to "Security", '#'

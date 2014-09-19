@@ -1,61 +1,59 @@
 - if user_signed_in?
-  %section.content.home-sections
-    .row.interior-content
-      %ul.large-block-grid-4.small-block-grid-1
-        - @benefits.each do |benefit|
-          %li.home_section
-            .inner
-              %h2.box-title= benefit.title
-              - if benefit.title == 'Savings Made Easy'
-                .link-one
-                  %a{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.member_id}"} Click here to save
-              - if benefit.id == 37
-                .link-one
-                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"}= benefit.link_one_text
-              - if benefit.id == 38
-                .link-one
-                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
-              - if benefit.id == 39
-                .link-one
-                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
-              - if benefit.link.present?
-                .link-one
-                  %a{href: "#{benefit.link}", target: '_blank'}= benefit.link_one_text
-              - if benefit.link_two.present?
-                .link-one
-                  %a{href: "#{benefit.link_two}", target: '_blank'}= benefit.link_two_text
-              - if benefit.link_three.present?
-                .link-one
-                  %a{href: "#{benefit.link_three}", target: '_blank'}= benefit.link_three_text
-              %ul.large-block-grid-2.small-block-grid-1
-              - unless benefit.link_two.present?
-                - if benefit.link_two_text.present?
-                  .link-bottom
-                    %p.small= benefit.link_two_text.html_safe
+  %ul.large-block-grid-4.small-block-grid-1
+    - @benefits.each do |benefit|
+      %li.home_section
+        .inner
+          %h2.box-title= benefit.title
+          - if benefit.title == 'Savings Made Easy'
+            .link-one
+              %a{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.member_id}"} Click here to save
+          - if benefit.id == 37
+            .link-one
+              %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"}= benefit.link_one_text
+          - if benefit.id == 38
+            .link-one
+              %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
+          - if benefit.id == 39
+            .link-one
+              %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
+          - if benefit.link.present?
+            .link-one
+              %a{href: "#{benefit.link}", target: '_blank'}= benefit.link_one_text
+          - if benefit.link_two.present?
+            .link-one
+              %a{href: "#{benefit.link_two}", target: '_blank'}= benefit.link_two_text
+          - if benefit.link_three.present?
+            .link-one
+              %a{href: "#{benefit.link_three}", target: '_blank'}= benefit.link_three_text
+          %ul.large-block-grid-2.small-block-grid-1
+          - unless benefit.link_two.present?
+            - if benefit.link_two_text.present?
+              .link-bottom
+                %p.small= benefit.link_two_text.html_safe
   - content_for :interior_header do
     .row
       .interior-title
         %h1= @page_title ||= "Member Benefits"
   %img.pixel-image{src: "http://www.saversguide.com/custom/savingsmadeeasy/affiliate.gif?uuid=#{current_user.member_id}", width: "1", height: "1", alt: "Savings made Easy"}
 - else
-  %section.content
-    .row
-      .medium-3.columns.text-center
-        = image_tag "#{@template}/rewards.png"
-        %h2.text-center Travel, Shopping  Entertainment
-        %p Saving at your favorite restaurants and retailers is as easy as printing or showing coupons on your phone. Save on the brands and products you buy the most. Get great deals and coupons on everything from retail to travel.
-      .medium-3.columns.text-center
-        = image_tag "#{@template}/health.png"
-        %h2.text-center Health
-        %p It’s important to get the best for your health. Save on most prescriptions when you show your Member Benefits ID card at major pharmacies. Your benefits may also include eyewear and eye care savings with our Coast to Coast Vision plan.
-      .medium-3.columns.text-center
-        = image_tag "#{@template}/insurance.png"
-        %h2.text-center Insurance
-        %p Our 24 Hour Accidental Death and Dismemberment coverage is one of the most comprehensive you will find anywhere. In the event of most accidents that result in an accidental death or dismemberment, we will provide payment through the insurance company in use at the time.
-      .medium-3.columns.text-center
-        = image_tag "#{@template}/security.png"
-        %h2.text-center Security
-        %p Identity Theft is too common to ignore. We offer a plan that will look out for you and make sure you can enjoy important moments in life. Our plan is not only good for you but everyone in your household to age 25.
+  .medium-10.columns.medium-offset-1.text-center.intro-content-container
+    = @custom_site.content_section.intro_content.gsub!("[BANK NAME]", "#{@custom_site.name}").html_safe
+  .medium-3.columns.text-center
+    = image_tag "#{@template}/rewards.png"
+    %h2.text-center Travel, Shopping  Entertainment
+    = @custom_site.content_section.savings_content.html_safe
+  .medium-3.columns.text-center
+    = image_tag "#{@template}/health.png"
+    %h2.text-center Health
+    = @custom_site.content_section.health_content.html_safe
+  .medium-3.columns.text-center
+    = image_tag "#{@template}/insurance.png"
+    %h2.text-center Insurance
+    = @custom_site.content_section.insurance_content.html_safe
+  .medium-3.columns.text-center
+    = image_tag "#{@template}/security.png"
+    %h2.text-center Security
+    = @custom_site.content_section.security_content.html_safe
 
   - content_for :home_header do
     %section.container{role: "document"}

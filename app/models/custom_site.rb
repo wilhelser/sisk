@@ -24,6 +24,7 @@
 #
 
 class CustomSite < ActiveRecord::Base
+  belongs_to :content_section
   mount_uploader :logo, CustomLogoUploader
 
   def benefits
