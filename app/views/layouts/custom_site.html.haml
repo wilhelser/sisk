@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : 'Member Benefits Packages'
+    %title #{@custom_site.name} | Member Benefits Packages
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Sisk'}"}
     = stylesheet_link_tag 'application', media: 'all'
     = stylesheet_link_tag "#{@template}/style.css"
