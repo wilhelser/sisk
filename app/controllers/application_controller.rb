@@ -33,7 +33,12 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.instance_of?(User)
-      resource.site
+      if resource.custom_site_id.present?
+        @custom_site = CustomSite.find(resource.custom_site_id)
+        custom_site_home_path(@custom_site.url)
+      else
+        resource.site
+      end
     else
       super
     end
@@ -41,7 +46,12 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(resource)
     if resource.instance_of?(User)
-      resource.site
+      if resource.custom_site_id.present?
+        @custom_site = CustomSite.find(resource.custom_site_id)
+        custom_site_home_path(@custom_site.url)
+      else
+        resource.site
+      end
     else
       super
     end
