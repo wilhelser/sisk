@@ -1,16 +1,20 @@
 %section.content.interior
-  .row.interior-title
-    .medium-12.columns.text-center
-      %h2 Savings Made Easy
-      .benefit-link-wrap
-        %a.benefit-link{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Please click here to access your benefits.
-
-  .row
-    - if sections.any?
-      - sections.each do |section|
-        .medium-6.columns
-          %h2= section.title
-          = section.content.html_safe
+  .interior-title
+    .row
+      .medium-12.columns.text-center
+        %h2 Savings Made Easy
+        .benefit-link-wrap
+          %a.benefit-link{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Please click here to access your benefits.
+    .row.interior-content
+      - if @benefits.any?
+        - @benefits.each do |benefit|
+          .medium-6.columns
+            .interior-wrap
+              %h2= benefit.title
+              - if benefit.sections.any?
+                - benefit.sections.each do |section|
+                  %h3= section.title
+                  = section.content.html_safe
 
 - content_for :interior_header do
   %section.container{:role => "document"}
@@ -20,3 +24,44 @@
           .large-12.text-center
             %h2.white Savings Made Easy
 
+- content_for :special_js do
+  :javascript
+    equalheight = function(container){
+
+      var currentTallest = 0,
+      currentRowStart = 0,
+      rowDivs = new Array(),
+      $el,
+      topPosition = 0;
+      $(container).each(function() {
+
+       $el = $(this);
+       $($el).height('auto')
+       topPostion = $el.position().top;
+
+       if (currentRowStart != topPostion) {
+         for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+           rowDivs[currentDiv].height(currentTallest);
+         }
+         rowDivs.length = 0; // empty the array
+         currentRowStart = topPostion;
+         currentTallest = $el.height();
+         rowDivs.push($el);
+       } else {
+         rowDivs.push($el);
+         currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+       }
+       for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+         rowDivs[currentDiv].height(currentTallest);
+       }
+     });
+    }
+
+    $(window).load(function() {
+      equalheight('.interior-wrap');
+    });
+
+
+    $(window).resize(function(){
+      equalheight('.interior-wrap');
+    });

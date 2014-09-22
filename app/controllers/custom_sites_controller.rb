@@ -18,6 +18,7 @@ class CustomSitesController < ApplicationController
   def savings
     session[:uuid] = current_user.uuid unless session[:uuid].present?
     @page_title = "Member Benefits"
+    @benefits = @custom_site.savings_benefits
     @sections = @custom_site.savings_benefits.first.sections
     @body_class = "sites savings-body interior"
   end

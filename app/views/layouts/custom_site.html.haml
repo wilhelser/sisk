@@ -25,17 +25,11 @@
         .header-wrapper{class: "#{@body_class}"}
           = render "shared/#{@template}/header"
           = yield :home_header
-          - if @body_class == 'sites'
-            .row
-              .interior-title
-                = @current_uuid
-                %h1= @page_title ||= "Member Benefits"
-          - else
-            = yield :interior_header
-        %section.content
-          .row
-            .medium-10.columns.medium-offset-1
-              = render 'layouts/messages'
+          = yield :interior_header
+        -# %section.content
+        -#   .row
+        -#     .medium-10.columns.medium-offset-1
+        -#       = render 'layouts/messages'
         = yield
         = render "shared/#{@template}/footer"
     :javascript
