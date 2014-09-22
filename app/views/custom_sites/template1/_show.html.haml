@@ -5,28 +5,28 @@
         .large-8.large-offset-2
           %h2 Travel, Shopping  Entertainment
         %h3.home Savings Made Easy
-        = link_to "Learn about rewards", custom_sites_savings_path(@custom_site), class: 'button'
+        = link_to "Learn about rewards", custom_sites_savings_path(@custom_site.url), class: 'button'
   .home-item-2
     .row
       .large-12.columns.text-center
         .large-8.large-offset-2
           %h2 Health
         %h3.home Medicine Made Affordable
-        = link_to "Learn about rewards", custom_sites_health_path(@custom_site), class: 'button'
+        = link_to "Learn about rewards", custom_sites_health_path(@custom_site.url), class: 'button'
   .home-item-3
     .row
       .large-12.columns.text-center
         .large-8.large-offset-2
           %h2 Insurance
         %h3.home Step Towards Savings
-        = link_to "Learn about rewards", custom_sites_insurance_path(@custom_site), class: 'button'
+        = link_to "Learn about rewards", custom_sites_insurance_path(@custom_site.url), class: 'button'
   .home-item-4
     .row
       .large-12.columns.text-center
         .large-8.large-offset-2
           %h2 Security
         %h3.home Protecting Who You Are
-        = link_to "Learn about rewards", custom_sites_security_path(@custom_site), class: 'button'
+        = link_to "Learn about rewards", custom_sites_security_path(@custom_site.url), class: 'button'
 
 - content_for :interior_header do
   %section.container{:role => "document"}
