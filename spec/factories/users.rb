@@ -25,6 +25,7 @@
 #  uuid                   :string(10)
 #  ent_registered         :boolean          default(FALSE)
 #  authentication_token   :string(255)
+#  custom_site_id         :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

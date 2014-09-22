@@ -25,6 +25,7 @@
 #  uuid                   :string(10)
 #  ent_registered         :boolean          default(FALSE)
 #  authentication_token   :string(255)
+#  custom_site_id         :integer
 #
 
 class User < ActiveRecord::Base
