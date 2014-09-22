@@ -1,21 +1,28 @@
-- if benefits.any?
-  - benefits.each do |benefit|
-    %section.content.interior
-      .row.interior-title
+%section.content.interior
+  .interior-title
+    .row
+      .medium-12.columns.text-center
+        %h2= @page_title
+  .row.interior-content
+    - if @benefits.any?
+      - @benefits.each do |benefit|
         .medium-12.columns.text-center
           %h2= benefit.title
-
-      .row
-        - if benefit.sections.any?
-          - benefit.sections.each do |section|
-            .medium-6.columns
-              %h2= section.title
-              = section.content.html_safe
+          - if benefit.sections.any?
+            - benefit.sections.each do |section|
+              .medium-6.columns.text-center.white
+                .interior-wrap
+                  %h3= section.title
+                  %div{class: "section-hide section-#{section.id}"}
+                    = section.content.html_safe
+                .interior-button.hover-click
+                  %h3
+                    %a.section-reveal{"data-toggle" => ".section-#{section.id}"} Read More
 
 - content_for :interior_header do
   %section.container{:role => "document"}
     .row
       %section#home-hero.interior
-        .row
-          .large-12.text-center
-            %h2.white Insurance
+
+
+
