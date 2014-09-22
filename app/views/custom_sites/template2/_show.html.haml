@@ -1,0 +1,104 @@
+- if user_signed_in?
+  %section.cta.text-center
+    %h1 Member Benefits
+  %section.content.home-sections
+    .home-item
+      .row
+        .large-12.columns
+          .large-8.columns
+            %h2 Travel, Shopping  Entertainment
+            %h3.home Savings Made Easy
+          .large-4.columns.text-center
+            = link_to "Learn about rewards", custom_sites_savings_path(@custom_site.url), class: 'button'
+    .home-item
+      .row
+        .large-12.columns
+          .large-8.columns
+            %h2 Health
+            %h3.home Medicine Made Affordable
+          .large-4.columns.text-center
+            = link_to "Learn about rewards", custom_sites_health_path(@custom_site.url), class: 'button'
+    .home-item
+      .row
+        .large-12.columns
+          .large-8.columns
+            %h2 Insurance
+            %h3.home Step Towards Savings
+          .large-4.columns.text-center
+            = link_to "Learn about rewards", custom_sites_insurance_path(@custom_site.url), class: 'button'
+    .home-item
+      .row
+        .large-12.columns
+          .large-8.columns
+            %h2 Security
+            %h3.home Protecting Who You Are
+          .large-4.columns.text-center
+            = link_to "Learn about rewards", custom_sites_security_path(@custom_site.url), class: 'button'
+
+  - content_for :interior_header do
+    %section.container{:role => "document"}
+      .row
+        %section#home-hero.home
+          .row
+            .large-7.columns
+              .large-9.hide-for-medium-down
+                %h2 Sample Text Goes Here
+              .show-for-medium-down.center
+                %h2 Sample Text Goes Here
+
+- else
+  %section.content
+    .row
+      .medium-10.columns.text-center.medium-offset-1= @custom_site.content_section.intro_content.gsub!("[BANK NAME]", "#{@custom_site.name}").html_safe
+    .row
+      .medium-3.columns.text-center
+        = image_tag "#{@template}/rewards.png"
+        %h2.text-center Rewards
+        = @custom_site.content_section.savings_content.html_safe
+      .medium-3.columns.text-center
+        = image_tag "#{@template}/health.png"
+        %h2.text-center Health
+        = @custom_site.content_section.health_content.html_safe
+      .medium-3.columns.text-center
+        = image_tag "#{@template}/insurance.png"
+        %h2.text-center Insurance
+        = @custom_site.content_section.insurance_content.html_safe
+      .medium-3.columns.text-center
+        = image_tag "#{@template}/security.png"
+        %h2.text-center Security
+        = @custom_site.content_section.security_content.html_safe
+
+  - content_for :interior_header do
+    %section.container{:role => "document"}
+      .row
+        %section#home-hero
+          .row
+            .large-12.columns.text-center
+              %h3.login Member Benefits
+          .row
+            .medium-4.medium-offset-4.columns
+              %h3.login Join Now
+              %p.login
+                Already a member?
+                %i
+                  %a.hideform-trigger Sign in.
+          .row.formhide
+            %aside.medium-6.medium-offset-3.home-login-form.left.text-center
+              .inner
+                %header Access Benefits
+                #errorMSG
+                %form#new_user.simple_form.form{"accept-charset" => "UTF-8", :action => "/users/sign_in", :autocomplete => "off", :method => "post", :novalidate => "novalidate"}
+                  %div{:style => "margin:0;padding:0;display:inline"}
+                    %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+                    %input{:name => "authenticity_token", :type => "hidden", :value => "PH3peB8BC8/G/4tiPto9SEs/pQByGHmYDGMCAaH4quU="}/
+                  .small-12.columns.no-padding
+                    %input#user_email.string.email.required{:maxlength => "255", :name => "user[email]", :placeholder => "member id", :size => "255", :type => "email"}/
+                  .clearfix
+                  .small-12.columns.no-padding
+                    %input#user_password.password.required{:name => "user[password]", :placeholder => "password", :type => "password"}/
+                  .clearfix
+                  .small-10.small-offset-1.columns
+                    %input.home-submit{:name => "commit", :type => "submit", :value => "Submit"}/
+                    .clearfix
+                    %a.home-submit.home-register{:href => "users/sign_up.html"} Register for an account
+                    %a.forgot-password{:href => "users/password/new.html"} Forgot your password?

@@ -1,24 +1,21 @@
-- if @template.blank?
-  %section.content.interior
-    .row
-      .medium-10.columns.medium-offset-1
-        .benefits-heading.medium-12
-          .inner
-            .outer
-              .inner.benefit-inner
-                Savings Made Easy
-                .benefit-link-wrap
-                  %a.benefit-link{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Please click here to access your benefits.
+%section.content.interior
+  .row
+    .medium-10.columns.medium-offset-1
+      .benefits-heading.medium-12
+        .inner
+          .outer
+            .inner.benefit-inner
+              Savings Made Easy
+              .benefit-link-wrap
+                %a.benefit-link{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Please click here to access your benefits.
 
-        .clearfix
-        %ul#api-results-wrap.large-block-grid-2.small-block-grid-1
-          - if @sections.any?
-            = render @sections
-  - content_for :interior_header do
-    .row
-      .interior-title
-        %h1= @page_title ||= "Member Benefits"
-- else
-  = render :partial => "sites/#{@template}/savings", locals: { sections: @sections }
+      .clearfix
+      %ul#api-results-wrap.large-block-grid-2.small-block-grid-1
+        - if @sections.any?
+          = render @sections
+- content_for :interior_header do
+  .row
+    .interior-title
+      %h1= @page_title ||= "Member Benefits"
 
 %img.pixel-image{src: "http://www.saversguide.com/custom/savingsmadeeasy/affiliate.gif?uuid=#{current_user.uuid}", width: "1", height: "1", alt: "Savings made Easy"}

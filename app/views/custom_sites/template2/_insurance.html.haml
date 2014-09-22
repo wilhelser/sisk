@@ -1,0 +1,65 @@
+%section.content.interior
+  .interior-title
+    .row
+      .medium-12.columns.text-left
+        %h2= @page_title
+  .row.interior-content
+    - if @benefits.any?
+      - @benefits.each do |benefit|
+        .medium-6.columns
+          .interior-wrap
+            %h2= benefit.title
+            - if benefit.sections.any?
+              - benefit.sections.each do |section|
+                %h3= section.title
+                = section.content.html_safe
+
+- content_for :interior_header do
+  %section.container{:role => "document"}
+    .row
+      %section#home-hero.interior
+        .row
+          .large-12.text-center
+            %h2.white Rewards
+
+- content_for :special_js do
+  :javascript
+    equalheight = function(container){
+
+      var currentTallest = 0,
+      currentRowStart = 0,
+      rowDivs = new Array(),
+      $el,
+      topPosition = 0;
+      $(container).each(function() {
+
+       $el = $(this);
+       $($el).height('auto')
+       topPostion = $el.position().top;
+
+       if (currentRowStart != topPostion) {
+         for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+           rowDivs[currentDiv].height(currentTallest);
+         }
+         rowDivs.length = 0; // empty the array
+         currentRowStart = topPostion;
+         currentTallest = $el.height();
+         rowDivs.push($el);
+       } else {
+         rowDivs.push($el);
+         currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+       }
+       for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+         rowDivs[currentDiv].height(currentTallest);
+       }
+     });
+    }
+
+    $(window).load(function() {
+      equalheight('.interior-wrap');
+    });
+
+
+    $(window).resize(function(){
+      equalheight('.interior-wrap');
+    });

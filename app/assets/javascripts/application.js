@@ -4,4 +4,7 @@
 //= require_tree .
 $(function() {
   $(document).foundation();
+  $('.hideform-trigger').click(function() {
+    $('.formhide').slideToggle();
+  });
 });
