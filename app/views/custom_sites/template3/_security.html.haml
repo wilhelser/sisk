@@ -1,5 +1,5 @@
 %section.content.interior
-  .interior-title
+  .interior-title.primary-c
     .row
       .medium-12.columns.text-center
         %h2= @page_title
@@ -8,42 +8,43 @@
       - @benefits.each do |benefit|
         .medium-12.columns.text-center
           %h2= benefit.title
-          - if benefit.id == 37
-            %ul.benefit-links-ul
-              %li
-                %a{href: "#{benefit.link}#{current_user.member_id}"}= benefit.link_one_text
-              - if benefit.link_two.present?
-                %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-              - if benefit.link_three.present?
-                %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
-          - elsif benefit.id == 38
-            %ul.benefit-links-ul
-              %li
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
-              - if benefit.link_two.present?
-                %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-              - if benefit.link_three.present?
-                %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
-          - elsif benefit.id == 39
-            %ul.benefit-links-ul
-              %li
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
-              - if benefit.link_two.present?
-                %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-              - if benefit.link_three.present?
-                %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
-          - else
-            - if benefit.link
-              .benefit-link-wrap
-                %a.benefit-link{href: benefit.link}= benefit.link_one_text
+          - if user_signed_in?
+            - if benefit.id == 37
+              %ul.benefit-links-ul
+                %li
+                  %a{href: "#{benefit.link}#{current_user.member_id}"}= benefit.link_one_text
+                - if benefit.link_two.present?
+                  %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                - if benefit.link_three.present?
+                  %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+            - elsif benefit.id == 38
+              %ul.benefit-links-ul
+                %li
+                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
+                - if benefit.link_two.present?
+                  %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                - if benefit.link_three.present?
+                  %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+            - elsif benefit.id == 39
+              %ul.benefit-links-ul
+                %li
+                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
+                - if benefit.link_two.present?
+                  %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                - if benefit.link_three.present?
+                  %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+            - else
+              - if benefit.link
+                .benefit-link-wrap
+                  %a.benefit-link{href: benefit.link}= benefit.link_one_text
           - if benefit.sections.any?
             - benefit.sections.each do |section|
               .medium-6.columns.text-center.white
-                .interior-wrap
+                .interior-wrap.primary-c
                   %h3= section.title
                   %div{class: "section-hide section-#{section.id}"}
                     = section.content.html_safe
-                .interior-button.hover-click
+                .interior-button.hover-click.secondary-c
                   %h3
                     %a.section-reveal{"data-toggle" => ".section-#{section.id}"} Read More
 

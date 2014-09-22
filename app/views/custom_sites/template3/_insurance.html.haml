@@ -1,5 +1,5 @@
 %section.content.interior
-  .interior-title
+  .interior-title.primary-c
     .row
       .medium-12.columns.text-center
         %h2= @page_title
@@ -11,11 +11,11 @@
           - if benefit.sections.any?
             - benefit.sections.each do |section|
               .medium-6.columns.text-center.white
-                .interior-wrap
+                .interior-wrap.primary-c
                   %h3= section.title
                   %div{class: "section-hide section-#{section.id}"}
                     = section.content.html_safe
-                .interior-button.hover-click
+                .interior-button.hover-click.secondary-c
                   %h3
                     %a.section-reveal{"data-toggle" => ".section-#{section.id}"} Read More
 
