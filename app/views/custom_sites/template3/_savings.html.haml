@@ -9,15 +9,14 @@
   .row
     - if sections.any?
       - sections.each do |section|
-        - sections.each do |section|
-          .medium-6.columns.text-center.white
-            .interior-wrap
-              %h3= section.title
-              %div{class: "section-hide section-#{section.id}"}
-                = section.content.html_safe
-            .interior-button.hover-click
-              %h3
-                %a.section-reveal{"data-toggle" => ".section-#{section.id}"} Read More
+        .medium-6.columns.text-center.white
+          .interior-wrap
+            %h3= section.title
+            %div{class: "section-hide section-#{section.id}"}
+              = section.content.html_safe
+          .interior-button.hover-click
+            %h3
+              %a.section-reveal{"data-toggle" => ".section-#{section.id}"} Read More
 
 - content_for :interior_header do
   %section.container{:role => "document"}
