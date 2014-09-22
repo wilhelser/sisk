@@ -1,9 +1,10 @@
 %section.content.interior
-  .row.interior-title
-    .medium-12.columns.text-center
-      %h2= @page_title
-      .benefit-link-wrap
-        %a.benefit-link{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Please click here to access your benefits.
+  .interior-title
+    .row
+      .medium-12.columns.text-center
+        %h2= @page_title
+        .benefit-link-wrap
+          %a.benefit-link{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Please click here to access your benefits.
 
   .row
     - if sections.any?
