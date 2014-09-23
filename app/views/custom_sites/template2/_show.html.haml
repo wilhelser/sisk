@@ -1,11 +1,11 @@
-%section.cta.text-center
+%section.cta.text-center.primary-c
   %h1 Member Benefits
 %section.content.home-sections
   .row.interior-content
     %ul.large-block-grid-4.small-block-grid-1
       - @benefits.each do |benefit|
         %li.home_section
-          .inner
+          .inner.secondary-c
             %h4.box-title.text-center= benefit.title
             - if user_signed_in?
               - if benefit.title == 'Savings Made Easy'
@@ -63,7 +63,7 @@
                 %i
                   %a.hideform-trigger Sign in.
           .row.formhide
-            %aside.medium-6.medium-offset-3.home-login-form.left.text-center
+            %aside.medium-6.medium-offset-3.home-login-form.left.text-center.primary-c
               .inner
                 %header Access Benefits
                 #errorMSG

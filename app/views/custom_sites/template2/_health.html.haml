@@ -1,5 +1,5 @@
 %section.content.interior
-  .interior-title
+  .interior-title.secondary-c
     .row
       .medium-12.columns.text-left
         %h2= @page_title
@@ -8,14 +8,14 @@
       - @benefits.each do |benefit|
         .medium-6.columns
           .interior-wrap
-            %h2= benefit.title
+            %h2.primary-text-c= benefit.title
             - if benefit.sections.any?
               - benefit.sections.each do |section|
-                %h3= section.title
+                %h3.secondary-text-c= section.title
                 = section.content.html_safe
 
 - content_for :interior_header do
-  %section.container{:role => "document"}
+  %section.container.primary-c{:role => "document"}
     .row
       %section#home-hero.interior
         .row

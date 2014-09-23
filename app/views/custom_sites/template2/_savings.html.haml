@@ -1,24 +1,24 @@
 %section.content.interior
-  .interior-title
+  .interior-title.secondary-c
     .row
       .medium-12.columns.text-center
         %h2 Savings Made Easy
         - if user_signed_in?
           .benefit-link-wrap
             %a.benefit-link{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Please click here to access your benefits.
-    .row.interior-content
-      - if @benefits.any?
-        - @benefits.each do |benefit|
-          .medium-6.columns
-            .interior-wrap
-              %h2= benefit.title
-              - if benefit.sections.any?
-                - benefit.sections.each do |section|
-                  %h3= section.title
-                  = section.content.html_safe
+  .row.interior-content
+    - if @benefits.any?
+      - @benefits.each do |benefit|
+        .medium-6.columns
+          .interior-wrap
+            %h2.primary-text-c= benefit.title
+            - if benefit.sections.any?
+              - benefit.sections.each do |section|
+                %h3.secondary-text-c= section.title
+                = section.content.html_safe
 
 - content_for :interior_header do
-  %section.container{:role => "document"}
+  %section.container.primary-c{:role => "document"}
     .row
       %section#home-hero.interior
         .row

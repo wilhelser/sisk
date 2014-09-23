@@ -1,5 +1,5 @@
 %section.content.interior
-  .interior-title
+  .interior-title.secondary-c
     .row
       .medium-12.columns.text-left
         %h2= @page_title
@@ -8,42 +8,43 @@
       - @benefits.each do |benefit|
         .medium-6.columns
           .interior-wrap
-            %h2= benefit.title
-            - if benefit.id == 37
-              %ul.benefit-links-ul
-                %li
-                  %a{href: "#{benefit.link}#{current_user.member_id}"}= benefit.link_one_text
-                - if benefit.link_two.present?
-                  %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-                - if benefit.link_three.present?
-                  %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
-            - elsif benefit.id == 38
-              %ul.benefit-links-ul
-                %li
-                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
-                - if benefit.link_two.present?
-                  %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-                - if benefit.link_three.present?
-                  %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
-            - elsif benefit.id == 39
-              %ul.benefit-links-ul
-                %li
-                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
-                - if benefit.link_two.present?
-                  %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-                - if benefit.link_three.present?
-                  %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
-            - else
-              - if benefit.link
-                .benefit-link-wrap
-                  %a.benefit-link{href: benefit.link}= benefit.link_one_text
+            %h2.primary-text-c= benefit.title
+            - if user_signed_in?
+              - if benefit.id == 37
+                %ul.benefit-links-ul
+                  %li
+                    %a{href: "#{benefit.link}#{current_user.member_id}"}= benefit.link_one_text
+                  - if benefit.link_two.present?
+                    %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                  - if benefit.link_three.present?
+                    %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+              - elsif benefit.id == 38
+                %ul.benefit-links-ul
+                  %li
+                    %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
+                  - if benefit.link_two.present?
+                    %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                  - if benefit.link_three.present?
+                    %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+              - elsif benefit.id == 39
+                %ul.benefit-links-ul
+                  %li
+                    %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
+                  - if benefit.link_two.present?
+                    %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                  - if benefit.link_three.present?
+                    %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+              - else
+                - if benefit.link
+                  .benefit-link-wrap
+                    %a.benefit-link{href: benefit.link}= benefit.link_one_text
             - if benefit.sections.any?
               - benefit.sections.each do |section|
-                %h3= section.title
+                %h3.secondary-text-c= section.title
                 = section.content.html_safe
 
 - content_for :interior_header do
-  %section.container{:role => "document"}
+  %section.container.primary-c{:role => "document"}
     .row
       %section#home-hero.interior
         .row
