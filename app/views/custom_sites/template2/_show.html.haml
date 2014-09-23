@@ -42,9 +42,9 @@
           .row
             .large-7.columns
               .large-9.hide-for-medium-down
-                %h2 Sample Text Goes Here
+                %h2= @custom_site.content_section.header_text ||= "Member Benefits"
               .show-for-medium-down.center
-                %h2 Sample Text Goes Here
+                %h2= @custom_site.content_section.header_text ||= "Member Benefits"
 
 - else
   %section.content

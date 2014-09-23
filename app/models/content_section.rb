@@ -10,6 +10,7 @@
 #  security_content  :text
 #  created_at        :datetime
 #  updated_at        :datetime
+#  header_text       :text
 #
 
 class ContentSection < ActiveRecord::Base

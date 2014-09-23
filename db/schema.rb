@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922180121) do
+ActiveRecord::Schema.define(version: 20140923163003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 20140922180121) do
     t.text     "security_content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "header_text"
   end
 
   create_table "custom_sites", force: true do |t|
