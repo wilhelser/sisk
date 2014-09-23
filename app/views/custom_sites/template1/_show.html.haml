@@ -1,32 +1,38 @@
 %section.content.home-sections
-  .home-item-1
-    .row
-      .large-12.columns.text-center
-        .large-8.large-offset-2
-          %h2 Travel, Shopping  Entertainment
-        %h3.home Savings Made Easy
-        = link_to "Learn about rewards", custom_sites_savings_path(@custom_site.url), class: 'button'
-  .home-item-2
-    .row
-      .large-12.columns.text-center
-        .large-8.large-offset-2
-          %h2 Health
-        %h3.home Medicine Made Affordable
-        = link_to "Learn about rewards", custom_sites_health_path(@custom_site.url), class: 'button'
-  .home-item-3
-    .row
-      .large-12.columns.text-center
-        .large-8.large-offset-2
-          %h2 Insurance
-        %h3.home Step Towards Savings
-        = link_to "Learn about rewards", custom_sites_insurance_path(@custom_site.url), class: 'button'
-  .home-item-4
-    .row
-      .large-12.columns.text-center
-        .large-8.large-offset-2
-          %h2 Security
-        %h3.home Protecting Who You Are
-        = link_to "Learn about rewards", custom_sites_security_path(@custom_site.url), class: 'button'
+  .row.interior-content
+    .large-10.columns.large-offset-1.content-box.text-center= @custom_site.content_section.intro_content.gsub!("[BANK NAME]", @custom_site.name).html_safe
+    %ul.large-block-grid-4.small-block-grid-1
+      - @benefits.each do |benefit|
+        %li.home_section
+          .inner
+            %h4.box-title.text-center= benefit.title
+            - if user_signed_in?
+              - if benefit.title == 'Savings Made Easy'
+                .link-one
+                  %a{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.member_id}"} Click here to save
+              - if benefit.id == 37
+                .link-one
+                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"}= benefit.link_one_text
+              - if benefit.id == 38
+                .link-one
+                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
+              - if benefit.id == 39
+                .link-one
+                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
+              - if benefit.link.present?
+                .link-one
+                  %a{href: "#{benefit.link}", target: '_blank'}= benefit.link_one_text
+              - if benefit.link_two.present?
+                .link-one
+                  %a{href: "#{benefit.link_two}", target: '_blank'}= benefit.link_two_text
+              - if benefit.link_three.present?
+                .link-one
+                  %a{href: "#{benefit.link_three}", target: '_blank'}= benefit.link_three_text
+              %ul.large-block-grid-2.small-block-grid-1
+              - unless benefit.link_two.present?
+                - if benefit.link_two_text.present?
+                  .link-bottom
+                    %p.small= benefit.link_two_text.html_safe
 
 - content_for :interior_header do
   %section.container{:role => "document"}
@@ -35,6 +41,6 @@
         .row
           .large-7.columns
             .large-9.hide-for-medium-down
-              %h2 Sample Text Goes Here
+              %h2= @custom_site.content_section.header_text
             .show-for-medium-down.center
-              %h2 Sample Text Goes Here
+              %h2= @custom_site.content_section.header_text

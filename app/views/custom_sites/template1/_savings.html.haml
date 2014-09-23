@@ -1,10 +1,12 @@
 %section.content.interior
+  .row
+    .medium-10.columns.medium-offset-1.content-box.text-center= @custom_site.content_section.savings_content.html_safe
   .row.interior-title
     .medium-12.columns.text-center
       %h2 Savings Made Easy
-      .benefit-link-wrap
-        %a.benefit-link{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Please click here to access your benefits.
-
+      - if user_signed_in?
+        .benefit-link-wrap
+          %a.benefit-link{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Please click here to access your benefits.
   .row
     - if sections.any?
       - sections.each do |section|

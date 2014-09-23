@@ -1,20 +1,8 @@
-- if user_signed_in?
-  %li.menu-item.hover-dim
-    = link_to "Savings", custom_sites_savings_path(@custom_site.url)
-  %li.menu-item.hover-dim
-    = link_to "Health", custom_sites_health_path(@custom_site.url)
-  %li.menu-item.hover-dim
-    = link_to "Insurance", custom_sites_insurance_path(@custom_site.url)
-  %li.menu-item.hover-dim
-    = link_to "Security", custom_sites_security_path(@custom_site.url)
-- else
-  %li.menu-item.hover-dim
-    %a{href: "/about"} About Us
-  %li.menu-item.disabled
-    = link_to "Savings", '#'
-  %li.menu-item.disabled
-    = link_to "Health", '#'
-  %li.menu-item.disabled
-    = link_to "Insurance", '#'
-  %li.menu-item.disabled
-    = link_to "Security", '#'
+%li.menu-item.hover-dim
+  = link_to "Savings", custom_sites_savings_path(@custom_site.url)
+%li.menu-item.hover-dim
+  = link_to "Health", custom_sites_health_path(@custom_site.url)
+%li.menu-item.hover-dim
+  = link_to "Insurance", custom_sites_insurance_path(@custom_site.url)
+%li.menu-item.hover-dim
+  = link_to "Security", custom_sites_security_path(@custom_site.url)

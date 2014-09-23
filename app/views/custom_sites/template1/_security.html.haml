@@ -1,37 +1,41 @@
+%section.content.interior
+  .row
+    .medium-10.columns.medium-offset-1.content-box.text-center= @custom_site.content_section.security_content.html_safe
 - if benefits.any?
   - benefits.each do |benefit|
     %section.content.interior
       .row.interior-title
         .medium-12.columns.text-center
           %h2= benefit.title
-          - if benefit.id == 37
-            %ul.benefit-links-ul
-              %li
-                %a{href: "#{benefit.link}#{current_user.member_id}"}= benefit.link_one_text
-              - if benefit.link_two.present?
-                %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-              - if benefit.link_three.present?
-                %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
-          - elsif benefit.id == 38
-            %ul.benefit-links-ul
-              %li
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
-              - if benefit.link_two.present?
-                %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-              - if benefit.link_three.present?
-                %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
-          - elsif benefit.id == 39
-            %ul.benefit-links-ul
-              %li
-                %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
-              - if benefit.link_two.present?
-                %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-              - if benefit.link_three.present?
-                %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
-          - else
-            - if benefit.link
-              .benefit-link-wrap
-                %a.benefit-link{href: benefit.link}= benefit.link_one_text
+          - if user_signed_in?
+            - if benefit.id == 37
+              %ul.benefit-links-ul
+                %li
+                  %a{href: "#{benefit.link}#{current_user.member_id}"}= benefit.link_one_text
+                - if benefit.link_two.present?
+                  %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                - if benefit.link_three.present?
+                  %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+            - elsif benefit.id == 38
+              %ul.benefit-links-ul
+                %li
+                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
+                - if benefit.link_two.present?
+                  %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                - if benefit.link_three.present?
+                  %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+            - elsif benefit.id == 39
+              %ul.benefit-links-ul
+                %li
+                  %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
+                - if benefit.link_two.present?
+                  %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                - if benefit.link_three.present?
+                  %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+            - else
+              - if benefit.link
+                .benefit-link-wrap
+                  %a.benefit-link{href: benefit.link}= benefit.link_one_text
       .row
         - if benefit.sections.any?
           - benefit.sections.each do |section|

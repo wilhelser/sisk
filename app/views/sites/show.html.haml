@@ -34,9 +34,12 @@
                     .link-bottom
                       %p.small= benefit.link_two_text.html_safe
     - content_for :interior_header do
-      .row
-        .interior-title
-          %h1= @page_title ||= "Member Benefits"
+      .row.full-height
+        .inner.full-height
+          .outer
+            .inner
+              .interior-title
+                %h1= @page_title ||= "Member Benefits"
   - else
     %p You don't have access to this content.
     %p= link_to 'Home', '/'

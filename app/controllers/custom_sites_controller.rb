@@ -16,7 +16,9 @@ class CustomSitesController < ApplicationController
   end
 
   def savings
-    session[:uuid] = current_user.uuid unless session[:uuid].present?
+    if user_signed_in?
+      session[:uuid] = current_user.uuid unless session[:uuid].present?
+    end
     @page_title = "Member Benefits"
     @benefits = @custom_site.savings_benefits
     @sections = @custom_site.savings_benefits.first.sections

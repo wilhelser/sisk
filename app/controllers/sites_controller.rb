@@ -4,7 +4,7 @@
 class SitesController < ApplicationController
   before_action :set_site
   # layout 'custom_site' unless params[:custom_site].blank?
-  before_action :add_custom_site_params
+  # before_action :add_custom_site_params
 
   def about
 
