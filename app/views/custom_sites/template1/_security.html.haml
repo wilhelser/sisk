@@ -5,7 +5,7 @@
   - benefits.each do |benefit|
     %section.content.interior
       .row.interior-title
-        .medium-12.columns.text-center
+        .medium-12.columns.text-center.secondary-c
           %h2= benefit.title
           - if user_signed_in?
             - if benefit.id == 37
@@ -44,7 +44,7 @@
               = section.content.html_safe
 
 - content_for :interior_header do
-  %section.container{:role => "document"}
+  %section.container.primary-c{:role => "document"}
     .row
       %section#home-hero.interior
         .row
