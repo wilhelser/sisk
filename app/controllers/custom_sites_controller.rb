@@ -15,6 +15,10 @@ class CustomSitesController < ApplicationController
     end
   end
 
+  def about
+    @page_title = "About"
+  end
+
   def savings
     if user_signed_in?
       session[:uuid] = current_user.uuid unless session[:uuid].present?

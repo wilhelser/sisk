@@ -32,5 +32,5 @@
         %li
           %a{href: "/mb/#{@custom_site.url}"} Home
         %li
-          %a{href: "/about"} About
+          = link_to "About", custom_sites_about_path(@custom_site.url)
 %a.exit-off-canvas

@@ -1,6 +1,7 @@
 %section.content.home-sections
   .row.interior-content
-    .large-10.columns.large-offset-1.content-box.text-center= @custom_site.content_section.intro_content.gsub!("[BANK NAME]", @custom_site.name).html_safe
+    .large-12.columns.content-box.text-center
+      %h3= @custom_site.content_section.intro_content.gsub!("[BANK NAME]", @custom_site.name).html_safe
     %ul.large-block-grid-4.small-block-grid-1
       - @benefits.each do |benefit|
         %li.home_section

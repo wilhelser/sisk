@@ -1,6 +1,7 @@
 %section.content.interior
   .row
-    .medium-10.columns.medium-offset-1.content-box.text-center= @custom_site.content_section.insurance_content.html_safe
+    .medium-12.columns.content-box.text-center
+      %h3= @custom_site.content_section.insurance_content.html_safe
 - if benefits.any?
   - benefits.each do |benefit|
     %section.content.interior
