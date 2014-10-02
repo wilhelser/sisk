@@ -1,9 +1,12 @@
 %section.content.interior
   .interior-title.secondary-c
     .row
-      .medium-12.columns.text-left
+      .medium-12.columns.text-center
         %h2= @page_title
   .row.interior-content
+    .medium-12.columns.content-box.text-center
+      %h3= @custom_site.content_section.security_content.html_safe
+    .clearfix
     - if @benefits.any?
       - @benefits.each do |benefit|
         .medium-6.columns
@@ -49,7 +52,7 @@
       %section#home-hero.interior
         .row
           .large-12.text-center
-            %h2.white Rewards
+            %h2.white Member Benefits
 
 - content_for :special_js do
   :javascript

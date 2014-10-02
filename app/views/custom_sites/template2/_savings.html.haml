@@ -7,6 +7,9 @@
           .benefit-link-wrap
             %a.benefit-link{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Please click here to access your benefits.
   .row.interior-content
+    .row
+      .medium-12.columns.content-box.text-center
+        %h3= @custom_site.content_section.savings_content.html_safe
     - if @benefits.any?
       - @benefits.each do |benefit|
         .medium-6.columns
