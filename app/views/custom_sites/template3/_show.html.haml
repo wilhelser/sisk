@@ -1,5 +1,7 @@
 %section.content.home-sections
   .row.interior-content
+    .large-12.columns.content-box.text-center
+      %h3= @custom_site.content_section.intro_content.gsub!("[BANK NAME]", @custom_site.name).html_safe
     %ul.large-block-grid-4.small-block-grid-1
       - @benefits.each do |benefit|
         %li.home_section
@@ -71,7 +73,7 @@
                     %input{:name => "utf8", :type => "hidden", :value => "✓"}/
                     %input{:name => "authenticity_token", :type => "hidden", :value => "PH3peB8BC8/G/4tiPto9SEs/pQByGHmYDGMCAaH4quU="}/
                   .small-12.columns.no-padding
-                    %input#user_email.string.email.required{:maxlength => "255", :name => "user[email]", :placeholder => "member id", :size => "255", :type => "email"}/
+                    %input#user_email.string.email.required{:maxlength => "255", :name => "user[email]", :placeholder => "email", :size => "255", :type => "email"}/
                   .clearfix
                   .small-12.columns.no-padding
                     %input#user_password.password.required{:name => "user[password]", :placeholder => "password", :type => "password"}/

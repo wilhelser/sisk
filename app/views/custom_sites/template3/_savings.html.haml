@@ -8,6 +8,9 @@
             %a.benefit-link{href: "http://www.saversguide.com/custom/savingsmadeeasy?uuid=#{current_user.uuid}", target: '_blank'} Please click here to access your benefits.
 
   .row
+    .medium-12.columns.content-box.text-center
+      %h3= @custom_site.content_section.savings_content.html_safe
+    .clearfix
     - if sections.any?
       - sections.each do |section|
         .medium-6.columns.text-center.white
@@ -16,8 +19,8 @@
             %div{class: "section-hide section-#{section.id}"}
               = section.content.html_safe
           .interior-button.hover-click.secondary-c
-            %h3
-              %a.section-reveal{"data-toggle" => ".section-#{section.id}"} Read More
+            %h4
+              %a.white.section-reveal{"data-toggle" => ".section-#{section.id}"} Read More
 
 - content_for :interior_header do
   %section.container{:role => "document"}

@@ -4,6 +4,9 @@
       .medium-12.columns.text-center
         %h2= @page_title
   .row.interior-content
+    .medium-12.columns.content-box.text-center
+      %h3.black= @custom_site.content_section.security_content.html_safe
+    .clearfix
     - if @benefits.any?
       - @benefits.each do |benefit|
         .medium-12.columns.text-center
@@ -45,8 +48,8 @@
                   %div{class: "section-hide section-#{section.id}"}
                     = section.content.html_safe
                 .interior-button.hover-click.secondary-c
-                  %h3
-                    %a.section-reveal{"data-toggle" => ".section-#{section.id}"} Read More
+                  %h4
+                    %a.white.section-reveal{"data-toggle" => ".section-#{section.id}"} Read More
 
 - content_for :interior_header do
   %section.container{:role => "document"}
