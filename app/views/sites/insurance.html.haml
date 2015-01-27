@@ -10,9 +10,9 @@
               - if benefit.id == 48
                 %ul.benefit-links-ul
                   %li
-                    %a{href: "#{benefit.link}"}= benefit.link_one_text
+                    %a{href: "#{benefit.link}", target: "_blank"}= benefit.link_one_text
                   - if benefit.link_two.present?
-                    %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                    %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two, target: "_blank"
               - else
                 - if benefit.link
                   .benefit-link-wrap
