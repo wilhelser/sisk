@@ -7,9 +7,16 @@
           .outer
             .inner.benefit-inner
               = benefit.title
-              - if benefit.link
-                .benefit-link-wrap
-                  %a.benefit-link{href: benefit.link}= benefit.link_one_text
+              - if benefit.id == 48
+                %ul.benefit-links-ul
+                  %li
+                    %a{href: "#{benefit.link}"}= benefit.link_one_text
+                  - if benefit.link_two.present?
+                    %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+              - else
+                - if benefit.link
+                  .benefit-link-wrap
+                    %a.benefit-link{href: benefit.link}= benefit.link_one_text
         %ul.large-block-grid-2.small-block-grid-1
           - if benefit.sections.any?
             - @sections = benefit.sections
