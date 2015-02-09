@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   belongs_to :site
   validates :first_name, :last_name, :email, :password, :member_id, :login_code, presence: true
   validates_uniqueness_of :member_id
+  validates_uniqueness_of :email
   validate :is_not_old_member_id
   validate :login_code_is_valid
   before_create :set_site
