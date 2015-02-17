@@ -20,6 +20,8 @@ db/*.sqlite3
 /db/*.sqlite3-journal
 /log/*
 /tmp/*
+server.key
+server.crt
 
 # various artifacts
 **.war
