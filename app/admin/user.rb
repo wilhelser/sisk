@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :first_name, :last_name, :email, :password, :password_confirmation, :current_password, :first_name, :last_name, :email_updates, :site_id
+  permit_params :first_name, :last_name, :email, :password, :password_confirmation, :current_password, :member_id, :email_updates, :site_id
 
   # Index
   index do
@@ -36,5 +36,18 @@ ActiveAdmin.register User do
       super
     end
 
+  end
+
+  #csv
+  csv do
+      column :id
+      column :first_name
+      column :last_name
+      column :email
+      column :member_id
+      column :site_id
+      column :uuid
+      column :login_code
+      column :created_at, label: "Date Registered"
   end
 end
