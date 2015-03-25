@@ -17,17 +17,24 @@ ActiveAdmin.register User do
     f.inputs "User Details" do
       f.input :first_name
       f.input :last_name
-      f.input :first_name
-      f.input :last_name
       f.input :email
-      f.input :password
+      f.input :password, required: false
       f.input :password_confirmation
-      f.input :first_name
-      f.input :last_name
       f.input :email_updates
       f.input :site_id, as: :select, collection: Site.all
     end
     f.actions
   end
 
+  controller do
+
+    def update
+      if params[:user][:password].blank?
+        params[:user].delete("password")
+        params[:user].delete("password_confirmation")
+      end
+      super
+    end
+
+  end
 end
