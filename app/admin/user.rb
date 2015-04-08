@@ -1,6 +1,14 @@
 ActiveAdmin.register User do
   permit_params :first_name, :last_name, :email, :password, :password_confirmation, :current_password, :member_id, :email_updates, :site_id
 
+  filter :email
+  filter :first_name
+  filter :last_name
+  filter :member_id
+  filter :login_code
+  filter :site_id
+  filter :uuid
+
   # Index
   index do
     selectable_column
