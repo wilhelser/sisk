@@ -2,7 +2,7 @@
   .row
     .medium-10.columns.medium-offset-1
       - @benefits.each do |benefit|
-        .benefits-heading.medium-12{class: ("four-links-wrapper" if benefit.id == 49)}
+        .benefits-heading.medium-12
           .inner
             .outer
               .inner.benefit-inner
@@ -32,15 +32,14 @@
                     - if benefit.link_three.present?
                       %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
                 - elsif benefit.id == 49
-                  %ul.benefit-links-ul.four-links
+                  %ul.benefit-links-ul
                     %li
-                      %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GN&plancode=PLAN5&sid=#{current_user.member_id}"}= benefit.link_one_text
+                      %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128RN&plancode=PLAN5&sid=#{current_user.member_id}"} Enroll in IDIQ Protect Max
                     - if benefit.link_two.present?
                       %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
                     - if benefit.link_three.present?
                       %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
-                    %li
-                      %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128RN&plancode=PLAN5&sid=#{current_user.member_id}"} Enroll in IDIQ Protect Max
+
                 - else
                   - if benefit.link
                     .benefit-link-wrap

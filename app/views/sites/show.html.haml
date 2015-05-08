@@ -19,6 +19,9 @@
                 - if benefit.id == 39
                   .link-one
                     %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
+                - if benefit.id == 49
+                  .link-one
+                    %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128RN&plancode=PLAN5&sid=#{current_user.member_id}"} Enroll in IDIQ Protect Max
                 - if benefit.link.present?
                   .link-one
                     %a{href: "#{benefit.link}", target: '_blank'}= benefit.link_one_text
