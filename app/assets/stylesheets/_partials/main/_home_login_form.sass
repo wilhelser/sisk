@@ -1,103 +1,21 @@
-.divider
-  height: 1px
-  background: #fff
+.login-form-wrap
+    background: $teal
+    padding: 5%
 
-.edit-account-form
-  padding-top: 2%
+#new_user
+    .label
+        color: #fff!important
+        font-weight: bold
 
-.forgot-password
-  font-size: 0.7rem
-  color: #fff!important
-  font-family: $proxima
-  font-weight: 100
-  text-transform: uppercase
+input[type=text], input[type=password], input[type=email]
+    border: 1px solid #fff
+    color: #fff!important
+    background: transparent!important
 
-.home-login-form
-  background-color: rgba(0, 0, 0, 0.4)
-  color: #fff
-  padding-top: 1%
-  padding-bottom: 1%
-  .inner
-    width: 90%
-    position: relative
-    overflow: hidden
-    margin: 0 auto
-    // margin: 30px;
-  label
-    color: #fff
-    padding-top: 5px
-    text-transform: uppercase
-    font-family: $proxima
-  label.right
-    text-align: left!important
-  input[type=text], input[type=password], input[type=email]
-    background-color: transparent !important
-    // border: 1px solid #fff
-    border: none!important
-    color: #fff
-    font-family: $proxima
-    font-weight: 100
-  header
-    font-family: $proxima
-    font-weight: 100
-    font-size: 36px
-    margin-bottom: 15px
-  .divider
-    height: 1px
-    background: #fff
-
-.fifty-percent
-  width: 45%
-  h2
-    font-family: $proxima
-    font-weight: 400
-    text-transform: uppercase
-
-.home-submit
-  width: 100%
-  border: 1px solid #fff
-  background: transparent
-  text-align: center
-  color: #fff
-  font-size: 18px
-  font-family: $proxima
-  font-weight: 400
-  text-transform: uppercase
-  cursor: pointer
-  margin-bottom: 2%
-  &:hover
-    background: #fff
-    color: #008cba
-
-.home-register
-  display: block
-  padding: 6px 6px 3px
-  &:hover
-    background: #fff
-
-.login-input-wrap
-  border-bottom: 1px solid #fff
-  margin-bottom: 1%
-  position: relative
-  overflow: hidden
-  width: 100%
-  label
-    width: 30%
-    display: block
-    float: left
-  input[type=text], input[type=email], input[type=password]
-    display: block
-    width: 70%
-    float: right
-
-#user_email, #user_password
-  border: 1px solid #fff!important
-
-.memberid-help
-  position: absolute
-  top: 4px
-  cursor: pointer
-  font-size: 0.8rem
-
-.quick-wrap
-  position: relative
+.login-button
+    @include button
+    background-color: $blue
+    width: 100%
+    border-radius: 3px
+    &:hover
+        background-color: #88b0b5

@@ -1,8 +1,4 @@
-.mobile-announcement-mobile.hide-for-large-up
-  %a.droid-dl{href: "https://play.google.com/store/apps/details?id=air.sisk", target: "_blank"}
-    = image_tag 'google-play-mobile.png'
-  -# %a.apple-dl{href: "https://itunes.apple.com/us/app/member-benefits-sisk/id915619672?mt=8&uo=4", target: "_blank"}
-  -#   = image_tag 'itunes-mobile.png'
+//= render 'shared/mobile_announcement'
 %nav.tab-bar.show-for-medium-down
   %section.right-small
     %a.right-off-canvas-toggle.menu-icon
@@ -21,19 +17,14 @@
 .header
   .top-bar-container.contain-to-grid.show-for-large-up
     %nav.top-bar{"data-topbar" => ""}
-      %ul.title-area
-        %li.name
-          %h1
-            - if @site
-              = link_to @site do
-                = image_tag 'logo.png'
-            - else
-              %a{href: "/"}
-                =image_tag 'logo.png'
-      .mobile-announcement
-        %a.droid-dl{href: "https://play.google.com/store/apps/details?id=air.sisk", target: "_blank"}
-          = image_tag 'google-play.png'
-        -# %a.apple-dl{:href => "https://itunes.apple.com/us/app/member-benefits-sisk/id915619672?mt=8&uo=4", :style => "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.svg);}", :target => "itunes_store"}
-      %section.top-bar-section
-        %ul#main-menu.top-bar-menu.right
-          = render 'layouts/navigation_links'
+      .row
+        .large-2.columns.logo-wrap
+          - if @site
+            = link_to @site do
+              = image_tag 'logo.png'
+          - else
+            %a{href: "/"}
+              =image_tag 'logo.png'
+        .top-bar-section.large-7.columns.left
+          %ul#main-menu.top-bar-menu.right
+            = render 'layouts/navigation_links'

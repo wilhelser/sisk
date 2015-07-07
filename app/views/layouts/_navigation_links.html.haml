@@ -1,23 +1,23 @@
 - if @site
-  %li.icon-rewards.menu-item.hover-dim
+  %li.menu-item
     = link_to "Savings", savings_site_path(@site)
   - if @site.health_benefits.any?
-    %li.icon-health.menu-item.hover-dim
+    %li.menu-item
       = link_to "Health", health_site_path(@site)
   - if @site.insurance_benefits.any?
-    %li.icon-insurance.menu-item.hover-dim
+    %li.menu-item
       = link_to "Insurance", insurance_site_path(@site)
   - if @site.health_benefits.any?
-    %li.icon-security.menu-item.hover-dim
+    %li.menu-item
       = link_to "Security", security_site_path(@site)
 - else
-  %li.icon-about.menu-item.hover-dim
+  %li.menu-item
     %a{href: "/about"} About Us
-  %li.icon-rewards.menu-item.disabled
+  %li.menu-item.disabled
     .fakelink Savings
-  %li.icon-health.menu-item.disabled
+  %li.menu-item.disabled
     .fakelink Health
-  %li.icon-insurance.menu-item.disabled
+  %li.menu-item.disabled
     .fakelink Insurance
-  %li.icon-security.menu-item.disabled
+  %li.menu-item.disabled
     .fakelink Security
