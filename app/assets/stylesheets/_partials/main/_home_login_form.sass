@@ -1,11 +1,19 @@
 .login-form-wrap
     background: $teal
     padding: 5%
+    h4
+        margin-bottom: 5%
 
-#new_user
-    .label
-        color: #fff!important
-        font-weight: bold
+.login-label
+    color: #fff!important
+    font-family: $proxima
+    font-size: 1rem
+    letter-spacing: 0.08rem
+    font-weight: bold
+    text-transform: uppercase
+
+.forgot-password
+    color: #fff
 
 input[type=text], input[type=password], input[type=email]
     border: 1px solid #fff
@@ -17,5 +25,28 @@ input[type=text], input[type=password], input[type=email]
     background-color: $blue
     width: 100%
     border-radius: 3px
+    font-family: $proxima
+    &:hover
+        background-color: #88b0b5
+
+.login-button
+    @include button
+    background-color: $blue
+    width: 100%
+    border-radius: 3px
+    font-family: $proxima
+    text-transform: uppercase
+    &:hover
+        background-color: #fff
+        color: $teal
+
+.account-button
+    +button($padding: $button-tny)
+    background-color: $blue
+    border-radius: 3px
+    font-family: $proxima
+    margin-top: 20px
+    margin-right: 2%
+    text-transform: uppercase
     &:hover
         background-color: #88b0b5

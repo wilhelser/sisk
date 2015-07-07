@@ -18,13 +18,16 @@
   .top-bar-container.contain-to-grid.show-for-large-up
     %nav.top-bar{"data-topbar" => ""}
       .row
-        .large-2.columns.logo-wrap
+        .medium-2.columns.logo-wrap
           - if @site
             = link_to @site do
               = image_tag 'logo.png'
           - else
             %a{href: "/"}
               =image_tag 'logo.png'
-        .top-bar-section.large-7.columns.left
-          %ul#main-menu.top-bar-menu.right
+        .medium-8.columns.left
+          %ul#main-menu.top-bar-menu
             = render 'layouts/navigation_links'
+        .medium-2.columns.right
+          - if user_signed_in?
+            = render 'shared/settings_nav'

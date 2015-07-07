@@ -1,14 +1,14 @@
 .login-form-wrap
-  %h4.text-center.white Access Benefits
+  %h4.text-center.white.uppercase Access Benefits
   .row
     = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form', :autocomplete => "off" }) do |f|
       .medium-3.small-12.columns
-        %label.left.inline.white{for: "user_email"} Email
+        %label.left.inline.white.login-label{for: "user_email"} Email
       .medium-9.columns.small-12
         = f.input_field :email
       .clearfix
       .medium-3.columns.small-12
-        %label.left.inline.white{for: "user_password"} Password
+        %label.left.inline.white.login-label{for: "user_password"} Password
       .medium-9.columns.small-12
         = f.input_field :password
       .medium-12.columns
