@@ -6,7 +6,7 @@
           %header
             %h3= benefit.title
           .row
-            .medium-8.columns.add-margin
+            .medium-8.columns
               - if benefit.sections.any?
                 - @sections = benefit.sections
                 - @sections.each do |section|
@@ -21,7 +21,7 @@
           %footer
             .row
               .medium-2.columns.right
-                %button.account-button Show More
+                %button.account-button.right Show More
         .clearfix
 - content_for :interior_header do
   .row

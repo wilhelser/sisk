@@ -3,32 +3,35 @@
   .row
     #register-form-wrap.medium-10.columns.medium-offset-1
       %p We have made several improvements to our website and the login process has changed. If you have not yet created your account required for login, please complete the form below.
-      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form', autocomplete: 'off' }) do |f|
-        = f.error_notification
-        = display_base_errors resource
-        = f.input :first_name, :required => true
-        = f.input :last_name, :required => true
-        = f.input :email, :required => true
-        = f.input :password, :required => true
-        = f.input :password_confirmation, :required => true
-        - unless params[:custom_site].blank?
-          = f.input :custom_site_id, :as => :hidden, :input_html => { value: params[:custom_site] }
-        .quick-wrap
-          %a.memberid-help{href: '', "data-reveal-id" => "whats-this"} ( Where can I find this number? )
-        = f.input :member_id, as: :string, :required => true, label: 'Member ID'
-        .quick-wrap
-          %a.memberid-help{href: '', "data-reveal-id" => "whats-login"} ( Where can I find this number? )
-        = f.input :login_code, :required => true
-        = f.input :email_updates
-        = f.button :submit, 'Sign up', :class => 'button'
+      .row
+        = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form', autocomplete: 'off' }) do |f|
+          = f.error_notification
+          = display_base_errors resource
+          .medium-6.columns
+            = f.input :first_name, :required => true
+            = f.input :last_name, :required => true
+            = f.input :email, :required => true
+          .medium-6.columns
+            = f.input :password, :required => true
+            = f.input :password_confirmation, :required => true
+            - unless params[:custom_site].blank?
+              = f.input :custom_site_id, :as => :hidden, :input_html => { value: params[:custom_site] }
+            .quick-wrap
+              %a.memberid-help{href: '', "data-reveal-id" => "whats-this"} ( Where can I find this number? )
+            = f.input :member_id, as: :string, :required => true, label: 'Member ID'
+            .quick-wrap
+              %a.memberid-help{href: '', "data-reveal-id" => "whats-login"} ( Where can I find this number? )
+            = f.input :login_code, :required => true
+            = f.input :email_updates
+            = f.button :submit, 'Sign up', :class => 'button'
 
-#whats-this.reveal-modal{"data-reveal" => ""}
+#whats-this.reveal-modal.login-modal{"data-reveal" => ""}
   %p We have made several improvements to www.memberbenefitpackage.com and have created an ap for ease of access. Once you have created your account you will be able to download our new app to your smart phone. Your Member ID Number can be found on your punch out Member Benefits Card provided to you by your financial institution at account opening.
   %h3 Returning members who have not yet created an account
   %p If you are a returning member who has always logged in using the Member ID Number 0045508563 and a login code found on your Member Benefits Card, you will need to register. The Member ID Number needed to register is no longer 0045508563, please use the Prescription Card ID Number found on the bottom of your Member Benefits Card.
   %a.close-reveal-modal &#215;
 
-#whats-login.reveal-modal{"data-reveal" => ""}
+#whats-login.reveal-modal.login-modal{"data-reveal" => ""}
   %p We have made several improvements to www.memberbenefitpackage.com and have created an app for ease of access. Once you have created your account you will be able to download our new app to your smart phone. Your Login Code can be found on your punch out Member Benefits Card provided to you by your financial institution at account opening.
   %a.close-reveal-modal &#215;
 

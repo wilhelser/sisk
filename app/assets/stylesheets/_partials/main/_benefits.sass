@@ -26,3 +26,29 @@
         color: $teal
         font-size: 1.6rem
         padding-top: 0!important
+
+
+.benefit-links
+    list-style: none
+    display: block
+    padding-left: none!important
+    margin: none!important
+
+    li
+        display: block
+        position: relative
+        width: 100%
+        margin-bottom: 1%
+        padding-right: 5px
+        &:after
+            content: ""
+            width: 14px
+            height: 11px
+            background: image-url('links-arrow.png') top right no-repeat
+            position: relative
+            display: inline-block
+        a
+            font-family: $proxima
+            color: $teal
+            text-transform: uppercase
+            font-size: 1rem
