@@ -6,7 +6,8 @@
       %p In today's competitive marketplace, service and value transcend the test of time.  Behind these benefits you will find a company that has been serving it’s members for over four decades. The Member Benefits team is committed to bringing the finest in customer service and satisfaction.
       %p Please create your account to login and begin enjoying your Member Benefits today. We appreciate your membership!
     .medium-5.columns
-      =render 'shared/login_form'
+      - unless user_signed_in?
+        =render 'shared/login_form'
 
 - content_for :interior_header do
   %section.interior-title

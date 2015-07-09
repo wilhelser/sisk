@@ -35,9 +35,11 @@ class ApplicationController < ActionController::Base
     if resource.instance_of?(User)
       if resource.custom_site_id.present?
         @custom_site = CustomSite.find(resource.custom_site_id)
-        custom_site_home_path(@custom_site.url)
+        custom_sites_about_path(@custom_site.url)
+        # custom_site_home_path(@custom_site.url)
       else
-        resource.site
+        about_path
+        # resource.site
       end
     else
       super

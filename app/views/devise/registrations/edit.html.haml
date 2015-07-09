@@ -1,18 +1,56 @@
+- @page_title = "Create Your Account"
 %section.content
   .row
-    .edit-account-form.medium-8.column.medium-offset-2
-      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f|
+    .medium-8.columns.medium-offset-2
+      // Content if needed
+    .clearfix
+    #register-form-wrap.medium-10.columns.medium-offset-1
+      .row
+      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form' }) do |f|
         = f.error_notification
         = display_base_errors resource
-        = f.input :first_name, :required => true
-        = f.input :last_name, :required => true
-        = f.input :email, :required => true
-        = f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false
-        = f.input :password_confirmation, :required => false
-        = f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true
-        = f.input :email_updates
-        = f.button :submit, 'Update', :class => 'btn-primary'
+        .medium-6.columns.small-12
+          .row
+            .large-3.medium-12.small-12.columns
+              %label.left.inline.white.login-label{for: "user_email"} * First Name
+            .large-9.medium-12.columns.small-12
+              = f.input_field :first_name, :required => true
+            .clearfix
+            .large-3.medium-12.small-12.columns
+              %label.left.inline.white.login-label{for: "user_email"} * Last Name
+            .large-9.medium-12.columns.small-12
+              = f.input_field :last_name, :required => true
+            .clearfix
+            .large-3.medium-12.small-12.columns
+              %label.left.inline.white.login-label{for: "user_email"} * Email
+            .large-9.medium-12.columns.small-12
+              = f.input_field :email, :required => true
+        .medium-6.columns.small-12
+          .row
+            .large-3.medium-12.small-12.columns
+              %label.left.inline.white.login-label{for: "user_email"} * Password
+            .large-9.medium-12.columns.small-12
+              = f.input_field :password, :required => true
+            .clearfix
+            .large-3.medium-12.small-12.columns
+              %label.left.inline.white.login-label{for: "user_email"} * Confirm Password
+            .large-9.medium-12.columns.small-12
+              = f.input_field :password_confirmation, :required => true
+            .clearfix
+            = f.button :submit, 'Update', :class => 'login-button-white right'
 
 - content_for :interior_header do
-  %section.interior-title
-    %h1 Edit your account
+  .row
+    .interior-title
+      %h1 Update Your Account
+
+:javascript
+  var $target;
+
+  $target = $('#register-form-wrap');
+
+  $("html, body").stop().animate({
+    scrollTop: $target.offset().top
+  }, 500, function() {
+    return window.location.hash = "";
+  });
