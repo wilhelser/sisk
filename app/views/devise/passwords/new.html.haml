@@ -1,0 +1,15 @@
+%section.content.interior
+  .row
+    .medium-4.columns.medium-offset-4
+      %h2.teal Forgot your password?
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = f.error_notification
+        .form-inputs
+          = f.input :email, required: true, autofocus: true
+        .form-actions
+          = f.button :submit, "Send me reset password instructions", class: 'white-login-button'
+      = render "devise/shared/links"
+
+- content_for :interior_header do
+  %section.interior-title
+    %h1 About Us

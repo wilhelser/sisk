@@ -8,15 +8,13 @@
     , 500, ->
       window.location.hash = ""
 
-  $('.hover-dim').hover(->
-    $(@).animate
-      opacity: 0.8
-    , 300
-    return
-  ).mouseout ->
-    $(@).animate
-      opacity: 1
-    , 100
-    return
+  $(window).bind 'load', ->
+    footer = $('.main-footer')
+    pos = footer.position()
+    height = $(window).height()
+    height = height - (pos.top)
+    height = height - footer.height()
+    if height > 0
+      footer.css 'margin-top': height + 'px'
 
 
