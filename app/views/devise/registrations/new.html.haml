@@ -1,29 +1,60 @@
 - @page_title = "Create Your Account"
 %section.content
   .row
-    #register-form-wrap.medium-10.columns.medium-offset-1
+    .medium-8.columns.medium-offset-2
       %p We have made several improvements to our website and the login process has changed. If you have not yet created your account required for login, please complete the form below.
+    .clearfix
+    #register-form-wrap.medium-10.columns.medium-offset-1
       .row
         = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form', autocomplete: 'off' }) do |f|
           = f.error_notification
           = display_base_errors resource
           .medium-6.columns
-            = f.input :first_name, :required => true
-            = f.input :last_name, :required => true
-            = f.input :email, :required => true
+            .row
+              .large-3.medium-12.small-12.columns
+                %label.left.inline.white.login-label{for: "user_email"} * First Name
+              .large-9.medium-12.columns.small-12
+                = f.input_field :first_name, :required => true
+              .clearfix
+              .large-3.medium-12.small-12.columns
+                %label.left.inline.white.login-label{for: "user_email"} * Last Name
+              .large-9.medium-12.columns.small-12
+                = f.input_field :last_name, :required => true
+              .clearfix
+              .large-3.medium-12.small-12.columns
+                %label.left.inline.white.login-label{for: "user_email"} * Email
+              .large-9.medium-12.columns.small-12
+                = f.input_field :email, :required => true
+            = f.input :email_updates
           .medium-6.columns
-            = f.input :password, :required => true
-            = f.input :password_confirmation, :required => true
+            .clearfix
+            .large-3.medium-12.small-12.columns
+              %label.left.inline.white.login-label{for: "user_email"} * Password
+            .large-9.medium-12.columns.small-12
+              = f.input_field :password, :required => true
+            .clearfix
+            .large-3.medium-12.small-12.columns
+              %label.left.inline.white.login-label{for: "user_email"} * Confirm Password
+            .large-9.medium-12.columns.small-12
+              = f.input_field :password_confirmation, :required => true
             - unless params[:custom_site].blank?
               = f.input :custom_site_id, :as => :hidden, :input_html => { value: params[:custom_site] }
-            .quick-wrap
-              %a.memberid-help{href: '', "data-reveal-id" => "whats-this"} ( Where can I find this number? )
-            = f.input :member_id, as: :string, :required => true, label: 'Member ID'
-            .quick-wrap
-              %a.memberid-help{href: '', "data-reveal-id" => "whats-login"} ( Where can I find this number? )
-            = f.input :login_code, :required => true
-            = f.input :email_updates
-            = f.button :submit, 'Sign up', :class => 'button'
+            .clearfix
+            .large-3.medium-12.small-12.columns
+              %label.left.inline.white.login-label{for: "user_email"} * Member ID
+            .large-9.medium-12.columns.small-12
+              .quick-wrap
+                %a.memberid-help{href: '', "data-reveal-id" => "whats-this"}
+              = f.input_field :member_id, as: :string, :required => true
+            .clearfix
+            .large-3.medium-12.small-12.columns
+              %label.left.inline.white.login-label{for: "user_email"} * Login Code
+            .large-9.medium-12.columns.small-12
+              .quick-wrap
+                %a.memberid-help{href: '', "data-reveal-id" => "whats-login"}
+              = f.input_field :login_code, :required => true
+
+            = f.button :submit, 'Sign up', :class => 'login-button-white right'
 
 #whats-this.reveal-modal.login-modal{"data-reveal" => ""}
   %p We have made several improvements to www.memberbenefitpackage.com and have created an ap for ease of access. Once you have created your account you will be able to download our new app to your smart phone. Your Member ID Number can be found on your punch out Member Benefits Card provided to you by your financial institution at account opening.

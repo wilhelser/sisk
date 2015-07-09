@@ -20,14 +20,14 @@ input[type=text], input[type=password], input[type=email]
     color: #fff!important
     background: transparent!important
 
-.login-button
-    @include button
-    background-color: $blue
-    width: 100%
-    border-radius: 3px
-    font-family: $proxima
-    &:hover
-        background-color: #88b0b5
+// .login-button
+//     @include button
+//     background-color: $blue
+//     width: 100%
+//     border-radius: 3px
+//     font-family: $proxima
+//     &:hover
+//         background-color: #88b0b5
 
 .login-button
     @include button
@@ -39,6 +39,16 @@ input[type=text], input[type=password], input[type=email]
     &:hover
         background-color: #fff
         color: $teal
+
+.login-button-white
+    @include button
+    background-color: $blue
+    border-radius: 3px
+    font-family: $proxima
+    text-transform: uppercase
+    &:hover
+        background-color: #88b0b5
+        color: #fff
 
 .account-button
     +button($padding: $button-tny)
