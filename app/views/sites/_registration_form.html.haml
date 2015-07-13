@@ -1,5 +1,4 @@
 .medium-10.column.medium-offset-1
-  #errors
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true, :format => :json, :html => {:class => 'form' }) do |f|
     = f.error_notification
     = devise_error_messages!
