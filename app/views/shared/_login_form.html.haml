@@ -1,7 +1,11 @@
 .login-form-wrap
   %h4.text-center.white.uppercase Access Benefits
   .row
-    = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form', :autocomplete => "off" }) do |f|
+    = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :remote => true, :format => :json, :html => {:class => 'form', :autocomplete => "off", :id => "new_login" }) do |f|
+      = f.error_notification
+      = devise_error_messages!
+      = display_base_errors resource
+      %ul#errors
       .large-3.medium-12.small-12.columns
         %label.left.inline.white.login-label{for: "user_email"} Email
       .large-9.medium-12.columns.small-12
