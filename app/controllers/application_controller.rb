@@ -66,9 +66,6 @@ class ApplicationController < ActionController::Base
     CustomSite.all.pluck(:url)
   end
 
-  def is_active?(link_path)
-   current_page?(link_path) ? "active" : ""
-  end
 
   protected
   def configure_permitted_parameters

@@ -1,15 +1,15 @@
 - if @site
-  %li.menu-item
+  %li.menu-item{ class: is_active?("savings") }
     = link_to "Savings", savings_site_path(@site)
   - if @site.health_benefits.any?
-    %li.menu-item
+    %li.menu-item{ class: is_active?("health") }
       = link_to "Health", health_site_path(@site)
   - if @site.insurance_benefits.any?
-    %li.menu-item
+    %li.menu-item{ class: is_active?("insurance") }
       = link_to "Insurance", insurance_site_path(@site)
   - if @site.health_benefits.any?
-    %li.menu-item
+    %li.menu-item{ class: is_active?("security") }
       = link_to "Security", security_site_path(@site)
 - else
-  %li.menu-item
+  %li.menu-item{class: is_active?("about")}
     %a{href: "/about"} About Us
