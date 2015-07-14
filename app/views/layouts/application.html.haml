@@ -21,7 +21,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     .off-canvas-wrap{"data-offcanvas" => ""}
       .inner-wrap
-        .header-wrapper{class: "#{@body_class}"}
+        .header-wrapper
           = render "shared/header"
           = yield :home_header
           = yield :interior_header
