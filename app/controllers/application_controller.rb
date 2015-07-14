@@ -66,6 +66,10 @@ class ApplicationController < ActionController::Base
     CustomSite.all.pluck(:url)
   end
 
+  def is_active?(link_path)
+   current_page?(link_path) ? "active" : ""
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :first_name, :last_name, :member_id, :login_code, :email_updates) }
