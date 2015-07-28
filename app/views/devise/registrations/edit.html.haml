@@ -28,14 +28,14 @@
         .medium-6.columns.small-12
           .row
             .large-3.medium-12.small-12.columns
-              %label.left.inline.white.login-label{for: "user_email"} * Password
+              %label.left.inline.white.login-label{for: "user_password"} * Password
             .large-9.medium-12.columns.small-12
-              = f.input_field :password, :required => true
+              = f.input_field :password, :required => false
             .clearfix
             .large-3.medium-12.small-12.columns
-              %label.left.inline.white.login-label{for: "user_email"} * Confirm Password
+              %label.left.inline.white.login-label{for: "user_password_confirmation"} * Confirm Password
             .large-9.medium-12.columns.small-12
-              = f.input_field :password_confirmation, :required => true
+              = f.input_field :password_confirmation, :required => false
             .clearfix
             = f.button :submit, 'Update', :class => 'login-button-white right'
 
