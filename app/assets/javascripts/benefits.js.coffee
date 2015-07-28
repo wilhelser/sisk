@@ -12,3 +12,8 @@ $ ->
         $(parent).addClass('open')
         $(this).text('Show Less')
       return
+
+    $('.benefit-links li a').click (event) ->
+      event.preventDefault()
+      event.stopPropagation()
+      window.open @href, '_blank'
