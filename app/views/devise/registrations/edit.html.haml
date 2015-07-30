@@ -26,7 +26,16 @@
               = f.input_field :email, :required => true
         .medium-6.columns.small-12
           .row
-
+            .large-3.medium-12.small-12.columns
+              %label.left.inline.white.login-label{for: "user_password"} Password
+            .large-9.medium-12.small-12.columns
+              = f.input_field :password
+            .clearfix
+            .large-3.medium-12.small-12.columns
+              %label.left.inline.white.login-label{for: "user_password_confirmation"} Confirm Password
+            .large-9.medium-12.small-12.columns
+              = f.input_field :password_confirmation
+            .clearfix
             = f.button :submit, 'Update', :class => 'login-button-white right'
 
 - content_for :interior_header do
