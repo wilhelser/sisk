@@ -24,6 +24,14 @@
                 %label.left.inline.white.login-label{for: "user_email"} * Email
               .large-9.medium-12.columns.small-12
                 = f.input_field :email, :required => true
+              .clearfix
+              .large-3.medium-12.small-12.columns
+                %label.left.inline.white.login-label{for: "user_email"} * Member ID
+              .large-9.medium-12.columns.small-12
+                .quick-wrap
+                  %a.memberid-help{href: '', "data-reveal-id" => "whats-this"}
+                = f.input_field :member_id, as: :string, :required => true
+              .clearfix
             = f.input :email_updates
           .medium-6.columns.small-12
             .row
@@ -33,19 +41,13 @@
                 = f.input_field :password, :required => true
               .clearfix
               .large-3.medium-12.small-12.columns
-                %label.left.inline.white.login-label{for: "user_email"} * Confirm Password
+                %label.left.inline.white.login-label.confirm-label{for: "user_email"} * Confirm Password
               .large-9.medium-12.columns.small-12
                 = f.input_field :password_confirmation, :required => true
               - unless params[:custom_site].blank?
                 = f.input :custom_site_id, :as => :hidden, :input_html => { value: params[:custom_site] }
               .clearfix
-              .large-3.medium-12.small-12.columns
-                %label.left.inline.white.login-label{for: "user_email"} * Member ID
-              .large-9.medium-12.columns.small-12
-                .quick-wrap
-                  %a.memberid-help{href: '', "data-reveal-id" => "whats-this"}
-                = f.input_field :member_id, as: :string, :required => true
-              .clearfix
+
               .large-3.medium-12.small-12.columns
                 %label.left.inline.white.login-label{for: "user_email"} * Login Code
               .large-9.medium-12.columns.small-12
