@@ -7,7 +7,7 @@
   - if @site.insurance_benefits.any?
     %li.icon-insurance.menu-item.hover-dim
       = link_to "Insurance", insurance_site_path(@site)
-  - if @site.health_benefits.any?
+  - if @site.security_benefits.any?
     %li.icon-security.menu-item.hover-dim
       = link_to "Security", security_site_path(@site)
 - else
