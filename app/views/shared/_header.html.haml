@@ -25,9 +25,9 @@
           - else
             %a{href: "/"}
               =image_tag 'logo.png'
-        .medium-8.columns.left
+        .medium-7.columns.left
           %ul#main-menu.top-bar-menu
             = render 'layouts/navigation_links'
-        .medium-2.columns.right
+        .medium-3.columns.right
           - if user_signed_in?
             = render 'shared/settings_nav'
