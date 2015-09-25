@@ -7,22 +7,26 @@
       %p In today's competitive marketplace, service and value transcend the test of time. Behind these benefits you will find a company that has been serving it’s members for over four decades. The Member Benefits team is committed to bringing the finest in customer service and satisfaction.
     .medium-4.columns.right
       .row
-        .medium-6.columns.about-link
-          = link_to savings_site_path do
-            = image_tag 'about-savings.png'
-          = link_to "Savings", savings_site_path, class: 'text-center teal mt2'
-        .medium-6.columns.about-link
-          = link_to insurance_site_path do
-            = image_tag 'about-insurance.png'
-          = link_to "Insurance", insurance_site_path, class: 'text-center teal mt2'
-        .medium-6.columns.about-link
-          = link_to health_site_path do
-            = image_tag 'about-health.png'
-          = link_to "Health", health_site_path, class: 'text-center teal mt2'
-        .medium-6.columns.about-link
-          = link_to security_site_path do
-            = image_tag 'about-security.png'
-          = link_to "Security", security_site_path, class: 'text-center teal mt2'
+        - if @site.savings_benefits.any?
+          .medium-6.columns.about-link
+            = link_to savings_site_path do
+              = image_tag 'about-savings.png'
+            = link_to "Savings", savings_site_path, class: 'text-center teal mt2'
+        - if @site.insurance_benefits.any?
+          .medium-6.columns.about-link
+            = link_to insurance_site_path do
+              = image_tag 'about-insurance.png'
+            = link_to "Insurance", insurance_site_path, class: 'text-center teal mt2'
+        - if @site.health_benefits.any?
+          .medium-6.columns.about-link
+            = link_to health_site_path do
+              = image_tag 'about-health.png'
+            = link_to "Health", health_site_path, class: 'text-center teal mt2'
+        - if @site.security_benefits.any?
+          .medium-6.columns.about-link
+            = link_to security_site_path do
+              = image_tag 'about-security.png'
+            = link_to "Security", security_site_path, class: 'text-center teal mt2'
 
 - content_for :interior_header do
   .row
