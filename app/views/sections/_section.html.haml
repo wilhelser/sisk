@@ -1,6 +1,3 @@
-= content_tag_for(:li, section, class: 'benefit') do
-  .inner
-    .flip-front
-      .inner= section.title
-    .flip-back
-      .inner= section.content.html_safe
+= content_tag_for(:div, section, class: 'benefit') do
+  %h4= section.title
+  = section.content.html_safe

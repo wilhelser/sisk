@@ -1,14 +1,15 @@
-%footer
+%footer.main-footer
   .row.test.ft-widget-wrap
     %article#text-3.large-3.columns.widget.widget_text
       .textwidget
+        = image_tag 'logo.png', class: 'mb10'
         %p
           \&#xA9;2014 Sisk. All Rights Reserved.
           %br/
           Site designed with love by
           %a{href: "http://www.theinfiniteagency.com"} Infinite
-    %article#text-2.large-3.columns.widget.widget_text
-      %h3 Member Benefits
+    %article#text-2.large-4.columns.widget.widget_text
+      %h3.white Member Benefits
       .textwidget
         %p
           %strong provided by The Sisk Company
@@ -26,18 +27,24 @@
           Local: 817-735-4884
           %br/
           = link_to "info@siskcompany.com", "mailto:info@siskcompany.com"
-    %article#text-5.large-3.columns.widget.widget_text
-      %h3 Sitemap
+    %article#text-5.large-2.columns.widget.widget_text
+      %h3.white Sitemap
       %ul.sitemap
         - if @site
           %li= link_to 'Home', @site
           %li= link_to 'About', about_site_path(@site)
-          %li= link_to 'Savings', savings_site_path(@site)
-          %li= link_to 'Health', health_site_path(@site)
-          %li= link_to 'Insurance', insurance_site_path(@site)
-          %li= link_to 'Security', security_site_path(@site)
+          - if @site.savings_benefits.any?
+            %li= link_to 'Savings', savings_site_path(@site)
+          - if @site.health_benefits.any?
+            %li= link_to 'Health', health_site_path(@site)
+          - if @site.insurance_benefits.any?
+            %li= link_to 'Insurance', insurance_site_path(@site)
+          - if @site.security_benefits.any?
+            %li= link_to 'Security', security_site_path(@site)
         - else
           %li= link_to 'Home', '/'
           %li= link_to 'About', '/about'
-        = link_to "Privacy Policy", privacy_path
+        %li= link_to "Privacy Policy", privacy_path
 %a.exit-off-canvas
+
+

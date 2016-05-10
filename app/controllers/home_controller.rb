@@ -9,6 +9,7 @@ class HomeController < ApplicationController
 
   def about
     @page_title = "About Us"
+    @body_class = "about-page"
   end
 
   def privacy

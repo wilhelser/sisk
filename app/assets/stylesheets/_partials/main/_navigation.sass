@@ -5,139 +5,28 @@
   padding: 0 !important
 
 .top-bar
-  background-color: rgba(0, 0, 0, 0.4)
+  // background-color: rgba(0, 0, 0, 0.4)
   max-width: 1440px !important
 
+.top-bar
+  background: transparent!important
+
 .top-bar-container
-  background-color: rgba(0, 0, 0, 0.4)!important
+  //background-color: rgba(0, 0, 0, 0.4)!important
 
 .top-bar-section ul li
   background-color: transparent!important
 
-.settings
-  display: block
-  background: transparent image-url("settings-bg.png") no-repeat left
-  list-style: none
-  height: 25px
-  margin: 0
-  width: 348px
-  padding: 0 0 0 22px
-  position: absolute
-  right: 0
-  top: 0
-  z-index: 5
-  overflow: hidden
-  li
-    height: 25px
-    display: block
-    position: absolute
-    a
-      height: 100%
-      line-height: 25px
-      display: block
-      text-align: center
-      background: #056CA1
-      color: #fff
-      text-transform: uppercase
-      font-family: $proxima
-      cursor: pointer
-
-.account-link
-  left: 22px
-  width: 180px
-
-.logout-link
-  width: 146px
-  right: 0
-
-// .top-bar-section
-//   li:not(.has-form) a:not(.button)
-//     background: transparent
-//     text-align: center
-//   li:not(.has-form) a:not(.button):hover
-//     background: transparent
-//   ul
-//     background: transparent!important
-//     height: 200px
-//     padding-top: 130px
-//   li
-//     display: block
-//     background-color: red
-//     position: relative
-//     background-repeat: no-repeat
-//     width: 150px
-//     height: 100%
-//     overflow: hidden
-//     cursor: pointer
-//     text-transform: uppercase
-//     &:hover
-//       opacity: 0.8
-//     a
-//       display: block
-//       width: 100%
-//       height: 100%
-//       text-align: center
-//       font-size: 22px
-//       font-family: $proxima
-//       font-weight: 300
-//       text-transform: uppercase
-//   ul li:hover:not(.has-form) > a
-//     background: transparent
-
-li.disabled
-  cursor: normal!important
-  a
-    cursor: normal!important
-
-.top-bar-section ul li
-  background
-
-#main-menu
+ul.title-area
+  float: left
   position: relative
-  li
-    display: block
-    position: relative
-    width: 150px
-    height: 200px
-    overflow: hidden
-    // cursor: pointer
-    text-transform: uppercase
-    a, .fakelink
-      display: block
-      padding-top: 130px
-      width: 100%
-      height: 100%
-      text-align: center
-      background: transparent!important
-      font-size: 22px
-      font-family: $proxima
-      font-weight: 300
-      text-transform: uppercase
 
 .fakelink
   color: #fff
   line-height: 45px
 
-.icon-about
-  background: transparent image-url("icon-about.png") no-repeat 22px 42px!important
-
-.icon-rewards
-  background: transparent image-url("icon-rewards.png") 25px 25px no-repeat!important
-
-.icon-health
-  background: transparent image-url("icon-health.png") 24px 20px no-repeat!important
-
-.icon-insurance
-  background: transparent image-url("icon-insurance.png") 38px 38px no-repeat!important
-
-.icon-security
-  background: transparent image-url("icon-security.png") 25px 25px no-repeat!important
-
-footer
-  background-color: #292929
-  padding-top: 45px
-  h3, p, a
-    color: #FFF
+.contain-to-grid
+  background: transparent!important
 
 .menu-main-menu-container
   ul
@@ -148,3 +37,21 @@ footer
 
 .tab-bar
   background-color: rgba(0, 0, 0, 0.4)
+
+
+#main-menu
+  list-style: none
+  display: block
+  position: relative
+  margin-top: 20px
+  li
+    position: relative
+    display: block
+    text-transform: uppercase
+    float: left
+    margin-right: 10%
+    &.active
+      border-bottom: 2px solid #fff
+    a
+      color: #fff
+      font-weight: 100!important

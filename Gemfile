@@ -41,6 +41,7 @@ group :development do
   gem 'habtm_generator'
   gem 'railroady'
   gem 'annotate'
+  gem 'meta_request'
   # gem 'debugger'
 end
 group :development, :test do
@@ -56,3 +57,4 @@ group :test do
   gem 'email_spec'
   gem 'launchy'
 end
+

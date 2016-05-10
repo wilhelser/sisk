@@ -2,60 +2,57 @@
   .row
     .medium-10.columns.medium-offset-1
       - @benefits.each do |benefit|
-        .benefits-heading.medium-12
-          .inner
-            .outer
-              .inner.benefit-inner
-                = benefit.title
+        %article.benefit-item
+          %header
+            %h3= benefit.title
+          .row
+            .medium-8.columns
+              - if benefit.sections.any?
+                - @sections = benefit.sections
+                - @sections.each do |section|
+                  .benefit
+                    %h4= section.title
+                    = section.content.html_safe
+            .medium-4.columns
+              %ul.benefit-links
                 - if benefit.id == 37
-                  %ul.benefit-links-ul
-                    %li
-                      %a{href: "#{benefit.link}#{current_user.member_id}"}= benefit.link_one_text
-                    - if benefit.link_two.present?
-                      %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-                    - if benefit.link_three.present?
-                      %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+                  %li
+                    %a{href: "#{benefit.link}#{current_user.member_id}", target: "_blank"}= benefit.link_one_text
+                  - if benefit.link_two.present?
+                    %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                  - if benefit.link_three.present?
+                    %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
                 - elsif benefit.id == 38
-                  %ul.benefit-links-ul
-                    %li
-                      %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
-                    - if benefit.link_two.present?
-                      %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-                    - if benefit.link_three.present?
-                      %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+                  %li
+                    %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128J7&plancode=PLAN4&sid=#{current_user.member_id}"}= benefit.link_one_text
+                  - if benefit.link_two.present?
+                    %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                  - if benefit.link_three.present?
+                    %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
                 - elsif benefit.id == 39
-                  %ul.benefit-links-ul
-                    %li
-                      %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
-                    - if benefit.link_two.present?
-                      %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-                    - if benefit.link_three.present?
-                      %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
+                  %li
+                    %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128GL&plancode=PLAN2&sid=#{current_user.member_id}"}= benefit.link_one_text
+                  - if benefit.link_two.present?
+                    %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                  - if benefit.link_three.present?
+                    %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
                 - elsif benefit.id == 49
-                  %ul.benefit-links-ul
-                    %li
-                      %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128RN&plancode=PLAN5&sid=#{current_user.member_id}"} Enroll in IDIQ Protect Max
-                    - if benefit.link_two.present?
-                      %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
-                    - if benefit.link_three.present?
-                      %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
-
+                  %li
+                    %a{href: "https://www.identityiq.com/Credit-Reports/ReportHome.aspx?offercode=431128RN&plancode=PLAN5&sid=#{current_user.member_id}"} Enroll in IDIQ Protect Max
+                  - if benefit.link_two.present?
+                    %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
+                  - if benefit.link_three.present?
+                    %li.show-for-large-up= link_to benefit.link_three_text, benefit.link_three
                 - else
                   - if benefit.link
-                    .benefit-link-wrap
+                    %li
                       %a.benefit-link{href: benefit.link}= benefit.link_one_text
+          %footer
+            .row
+              .medium-2.columns.right
+                %button.account-button.right.hide-for-small Show More
 
-        %ul.large-block-grid-2.small-block-grid-1
-          - if benefit.sections.any?
-            - @sections = benefit.sections
-            - @sections.each do |section|
-              %li.section
-                .inner
-                  .flip-front
-                    .inner= section.title
-                  .flip-back
-                    .inner= section.content.html_safe
-        .clearfix
+      .clearfix
 - content_for :interior_header do
   .row
     .interior-title

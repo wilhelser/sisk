@@ -37,6 +37,7 @@ class ApplicationController < ActionController::Base
         @custom_site = CustomSite.find(resource.custom_site_id)
         custom_site_home_path(@custom_site.url)
       else
+        # about_path
         resource.site
       end
     else
@@ -64,6 +65,7 @@ class ApplicationController < ActionController::Base
   def get_custom_site_slugs
     CustomSite.all.pluck(:url)
   end
+
 
   protected
   def configure_permitted_parameters

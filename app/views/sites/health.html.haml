@@ -2,24 +2,26 @@
   .row
     .medium-10.columns.medium-offset-1
       - @benefits.each do |benefit|
-        .benefits-heading.medium-12
-          .inner
-          .outer
-            .inner.benefit-inner
-              = benefit.title
-              - if benefit.link
-                .benefit-link-wrap
-                  %a.benefit-link{href: benefit.link}= benefit.link_one_text
-        %ul.large-block-grid-2.small-block-grid-1
-          - if benefit.sections.any?
-            - @sections = benefit.sections
-            - @sections.each do |section|
-              %li.benefit.section
-                .inner
-                  .flip-front
-                    .inner= section.title
-                  .flip-back
-                    .inner= section.content.html_safe
+        %article.benefit-item
+          %header
+            %h3= benefit.title
+          .row
+            .medium-8.columns
+              - if benefit.sections.any?
+                - @sections = benefit.sections
+                - @sections.each do |section|
+                  .benefit
+                    %h4= section.title
+                    = section.content.html_safe
+            .medium-4.columns
+              %ul.benefit-links
+                - if benefit.link
+                  %li
+                    %a.benefit-link{href: benefit.link}= benefit.link_one_text
+          %footer
+            .row
+              .medium-2.columns.right
+                %button.account-button.right.hide-for-small Show More
         .clearfix
 - content_for :interior_header do
   .row

@@ -1,0 +1,20 @@
+%section.content.interior
+  .row
+    .medium-6.columns.medium-offset-3
+      %h2.teal.text-center Forgot your password?
+    .clearfix
+      .medium-4.columns.medium-offset-4
+        .password-form-wrap
+          = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+            = f.error_notification
+            .row
+              .large-3.medium-12.small-12.columns
+                %label.left.inline.white.login-label{for: "user_email"} * Email
+              .large-9.medium-12.columns.small-12
+                = f.input_field :email, required: true, autofocus: true
+            .form-actions
+              = f.button :submit, "Send me reset password instructions", class: 'login-button-white'
+
+- content_for :interior_header do
+  %section.interior-title
+    %h1 Password Reset

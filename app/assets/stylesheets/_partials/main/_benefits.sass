@@ -1,97 +1,76 @@
-.benefits
-  background: transparent
-  padding: 10px 0
-
-.benefit-link-wrap
-  position: absolute
-  z-index: 5
-  bottom: 5px
-  height: 70px
-  overflow: hidden
-  width: 100%
-
-.benefit-links-ul
-  position: absolute
-  z-index: 5
-  bottom: 0
-  width: 100%
-  overflow: hidden
-  display: block
-  list-style: none!important
-  padding: 0!important
-  margin: 0!important
-  li
-    position: relative
-    float: left
-    display: inline-block
+.benefit-item
+    height: 280px
     overflow: hidden
-    width: 33%
+    position: relative
+    header
+        height: 70px
+        background: $teal
+        padding: 0 2%
+        margin-bottom: 2%
+        h3
+            color: #fff
+            font-family: $proxima
+            text-transform: uppercase
+            line-height: 70px!important
+            font-size: 2rem
+            font-weight: bold
+    footer
+        background-image: image-url('benefit-gradient.png')
+        background-repeat: repeat-x
+        position: absolute
+        bottom: 0
+        z-index: 2
+        width: 100%
+
+.benefit
+    margin-bottom: 3%
+    h4
+        color: $teal
+        font-size: 1.6rem
+        padding-top: 0!important
+        margin-bottom: 0!important
+
+
+.benefit-links
+    list-style: none
+    display: block
+    padding-left: none!important
+    margin: none!important
+
+    li
+        display: block
+        position: relative
+        width: 100%
+        margin-bottom: 1%
+        padding-right: 5px
+        &:after
+            content: ""
+            width: 14px
+            height: 11px
+            background: image-url('links-arrow.png') top right no-repeat
+            position: relative
+            display: inline-block
+        a
+            font-family: $proxima
+            color: $teal
+            text-transform: uppercase
+            font-size: 1rem
+
+.mt2
+    margin-top: 3%!important
+
+.about-link
+    margin-bottom: 10%
     a
-      color: #fff
-      font-size: 0.8rem
-      &:hover
-        color: $blue
+        display: block
+        clear: both
+        margin: 0 auto
+        font-size: 1.2rem
+        text-transform: uppercase
+        font-weight: bold
+        img
+            margin: 0 auto
+            display: block
 
-.savings-link-wrap
-  margin: 0 auto
-  position: relative
-  text-align: center
-
-.benefit-link
-  text-align: center
-  font-size: .8rem
-  width: 100%
-  clear: both
-  color: #fff!important
-  &:hover
-    color: $blue!important
-
-.benefits-heading
-  background: $slate
-  color: #fff
-  font-family: $proxima
-  position: relative
-  font-size: 0.9rem
-  text-align: center
-  height: 100px
-  line-height: 100px
-  text-transform: uppercase
-  margin-bottom: 2%
-  text-align: center
-
-.benefit-inner
-  position: relative
-  text-align: center
-  width: 100%
-  height: 100%
-
-.benefit, .section
-  margin-bottom: 2%
-  padding: 2% 3%
-  .inner
-    background: $blue
-    position: relative
-    overflow: hidden
-    height: 425px
-    font-family: $proxima
-    font-size: 1.5rem
-    p, ul, h3
-      line-height: 1.2!important
-    .front
-      text-align: center
-      line-height: 300px
-      font-weight: 300
-      color: #fff
-    .back
-      color: #000
-
-.benefit-flipped
-  .inner
-    background: #ccc
-
-.card .inner
-  width: 90%
-  position: relative
-  overflow: hidden
-  padding: 2% 0
-  margin: 0 auto
+body.landing-body .header-wrapper
+    background-image: image-url('site-about-landing.jpg')!important
