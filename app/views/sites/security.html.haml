@@ -17,7 +17,7 @@
               %ul.benefit-links
                 - if benefit.id == 37
                   %li
-                    %a{href: "#{benefit.link}", target: "_blank"}= benefit.link_one_text
+                    %a{href: "#{benefit.link}&sid=#{current_user.member_id}", target: "_blank"}= benefit.link_one_text
                   - if benefit.link_two.present?
                     %li.show-for-large-up= link_to benefit.link_two_text, benefit.link_two
                   - if benefit.link_three.present?
