@@ -18,10 +18,10 @@
                 - if benefit.link
                   %li
                     %a.benefit-link{href: benefit.link}= benefit.link_one_text
-                - if benefit.link_two
+                - if benefit.link_two.present?
                   %li
                     %a.benefit-link{href: benefit.link_two}= benefit.link_two_text
-                - if benefit.link_three
+                - if benefit.link_three.present?
                   %li
                     %a.benefit-link{href: benefit.link_three}= benefit.link_three_text
           %footer
