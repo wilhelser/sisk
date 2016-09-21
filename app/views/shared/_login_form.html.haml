@@ -23,3 +23,6 @@
         .clearfix
         - if devise_mapping.recoverable? && controller_name != 'passwords'
           = link_to "Forgot your password?", new_password_path(resource_name), class: 'forgot-password'
+        .clearfix
+        %p
+          %small.white *Membership features vary by account type and all of the features listed on this page may not be included with your package.  Please login to see the features included with your membership.
