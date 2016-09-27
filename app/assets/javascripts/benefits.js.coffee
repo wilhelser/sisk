@@ -17,3 +17,7 @@ $ ->
       event.preventDefault()
       event.stopPropagation()
       window.open @href, '_blank'
+
+    $('.benefit-item > header').click ->
+      $('.showing').removeClass('showing')
+      $(@).closest('article').find('.benefit-item-content').toggleClass('showing')

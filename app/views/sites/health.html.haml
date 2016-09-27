@@ -5,14 +5,7 @@
         %article.benefit-item
           %header
             %h3= benefit.title
-          .row
-            .medium-8.columns
-              - if benefit.sections.any?
-                - @sections = benefit.sections
-                - @sections.each do |section|
-                  .benefit
-                    %h4= section.title
-                    = section.content.html_safe
+          .row.benefit-item-content
             .medium-4.columns
               %ul.benefit-links
                 - if benefit.link
@@ -24,6 +17,13 @@
                 - if benefit.link_three.present?
                   %li
                     %a.benefit-link{href: benefit.link_three}= benefit.link_three_text
+            .medium-8.columns
+              - if benefit.sections.any?
+                - @sections = benefit.sections
+                - @sections.each do |section|
+                  .benefit
+                    %h4= section.title
+                    = section.content.html_safe
           %footer
             .row
               .medium-2.columns.right
