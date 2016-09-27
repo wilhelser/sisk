@@ -19,5 +19,9 @@ $ ->
       window.open @href, '_blank'
 
     $('.benefit-item > header').click ->
-      $('.showing').removeClass('showing')
-      $(@).closest('article').find('.benefit-item-content').toggleClass('showing')
+      closest = $(@).closest('article').find('.benefit-item-content')
+      if $(closest).hasClass('showing')
+        $(closest).removeClass('showing')
+      else
+        $('.showing').removeClass('showing')
+        $(closest).toggleClass('showing')
