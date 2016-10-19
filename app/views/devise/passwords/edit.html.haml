@@ -1,0 +1,27 @@
+%section.content.interior
+  .row
+    .medium-6.columns.medium-offset-3
+      %h2.teal.text-center Forgot your password?
+    .clearfix
+      .medium-4.columns.medium-offset-4
+        .password-form-wrap
+          = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+            = f.error_notification
+            = f.input :reset_password_token, as: :hidden
+            = f.full_error :reset_password_token
+            .row
+              .large-3.medium-12.small-12.columns
+                %label.left.inline.white.login-label{for: "password"} * New password
+              .large-9.medium-12.columns.small-12
+                = f.input :password, label: "New password", required: true, autofocus: true
+            .row
+              .large-3.medium-12.small-12.columns
+                %label.left.inline.white.login-label{for: "user_email"} * Confirm Password
+              .large-9.medium-12.columns.small-12
+                = f.input :password_confirmation, label: "Confirm your new password", required: true
+            .form-actions
+              = f.button :submit, "Change my password", class: 'login-button-white'
+
+- content_for :interior_header do
+  %section.interior-title
+    %h1 Password Reset
