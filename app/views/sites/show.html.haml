@@ -8,22 +8,22 @@
     .medium-4.columns.right
       .row
         - if @site.savings_benefits.any?
-          .medium-6.columns.about-link
+          .medium-6.columns.about-link.small-6.left
             = link_to savings_site_path do
               = image_tag 'about-savings.png'
             = link_to "Savings", savings_site_path, class: 'text-center teal mt2'
         - if @site.insurance_benefits.any?
-          .medium-6.columns.about-link
+          .medium-6.columns.about-link.small-6.left
             = link_to insurance_site_path do
               = image_tag 'about-insurance.png'
             = link_to "Insurance", insurance_site_path, class: 'text-center teal mt2'
         - if @site.health_benefits.any?
-          .medium-6.columns.about-link
+          .medium-6.columns.about-link.small-6.left
             = link_to health_site_path do
               = image_tag 'about-health.png'
             = link_to "Health", health_site_path, class: 'text-center teal mt2'
         - if @site.security_benefits.any?
-          .medium-6.columns.about-link
+          .medium-6.columns.about-link.small-6.left
             = link_to security_site_path do
               = image_tag 'about-security.png'
             = link_to "Security", security_site_path, class: 'text-center teal mt2'
