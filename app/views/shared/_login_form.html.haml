@@ -17,6 +17,10 @@
         = f.input_field :password
       .medium-12.columns
         .clearfix
+        -# = f.check_box :remember_me, label: "Remember Me"
+        = f.check_box :remember_me, class: "remember-box"
+        = f.label :remember_me, class: "remember-label"
+        .clearfix
         = f.submit "Send", class: "home-submit login-button radius"
         .clearfix
         = link_to 'Register for an account', new_user_registration_path, class: 'home-submit home-register login-button radius'
