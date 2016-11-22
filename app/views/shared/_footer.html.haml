@@ -46,5 +46,14 @@
           %li= link_to 'About', '/about'
         %li= link_to "Privacy Policy", privacy_path
 %a.exit-off-canvas
-
+:javascript
+  var a=document.getElementsByClassName("benefit-link");
+  for(var i=0;i<a.length;i++)
+  {
+     a[i].onclick=function()
+     {
+         window.location=this.getAttribute("href");
+         return false
+     }
+  }
 
