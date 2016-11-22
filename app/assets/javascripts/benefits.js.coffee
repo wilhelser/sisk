@@ -16,7 +16,7 @@ $ ->
     $('.benefit-links li a').click (event) ->
       event.preventDefault()
       event.stopPropagation()
-      # window.open @href, '_blank'
+      window.open @href, '_blank'
 
     $('.benefit-item > header').click ->
       closest = $(@).closest('article').find('.benefit-item-content')
